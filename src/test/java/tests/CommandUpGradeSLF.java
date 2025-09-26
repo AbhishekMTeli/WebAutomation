@@ -1,5 +1,7 @@
 package tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -102,7 +104,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -121,7 +123,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -140,7 +142,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -161,7 +163,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -182,7 +184,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -203,7 +205,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -224,7 +226,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -244,7 +246,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -419,7 +421,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		manageSectorPage.clickPopupOkButton();
@@ -458,7 +460,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		outcomePage.clickPopupOkButton();
@@ -494,7 +496,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		outcomePage.clickPopupOkButton();
@@ -527,7 +529,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		outcomePage.clickPopupOkButton();
@@ -560,7 +562,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		outcomePage.clickPopupOkButton();
@@ -595,7 +597,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		outcomePage.clickPopupOkButton();
@@ -693,7 +695,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Expected popup: " + expectedPopupText);
 		extentTest.info("Actual popup: " + actualPopupText);
 
-		Assert.assertEquals(actualPopupText, expectedPopupText,
+		AssertJUnit.assertEquals(actualPopupText, expectedPopupText,
 				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		outcomePage.clickPopupOkButton();
