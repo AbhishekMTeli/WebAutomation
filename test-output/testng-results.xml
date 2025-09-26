@@ -2,16 +2,16 @@
 <testng-results ignored="26" total="27" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-26T15:53:12 IST" name="Default suite" finished-at="2025-09-26T15:54:37 IST" duration-ms="85750">
+  <suite started-at="2025-09-26T21:34:00 IST" name="Default suite" finished-at="2025-09-26T21:35:16 IST" duration-ms="76549">
     <groups>
     </groups>
-    <test started-at="2025-09-26T15:53:12 IST" name="Default test" finished-at="2025-09-26T15:54:37 IST" duration-ms="85750">
+    <test started-at="2025-09-26T21:34:00 IST" name="Default test" finished-at="2025-09-26T21:35:16 IST" duration-ms="76549">
       <class name="tests.CommandUpGradeSLF">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T15:53:12 IST" name="setUpExtent" finished-at="2025-09-26T15:53:12 IST" duration-ms="191" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:00 IST" name="setUpExtent" finished-at="2025-09-26T21:34:00 IST" duration-ms="179" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T15:53:12 IST" name="setUp" finished-at="2025-09-26T15:53:20 IST" duration-ms="8216" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:00 IST" name="setUp" finished-at="2025-09-26T21:34:12 IST" duration-ms="11880" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,26 +27,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T15:53:20 IST" name="initPages" finished-at="2025-09-26T15:53:20 IST" duration-ms="24" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:12 IST" name="initPages" finished-at="2025-09-26T21:34:12 IST" duration-ms="22" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateDataSubmissionPopup()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T15:53:20 IST" name="validateDataSubmissionPopup" description="Validate Data Submission popup" finished-at="2025-09-26T15:54:37 IST" duration-ms="77106" status="PASS">
+        <test-method signature="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:12 IST" name="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs" description="Validate error when adding comments without selecting any OBs" finished-at="2025-09-26T21:35:16 IST" duration-ms="64203" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateDataSubmissionPopup -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T15:54:37 IST" name="tearDown" finished-at="2025-09-26T15:54:37 IST" duration-ms="381" status="PASS">
+        </test-method> <!-- shouldShowErrorWhenAddingCommentsWithoutSelectingOBs -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:35:16 IST" name="tearDown" finished-at="2025-09-26T21:35:16 IST" duration-ms="420" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateDataSubmissionPopup status=SUCCESS method=CommandUpGradeSLF.validateDataSubmissionPopup()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3] output={null}]]]>
+                <![CDATA[[TestResult name=shouldShowErrorWhenAddingCommentsWithoutSelectingOBs status=SUCCESS method=CommandUpGradeSLF.shouldShowErrorWhenAddingCommentsWithoutSelectingOBs()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T15:54:37 IST" name="tearDownExtent" finished-at="2025-09-26T15:54:38 IST" duration-ms="200" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:35:16 IST" name="tearDownExtent" finished-at="2025-09-26T21:35:17 IST" duration-ms="209" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

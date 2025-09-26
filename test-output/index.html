@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLF" class="method navigator-link" hash-for-method="validateDataSubmissionPopup">validateDataSubmissionPopup</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLF" class="method navigator-link" hash-for-method="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,11 +126,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validateDataSubmissionPopup">
-                  </a> <!-- validateDataSubmissionPopup -->
-                  <span class="method-name">validateDataSubmissionPopup</span>
+                  <a name="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs">
+                  </a> <!-- shouldShowErrorWhenAddingCommentsWithoutSelectingOBs -->
+                  <span class="method-name">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</span>
                   <em>
-(Validate Data Submission popup)                  </em>
+(Validate error when adding comments without selecting any OBs)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--1287106110/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-1844631761/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -149,7 +149,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;tests.CommandUpGradeSLF&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;validateDataSubmissionPopup&quot;/&gt;
+          &lt;include name=&quot;shouldShowErrorWhenAddingCommentsWithoutSelectingOBs&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.CommandUpGradeSLF --&gt;
     &lt;/classes&gt;
@@ -193,9 +193,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateDataSubmissionPopup')
+data.setCell(0, 1, 'shouldShowErrorWhenAddingCommentsWithoutSelectingOBs')
 data.setCell(0, 2, 'tests.CommandUpGradeSLF')
-data.setCell(0, 3, 77106);
+data.setCell(0, 3, 64203);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -249,8 +249,6 @@ return data;
                 <br/>
                 <span class="ignored-method-name">shouldAllowNavigationFromSectorsToSyllabusAfterFillingData</span>
                 <br/>
-                <span class="ignored-method-name">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</span>
-                <br/>
                 <span class="ignored-method-name">validatePleaseEnterDuration</span>
                 <br/>
                 <span class="ignored-method-name">shouldNotDeleteOnlyRowInSectorDetails</span>
@@ -260,6 +258,8 @@ return data;
                 <span class="ignored-method-name">validateCommentRequirementAndRadioSelectionAcrossAllSections</span>
                 <br/>
                 <span class="ignored-method-name">shouldShowErrorPopupWhenNavigatingFromManageSectorsToSyllabusWithoutCompletingFields</span>
+                <br/>
+                <span class="ignored-method-name">validateDataSubmissionPopup</span>
                 <br/>
                 <span class="ignored-method-name">shouldAutoSelectNotYetCompetentForValue1AndHandleOBs</span>
                 <br/>
@@ -290,23 +290,23 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">211 ms</span>
+                <span class="method-start">198 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">8427 ms</span>
+                <span class="method-start">12079 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">validateDataSubmissionPopup</span>
-                <span class="method-start">8452 ms</span>
+                <span class="method-name">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</span>
+                <span class="method-start">12101 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=validateDataSubmissionPopup status=SUCCESS method=CommandUpGradeSLF.validateDataSub...)</span>
-                <span class="method-start">85560 ms</span>
+                <span class="method-name">tearDown([TestResult name=shouldShowErrorWhenAddingCommentsWithoutSelectingOBs status=SUCCESS method=CommandU...)</span>
+                <span class="method-start">76307 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">85965 ms</span>
+                <span class="method-start">76752 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

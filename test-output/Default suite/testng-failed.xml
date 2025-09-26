@@ -5,11 +5,11 @@
     <classes>
       <class name="tests.CommandUpGradeSLF">
         <methods>
+          <include name="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="initPages"/>
           <include name="tearDownExtent"/>
-          <include name="validateDataSubmissionPopup"/>
           <include name="setUpExtent"/>
         </methods>
       </class> <!-- tests.CommandUpGradeSLF -->
