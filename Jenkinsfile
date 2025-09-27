@@ -5,7 +5,7 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          def mvnHome = tool 'Maven3' // Replace 'Maven3' with your Maven tool name in Jenkins Global Tool Configuration
+          def mvnHome = tool 'Maven 3.9.11' // Use the exact name as in Maven installations
           withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
             echo 'Building...'
             sh 'mvn clean compile'
@@ -16,7 +16,7 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          def mvnHome = tool 'Maven3'
+          def mvnHome = tool 'Maven 3.9.11'
           withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
             echo 'Testing...'
             sh 'mvn test'
