@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Sept 27, 2025 10:39:40 am</span></a>
+<a href="#"><span class="badge badge-primary">Sept 27, 2025 11:15:27 am</span></a>
 </li>
 </ul>
 </div>
@@ -86,7 +86,7 @@
           <div class="test-detail">
             <p class="name">CommandUpGradeSLF - 1</p>
             <p class="text-sm">
-              <span>10:39:44 am</span> / <span>00:01:46:031</span>
+              <span>11:15:32 am</span> / <span>00:00:08:889</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -95,9 +95,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">CommandUpGradeSLF - 1</h5>
-<span class='badge badge-success'>09.27.2025 10:39:44 am</span>
-<span class='badge badge-danger'>09.27.2025 10:41:30 am</span>
-<span class='badge badge-default'>00:01:46:031</span>
+<span class='badge badge-success'>09.27.2025 11:15:32 am</span>
+<span class='badge badge-danger'>09.27.2025 11:15:41 am</span>
+<span class='badge badge-default'>00:00:08:889</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -105,7 +105,7 @@
 </div>
 </div>
 </div>    <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='screenshots/e2eHappyPathTestForCommandUpgradeSLF_1758949890670.png' src="screenshots/e2eHappyPathTestForCommandUpgradeSLF_1758949890670.png">
+<img data-featherlight='screenshots/validatePleaseEnterDuration_1758951941648.png' src="screenshots/validatePleaseEnterDuration_1758951941648.png">
     
     </div></div>
 <div class="detail-body mt-4">
@@ -114,28 +114,22 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>10:39:44 am</td>
+        <td>11:15:32 am</td>
         <td>
           Started test on browser: chrome
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>10:41:30 am</td>
+        <td>11:15:41 am</td>
         <td>
-          <textarea readonly class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on mac (aa5abc691502ee91e753767b50a10f84)] -> xpath: //th[normalize-space(text())='Scheduled Date & Time']] (tried for 5 second(s) with 500 milliseconds interval)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.6.1', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.208, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52434}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:52434/devtoo..., se:cdpVersion: 140.0.7339.208, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: aa5abc691502ee91e753767b50a10f84
+          <textarea readonly class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='usernameField']' (tried for 5 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
 	at utils.SeleniumUtils.waitForVisibility(SeleniumUtils.java:30)
-	at commonPages.TraineeGradingPage.lambda$0(TraineeGradingPage.java:69)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
-	at commonPages.TraineeGradingPage.validateAllStaticTexts(TraineeGradingPage.java:68)
-	at tests.CommandUpGradeSLF.e2eHappyPathTestForCommandUpgradeSLF(CommandUpGradeSLF.java:74)
+	at utils.SeleniumUtils.type(SeleniumUtils.java:52)
+	at adminPages.BecomeUserPage.sendUserId(BecomeUserPage.java:29)
+	at tests.CommandUpGradeSLF.validatePleaseEnterDuration(CommandUpGradeSLF.java:82)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -162,6 +156,37 @@ Session ID: aa5abc691502ee91e753767b50a10f84
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='usernameField']"}
+  (Session info: chrome=140.0.7339.208)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.6.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d137e45468df30f65cb3a877bd1f9fba, findElement {using=xpath, value=//input[@id='usernameField']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.208, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54760}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:54760/devtoo..., se:cdpVersion: 140.0.7339.208, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d137e45468df30f65cb3a877bd1f9fba
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 30 more
 </textarea>
           
         </td>
@@ -212,7 +237,7 @@ Session ID: aa5abc691502ee91e753767b50a10f84
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>10:39:44 am</td>
+<td>11:15:32 am</td>
 <td>
 <a href="#" class="linked" test-id='1' id='1'>CommandUpGradeSLF - 1</a>
 </td>
@@ -234,13 +259,13 @@ Session ID: aa5abc691502ee91e753767b50a10f84
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Sept 27, 2025 10:39:40 am</h3>
+<h3>Sept 27, 2025 11:15:27 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Sept 27, 2025 10:41:31 am</h3>
+<h3>Sept 27, 2025 11:15:42 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -310,7 +335,7 @@ Session ID: aa5abc691502ee91e753767b50a10f84
 </div></div>
 <script>
 var timeline = {
-"CommandUpGradeSLF - 1":106.031
+"CommandUpGradeSLF - 1":8.889
 };
 </script>
 <div class="row">

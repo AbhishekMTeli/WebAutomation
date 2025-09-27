@@ -78,10 +78,6 @@ public class BaseClass {
 		String userId = ConfigReader.get("userName");
 		String password = ConfigReader.get("password");
 		loginPage.login(userId, password);
-
-		// 2. Become User navigation (if required for scenario)
-		adminDashBoardPage = new AdminDashBoardPage(driver);
-		adminDashBoardPage.clickBecomeUserTab();
 	}
 
 	@AfterMethod(alwaysRun = true)

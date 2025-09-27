@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import adminPages.AdminDashBoardPage;
 import adminPages.BecomeUserPage;
 import base.BaseClass;
 import commandUpgradeSLFPages.CommandUpgradeSLFOverallOutcomePage;
@@ -19,9 +20,11 @@ public class CommandUpGradeSLF extends BaseClass {
 	private CommandUpgradeSLFTraineeGradingSallabusPage syllabusPage;
 	private CommandUpgradeSLFOverallOutcomePage outcomePage;
 	private BecomeUserPage becomeUserPage;
+	private AdminDashBoardPage adminDashBoardPage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
+		adminDashBoardPage = new AdminDashBoardPage(driver);
 		becomeUserPage = new BecomeUserPage(driver);
 		trainerDashBoradPage = new TrainerDashBoradPage(driver);
 		traineeGradingPage = new TraineeGradingPage(driver);
@@ -33,7 +36,7 @@ public class CommandUpGradeSLF extends BaseClass {
 	@Test(description = "Happy Path for Command Upgrade SLF")
 
 	public void e2eHappyPathTestForCommandUpgradeSLF() throws InterruptedException {
-
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -76,6 +79,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify trainer can select up to 8 options in 'No. of Selected for this SLF Period' dropdown")
 	public void validatePleaseEnterDuration() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -95,6 +99,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when 'Duration' field is empty")
 	public void shouldShowErrorPopupWhenDurationFieldIsEmpty() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -121,6 +126,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when navigating from Grading to Overall Outcome without completing required fields")
 	public void shouldShowErrorPopupWhenSwitchingFromGradingToOutcomeWithoutSaving() {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -142,6 +148,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when navigating from Manage Sectors to Syllabus without completing required fields")
 	public void shouldShowErrorPopupWhenNavigatingFromManageSectorsToSyllabusWithoutCompletingFields() {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -163,6 +170,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when 'From' field is empty on Save")
 	public void shouldShowErrorPopupWhenFromFieldIsEmptyOnSave() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -186,6 +194,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when 'From' field is empty on Save")
 	public void shouldShowErrorPopupWhenToFieldIsEmptyOnSave() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -209,6 +218,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when 'RegNo' is empty on Save")
 	public void shouldShowErrorPopupWhenRegNoFieldIsEmptyOnSave() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -232,6 +242,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when 'AirCraft Type' is empty on Save")
 	public void shouldShowErrorPopupWhenAircraftTypeFieldIsEmptyOnSave() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -255,6 +266,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify error popup when 'PM/PF' is not selected on Save")
 	public void shouldShowErrorPopupWhenPMorPFNotSelectedOnSave() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -277,6 +289,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify no action when deleting the only row in Sector Details")
 	public void shouldNotDeleteOnlyRowInSectorDetails() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -292,6 +305,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify no action when deleting the only row in Sector Details")
 	public void shouldAllowNavigationFromSectorsToSyllabusAfterFillingData() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -307,6 +321,7 @@ public class CommandUpGradeSLF extends BaseClass {
 	// Still need to add the Popup here
 	@Test(description = "Verify no action when deleting the only row in Sector Details")
 	public void shouldShowPopupWhenSyllabusToggleIsDefaultOnNext() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -322,6 +337,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify Delete popup for multiple sectors")
 	public void shouldShowDeletePopupForMultipleSectors() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -335,6 +351,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify Delete Functionality for Multiple Sectors")
 	public void verifyDeleteFunctionalityForMultipleSectors() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -348,6 +365,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Verify Competent radio auto-selected and Not Yet Competent disabled")
 	public void shouldAutoSelectCompetentAndDisableNotYetCompetent() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -374,6 +392,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate manual selection of Competent/Not Yet Competent for value 2 in any section")
 	public void shouldAllowManualSelectionOfCompetentOrNotYetCompetentForValue2() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -401,6 +420,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate auto-selection of Not Yet Competent for value 1 in any section")
 	public void shouldAutoSelectNotYetCompetentForValue1AndHandleOBs() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -429,6 +449,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate error when adding comments without selecting any OBs")
 	public void shouldShowErrorWhenAddingCommentsWithoutSelectingOBs() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		// Navigate to Grading Assessment
@@ -470,6 +491,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate comment requirement and Competent/Not Yet Competent auto/manual selection across all sections")
 	public void validateCommentRequirementAndRadioSelectionAcrossAllSections() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		// Navigate to Grading Assessment
@@ -515,6 +537,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate error when Competent/Not Yet Competent is not selected after adding OBs")
 	public void validateErrorWhenNoCompetentSelectionAfterAddingOBs() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -549,6 +572,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate mandatory Qualification dropdown")
 	public void validateMandatoryQualificationDropdown() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -584,6 +608,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate mandatory Overall Comments for Not Yet Competent")
 	public void validateMandatoryOverallCommentsForNotYetCompetent() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -619,6 +644,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate error message when 'Delay Comment' field is left empty")
 	public void shouldShowErrorWhenDelayCommentIsEmpty() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -656,6 +682,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate Close button and X icon functionality on Delay Comment popup")
 	public void shouldCloseDelayCommentPopupUsingCloseButtonAndXIcon() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -683,6 +710,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate Sign canvas")
 	public void validateSignCanvas() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -716,6 +744,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate Data Submission popup")
 	public void validateDataSubmissionPopup() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
