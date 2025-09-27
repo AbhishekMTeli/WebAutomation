@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLF" class="method navigator-link" hash-for-method="validatePleaseEnterDuration">validatePleaseEnterDuration</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLF" class="method navigator-link" hash-for-method="validateDataSubmissionPopup">validateDataSubmissionPopup</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -126,16 +126,15 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validatePleaseEnterDuration">
-                  </a> <!-- validatePleaseEnterDuration -->
-                  <span class="method-name">validatePleaseEnterDuration</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //input[@id=&apos;usernameField&apos;]&apos; (tried for 5 second(s) with 500 milliseconds interval)
+                  <a name="validateDataSubmissionPopup">
+                  </a> <!-- validateDataSubmissionPopup -->
+                  <span class="method-name">validateDataSubmissionPopup</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //td[text()=&apos;Dep Date:&apos;]&apos; (tried for 5 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
 	at utils.SeleniumUtils.waitForVisibility(SeleniumUtils.java:30)
-	at utils.SeleniumUtils.type(SeleniumUtils.java:52)
-	at adminPages.BecomeUserPage.sendUserId(BecomeUserPage.java:29)
-	at tests.CommandUpGradeSLF.validatePleaseEnterDuration(CommandUpGradeSLF.java:82)
+	at commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingMangeSectorPage.selectNoOfSectors(CommandUpgradeSLFTraineeGradingMangeSectorPage.java:222)
+	at tests.CommandUpGradeSLF.validateDataSubmissionPopup(CommandUpGradeSLF.java:755)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -162,15 +161,15 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;usernameField&apos;]&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//td[text()=&apos;Dep Date:&apos;]&quot;}
   (Session info: chrome=140.0.7339.208)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;15.6.1&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d137e45468df30f65cb3a877bd1f9fba, findElement {using=xpath, value=//input[@id=&apos;usernameField&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.208, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54760}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:54760/devtoo..., se:cdpVersion: 140.0.7339.208, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d137e45468df30f65cb3a877bd1f9fba
+Command: [8cbe23d3348ba9007999b3ed69a586a0, findElement {value=//td[text()=&apos;Dep Date:&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.208, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55344}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55344/devtoo..., se:cdpVersion: 140.0.7339.208, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8cbe23d3348ba9007999b3ed69a586a0
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -187,16 +186,16 @@ Session ID: d137e45468df30f65cb3a877bd1f9fba
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy18.isDisplayed(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy19.isDisplayed(Unknown Source)
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	... 30 more
+	... 29 more
 
 </div> <!-- stack-trace -->
                   <em>
-(Verify trainer can select up to 8 options in 'No. of Selected for this SLF Period' dropdown)                  </em>
+(Validate Data Submission popup)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -204,7 +203,7 @@ Session ID: d137e45468df30f65cb3a877bd1f9fba
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-943423284/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-710466309/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -215,7 +214,7 @@ Session ID: d137e45468df30f65cb3a877bd1f9fba
     &lt;classes&gt;
       &lt;class name=&quot;tests.CommandUpGradeSLF&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;validatePleaseEnterDuration&quot;/&gt;
+          &lt;include name=&quot;validateDataSubmissionPopup&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.CommandUpGradeSLF --&gt;
     &lt;/classes&gt;
@@ -259,14 +258,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validatePleaseEnterDuration')
+data.setCell(0, 1, 'validateDataSubmissionPopup')
 data.setCell(0, 2, 'tests.CommandUpGradeSLF')
-data.setCell(0, 3, 5175);
+data.setCell(0, 3, 39675);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 39 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -290,8 +289,6 @@ return data;
                 <span class="ignored-method-name">shouldAutoSelectNotYetCompetentForValue1AndHandleOBs</span>
                 <br/>
                 <span class="ignored-method-name">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</span>
-                <br/>
-                <span class="ignored-method-name">validateDataSubmissionPopup</span>
                 <br/>
                 <span class="ignored-method-name">shouldAutoSelectCompetentAndDisableNotYetCompetent</span>
                 <br/>
@@ -329,6 +326,8 @@ return data;
                 <br/>
                 <span class="ignored-method-name">shouldShowErrorPopupWhenDurationFieldIsEmpty</span>
                 <br/>
+                <span class="ignored-method-name">validatePleaseEnterDuration</span>
+                <br/>
                 <span class="ignored-method-name">shouldNotDeleteOnlyRowInSectorDetails</span>
                 <br/>
                 <span class="ignored-method-name">e2eHappyPathTestForCommandUpgradeSLF</span>
@@ -358,25 +357,25 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">211 ms</span>
+                <span class="method-start">238 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">8440 ms</span>
+                <span class="method-start">10486 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">validatePleaseEnterDuration</span>
-                <span class="method-start">8475 ms</span>
+                <span class="method-name">validateDataSubmissionPopup</span>
+                <span class="method-start">10515 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=validatePleaseEnterDuration status=FAILURE method=CommandUpGradeSLF.validatePleaseE...)</span>
-                <span class="method-start">13654 ms</span>
+                <span class="method-name">tearDown([TestResult name=validateDataSubmissionPopup status=FAILURE method=CommandUpGradeSLF.validateDataSub...)</span>
+                <span class="method-start">50194 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">14286 ms</span>
+                <span class="method-start">50911 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
