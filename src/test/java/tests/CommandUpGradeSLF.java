@@ -789,6 +789,7 @@ public class CommandUpGradeSLF extends BaseClass {
 
 	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15")
 	public void shouldNotAllowFormSubmissionWhenTotalSectorsExceedsFifteen() {
-
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickSlfHistorySubTab();
 	}
 }

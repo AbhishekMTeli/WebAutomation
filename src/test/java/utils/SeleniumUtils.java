@@ -13,8 +13,10 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -65,7 +67,7 @@ public class SeleniumUtils {
 	}
 
 	public static String getText(WebElement element) {
-		return element.getText();
+		return element.getText().trim();
 	}
 
 	// Click the first element matching a predicate using Java Streams
@@ -222,6 +224,49 @@ public class SeleniumUtils {
 			}
 			// Small wait for calendar to update UI
 			Thread.sleep(500);
+		}
+	}
+
+	// Handling Browser alerts
+	public static void acceptAlert(WebDriver driver) {
+		try {
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
+			System.out.println("✅ Alert accepted successfully.");
+		} catch (NoAlertPresentException e) {
+			System.out.println("⚠️ No alert present to accept.");
+		}
+	}
+
+	public static void dismissAlert(WebDriver driver) {
+		try {
+			Alert alert = driver.switchTo().alert();
+			alert.dismiss();
+			System.out.println("✅ Alert dismissed successfully.");
+		} catch (NoAlertPresentException e) {
+			System.out.println("⚠️ No alert present to dismiss.");
+		}
+	}
+
+	public static String getAlertText(WebDriver driver) {
+		try {
+			Alert alert = driver.switchTo().alert();
+			String text = alert.getText().trim();
+			System.out.println("📌 Alert text: " + text);
+			return text;
+		} catch (NoAlertPresentException e) {
+			System.out.println("⚠️ No alert present to get text from.");
+			return null;
+		}
+	}
+
+	public static void sendKeysToAlert(WebDriver driver, String input) {
+		try {
+			Alert alert = driver.switchTo().alert();
+			alert.sendKeys(input);
+			System.out.println("✅ Sent input to alert: " + input);
+		} catch (NoAlertPresentException e) {
+			System.out.println("⚠️ No alert present to send input.");
 		}
 	}
 

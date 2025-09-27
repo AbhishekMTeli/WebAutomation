@@ -7,10 +7,10 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="validatePleaseEnterDuration"/>
           <include name="initPages"/>
           <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
-          <include name="validateDataSubmissionPopup"/>
         </methods>
       </class> <!-- tests.CommandUpGradeSLF -->
     </classes>
