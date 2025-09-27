@@ -5,8 +5,9 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          def mvnHome = tool 'Maven 3.9.11' // Use the exact name as in Maven installations
-          withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
+          def jdkHome = tool 'Java 21' // Use the exact name from your Jenkins JDK configuration
+          def mvnHome = tool 'Maven 3.9.11' // Use the exact name from your Jenkins Maven configuration
+          withEnv(["PATH+JAVA=${jdkHome}/bin", "PATH+MAVEN=${mvnHome}/bin"]) {
             echo 'Building...'
             sh 'mvn clean compile'
           }
@@ -16,8 +17,9 @@ pipeline {
     stage('Test') {
       steps {
         script {
+          def jdkHome = tool 'Java 21'
           def mvnHome = tool 'Maven 3.9.11'
-          withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
+          withEnv(["PATH+JAVA=${jdkHome}/bin", "PATH+MAVEN=${mvnHome}/bin"]) {
             echo 'Testing...'
             sh 'mvn test'
           }
