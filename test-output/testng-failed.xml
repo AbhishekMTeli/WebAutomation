@@ -5,8 +5,8 @@
     <classes>
       <class name="tests.CommandUpGradeSLF">
         <methods>
-          <include name="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs"/>
           <include name="tearDown"/>
+          <include name="e2eHappyPathTestForCommandUpgradeSLF"/>
           <include name="setUp"/>
           <include name="initPages"/>
           <include name="tearDownExtent"/>

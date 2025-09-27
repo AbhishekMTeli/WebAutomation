@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="26" total="27" passed="1" failed="0" skipped="0">
+<testng-results ignored="27" total="28" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-26T21:34:00 IST" name="Default suite" finished-at="2025-09-26T21:35:16 IST" duration-ms="76549">
+  <suite started-at="2025-09-27T10:39:40 IST" name="Default suite" finished-at="2025-09-27T10:41:31 IST" duration-ms="110886">
     <groups>
     </groups>
-    <test started-at="2025-09-26T21:34:00 IST" name="Default test" finished-at="2025-09-26T21:35:16 IST" duration-ms="76549">
+    <test started-at="2025-09-27T10:39:40 IST" name="Default test" finished-at="2025-09-27T10:41:31 IST" duration-ms="110886">
       <class name="tests.CommandUpGradeSLF">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:00 IST" name="setUpExtent" finished-at="2025-09-26T21:34:00 IST" duration-ms="179" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLF@702b8b12]" started-at="2025-09-27T10:39:40 IST" name="setUpExtent" finished-at="2025-09-27T10:39:40 IST" duration-ms="163" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:00 IST" name="setUp" finished-at="2025-09-26T21:34:12 IST" duration-ms="11880" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLF@702b8b12]" started-at="2025-09-27T10:39:40 IST" name="setUp" finished-at="2025-09-27T10:39:49 IST" duration-ms="8915" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,26 +27,78 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:12 IST" name="initPages" finished-at="2025-09-26T21:34:12 IST" duration-ms="22" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLF@702b8b12]" started-at="2025-09-27T10:39:49 IST" name="initPages" finished-at="2025-09-27T10:39:49 IST" duration-ms="34" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:34:12 IST" name="shouldShowErrorWhenAddingCommentsWithoutSelectingOBs" description="Validate error when adding comments without selecting any OBs" finished-at="2025-09-26T21:35:16 IST" duration-ms="64203" status="PASS">
+        <test-method signature="e2eHappyPathTestForCommandUpgradeSLF()[pri:0, instance:tests.CommandUpGradeSLF@702b8b12]" started-at="2025-09-27T10:39:49 IST" name="e2eHappyPathTestForCommandUpgradeSLF" description="Happy Path for Command Upgrade SLF" finished-at="2025-09-27T10:41:30 IST" duration-ms="101128" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on mac (aa5abc691502ee91e753767b50a10f84)] -> xpath: //th[normalize-space(text())='Scheduled Date & Time']] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.6.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.208, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52434}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:52434/devtoo..., se:cdpVersion: 140.0.7339.208, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: aa5abc691502ee91e753767b50a10f84]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on mac (aa5abc691502ee91e753767b50a10f84)] -> xpath: //th[normalize-space(text())='Scheduled Date & Time']] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.6.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.208, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52434}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:52434/devtoo..., se:cdpVersion: 140.0.7339.208, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: aa5abc691502ee91e753767b50a10f84
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at utils.SeleniumUtils.waitForVisibility(SeleniumUtils.java:30)
+at commonPages.TraineeGradingPage.lambda$0(TraineeGradingPage.java:69)
+at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+at commonPages.TraineeGradingPage.validateAllStaticTexts(TraineeGradingPage.java:68)
+at tests.CommandUpGradeSLF.e2eHappyPathTestForCommandUpgradeSLF(CommandUpGradeSLF.java:74)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- shouldShowErrorWhenAddingCommentsWithoutSelectingOBs -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:35:16 IST" name="tearDown" finished-at="2025-09-26T21:35:16 IST" duration-ms="420" status="PASS">
+        </test-method> <!-- e2eHappyPathTestForCommandUpgradeSLF -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLF@702b8b12]" started-at="2025-09-27T10:41:30 IST" name="tearDown" finished-at="2025-09-27T10:41:31 IST" duration-ms="783" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=shouldShowErrorWhenAddingCommentsWithoutSelectingOBs status=SUCCESS method=CommandUpGradeSLF.shouldShowErrorWhenAddingCommentsWithoutSelectingOBs()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3] output={null}]]]>
+                <![CDATA[[TestResult name=e2eHappyPathTestForCommandUpgradeSLF status=FAILURE method=CommandUpGradeSLF.e2eHappyPathTestForCommandUpgradeSLF()[pri:0, instance:tests.CommandUpGradeSLF@702b8b12] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLF@306f16f3]" started-at="2025-09-26T21:35:16 IST" name="tearDownExtent" finished-at="2025-09-26T21:35:17 IST" duration-ms="209" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLF@702b8b12]" started-at="2025-09-27T10:41:31 IST" name="tearDownExtent" finished-at="2025-09-27T10:41:31 IST" duration-ms="245" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

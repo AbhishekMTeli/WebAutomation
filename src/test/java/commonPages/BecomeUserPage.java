@@ -24,8 +24,9 @@ public class BecomeUserPage {
 	@FindBy(xpath = "//button[@id='update']")
 	private WebElement becomeUserButton;
 
-	public void sendUserId(String userId) {
-		SeleniumUtils.type(driver, userIdField, userId, timeout);
+	public void sendUserId() {
+		String trainerId = ConfigReader.get("trainerId");
+		SeleniumUtils.type(driver, userIdField, trainerId, timeout);
 	}
 
 	public void clickOnBecomeUser() {

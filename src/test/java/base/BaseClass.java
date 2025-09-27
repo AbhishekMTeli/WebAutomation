@@ -82,11 +82,6 @@ public class BaseClass {
 		// 2. Become User navigation (if required for scenario)
 		adminDashBoardPage = new AdminDashBoardPage(driver);
 		adminDashBoardPage.clickBecomeUserTab();
-
-		becomeUserPage = new BecomeUserPage(driver);
-		String trainerId = ConfigReader.get("trainerId");
-		becomeUserPage.sendUserId(trainerId);
-		becomeUserPage.clickOnBecomeUser();
 	}
 
 	@AfterMethod(alwaysRun = true)
