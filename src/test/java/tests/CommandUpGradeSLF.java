@@ -4,11 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import adminPages.BecomeUserPage;
 import base.BaseClass;
 import commandUpgradeSLFPages.CommandUpgradeSLFOverallOutcomePage;
 import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingMangeSectorPage;
 import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingSallabusPage;
-import commonPages.BecomeUserPage;
 import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
 

@@ -20,7 +20,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import adminPages.AdminDashBoardPage;
-import commonPages.BecomeUserPage;
+import adminPages.BecomeUserPage;
 import commonPages.LoginPage;
 import utils.ConfigReader;
 import utils.DriverFactory;
