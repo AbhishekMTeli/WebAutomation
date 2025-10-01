@@ -15,15 +15,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.aventstack.extentreports.ExtentTest;
-
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
 public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 	private WebDriver driver;
 	private int timeout;
-	private ExtentTest extentTest;
 
 	public CommandUpgradeSLFTraineeGradingMangeSectorPage(WebDriver driver) {
 		this.driver = driver;
@@ -137,7 +134,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 
 	@FindBy(xpath = "//td[text()='Dep Date:']")
 	private WebElement depDateLabel;
-	
+
 	// Hadeling the calander
 	// input[@id='Duration_Inp']
 
@@ -192,11 +189,11 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 	public void clickManageSectorsTab() {
 		SeleniumUtils.click(driver, manageSectorsTab, timeout);
 	}
-	
+
 	public void enterDuration(String duration) {
 		SeleniumUtils.type(driver, durationField, duration, timeout);
 	}
-	
+
 	public void clearDuration() {
 		SeleniumUtils.click(driver, durationField, timeout);
 		durationField.clear();
@@ -223,7 +220,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 		SeleniumUtils.scrollToElementByVisibleText(driver, depDateLabel.getText());
 		SeleniumUtils.selectDropdownByVisibleText(driver, noOfSectorsDropdown, value, timeout);
 	}
-	
+
 	public void enterDepDate() throws InterruptedException {
 		String depDate = ConfigReader.get("depDate");
 		String[] parts = depDate.split("-");
@@ -245,7 +242,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 	}
 
 	public void enterFrom() throws InterruptedException {
-		String from =ConfigReader.get("from");
+		String from = ConfigReader.get("from");
 		for (WebElement fromField : fromFields) {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 			wait.until(ExpectedConditions.visibilityOf(fromField));
@@ -257,20 +254,24 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 		SeleniumUtils.scrollToTopOfPage(driver);
 
 	}
-	
+
 	public void clearFrom() {
-		fromFields.get(0).clear();;
+		fromFields.get(0).clear();
+		;
 	}
-	
+
 	public void clearTo() {
-		toFields.get(0).clear();;
+		toFields.get(0).clear();
+		;
 	}
 
 	public void clearRegNo() {
-		regNoFields.get(0).clear();;
+		regNoFields.get(0).clear();
+		;
 	}
+
 	public void enterTo() throws InterruptedException {
-		String to =ConfigReader.get("to");
+		String to = ConfigReader.get("to");
 		for (WebElement toField : toFields) {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 			wait.until(ExpectedConditions.visibilityOf(toField));
@@ -284,7 +285,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 	}
 
 	public void enterRegNo() throws InterruptedException {
-		String regNo =ConfigReader.get("registrationNo");
+		String regNo = ConfigReader.get("registrationNo");
 		for (WebElement regNoField : regNoFields) {
 			SeleniumUtils.scrollToElementByVisibleText(driver, regNoField.getText());
 			SeleniumUtils.type(driver, regNoField, regNo, timeout);
@@ -293,7 +294,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 	}
 
 	public void enterAircraftType() throws InterruptedException {
-		String aircraftType =ConfigReader.get("aircraftType");
+		String aircraftType = ConfigReader.get("aircraftType");
 		for (WebElement aircraftTypeField : aircraftTypeFields) {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 			wait.until(ExpectedConditions.visibilityOf(aircraftTypeField));
@@ -305,7 +306,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 		}
 		SeleniumUtils.scrollToTopOfPage(driver);
 	}
-	
+
 	public void clearAircraftType() {
 		aircraftTypeFields.get(0).clear();
 	}
@@ -331,8 +332,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 			SeleniumUtils.click(driver, deleteIcon, timeout);
 			try {
 				clickDeleteSectorDataPopupDeleteButton();
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Only one row left, cannot delete this row. Delete operation skipped.");
 			}
 		}
@@ -383,5 +383,13 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 
 	public void clickDeleteSectorDataPopupDeleteButton() {
 		SeleniumUtils.click(driver, deleteSectorDataPopupDeleteButton, timeout);
+	}
+
+	@FindBy(xpath = "//span[@id='lhsuser']")
+	private WebElement tarineeId;
+
+	public String getTrainerId() {
+		SeleniumUtils.waitForVisibility(driver, tarineeId, timeout);
+		return SeleniumUtils.getText(tarineeId);
 	}
 }

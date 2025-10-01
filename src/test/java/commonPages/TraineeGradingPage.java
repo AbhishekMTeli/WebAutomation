@@ -64,7 +64,7 @@ public class TraineeGradingPage {
 		expectedStaticTexts.put("sectors", "Sectors");
 	}
 
-	public void validateAllStaticTexts() {
+	public void validateAllStaticTexts() throws InterruptedException {
 		staticTextElements.forEach((key, element) -> {
 			SeleniumUtils.waitForVisibility(driver, element, timeout);
 			String actual = element.getText().trim();

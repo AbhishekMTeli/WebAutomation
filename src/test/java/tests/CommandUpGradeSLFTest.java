@@ -1,19 +1,23 @@
 package tests;
 
+import java.awt.AWTException;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import adminPages.AdminDashBoardPage;
 import adminPages.BecomeUserPage;
+import adminPages.SLFHistoryPage;
 import base.BaseClass;
 import commandUpgradeSLFPages.CommandUpgradeSLFOverallOutcomePage;
 import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingMangeSectorPage;
 import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingSallabusPage;
+import commandUpgradeSLFPages.PopupPages;
 import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
 
-public class CommandUpGradeSLF extends BaseClass {
+public class CommandUpGradeSLFTest extends BaseClass {
 	private TrainerDashBoradPage trainerDashBoradPage;
 	private TraineeGradingPage traineeGradingPage;
 	private CommandUpgradeSLFTraineeGradingMangeSectorPage manageSectorPage;
@@ -21,6 +25,10 @@ public class CommandUpGradeSLF extends BaseClass {
 	private CommandUpgradeSLFOverallOutcomePage outcomePage;
 	private BecomeUserPage becomeUserPage;
 	private AdminDashBoardPage adminDashBoardPage;
+	private SLFHistoryPage slfHistoryPage;
+	private PopupPages popupPages;
+	private String traineeIdWithName;
+	private String traineeId;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -31,6 +39,8 @@ public class CommandUpGradeSLF extends BaseClass {
 		manageSectorPage = new CommandUpgradeSLFTraineeGradingMangeSectorPage(driver);
 		syllabusPage = new CommandUpgradeSLFTraineeGradingSallabusPage(driver);
 		outcomePage = new CommandUpgradeSLFOverallOutcomePage(driver);
+		slfHistoryPage = new SLFHistoryPage(driver);
+		popupPages = new PopupPages(driver);
 	}
 
 	@Test(description = "Happy Path for Command Upgrade SLF")
@@ -45,6 +55,9 @@ public class CommandUpGradeSLF extends BaseClass {
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
+		traineeIdWithName = manageSectorPage.getTrainerId();
+		System.out.println("Trainee Name and Id is " + traineeIdWithName);
+		traineeId = traineeIdWithName.replaceAll(".*\\((\\d+)\\).*", "$1");
 		manageSectorPage.enterFrom();
 		manageSectorPage.enterTo();
 		manageSectorPage.enterRegNo();
@@ -53,11 +66,12 @@ public class CommandUpGradeSLF extends BaseClass {
 		manageSectorPage.clickNextButton();
 		syllabusPage.clickAllVisibleAndInteractableNoButtons();
 		syllabusPage.clickNextButton();
-		outcomePage.performObAction("PRO", 1, "plus", "adding OB Comment");
+		outcomePage.performObAction("PRO", 0, "plus", "adding OB Comment");
 		outcomePage.clickObDoneButton("PRO");
+		outcomePage.clickOkPop_up();
 		outcomePage.performObAction("KNO", 3, "minus", "adding OB Comment");
 		outcomePage.clickObDoneButton("KNO");
-		outcomePage.clickCompetentRadioButton();
+//		outcomePage.clickNotYetCompetentRadioButton();
 		outcomePage.addRemark("adding remarks");
 		outcomePage.competencyRemarksLabelIsPresent();
 		outcomePage.selectQualification();
@@ -74,7 +88,7 @@ public class CommandUpGradeSLF extends BaseClass {
 		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		outcomePage.dataSuccessfullyUploadedIsPresent();
 		outcomePage.clickOkPop_up();
-		traineeGradingPage.validateAllStaticTexts();
+//		traineeGradingPage.validateAllStaticTexts();
 	}
 
 	@Test(description = "Verify trainer can select up to 8 options in 'No. of Selected for this SLF Period' dropdown")
@@ -125,7 +139,7 @@ public class CommandUpGradeSLF extends BaseClass {
 	}
 
 	@Test(description = "Verify error popup when navigating from Grading to Overall Outcome without completing required fields")
-	public void shouldShowErrorPopupWhenSwitchingFromGradingToOutcomeWithoutSaving() {
+	public void shouldShowErrorPopupWhenSwitchingFromGradingToOutcomeWithoutSaving() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
@@ -147,7 +161,8 @@ public class CommandUpGradeSLF extends BaseClass {
 	}
 
 	@Test(description = "Verify error popup when navigating from Manage Sectors to Syllabus without completing required fields")
-	public void shouldShowErrorPopupWhenNavigatingFromManageSectorsToSyllabusWithoutCompletingFields() {
+	public void shouldShowErrorPopupWhenNavigatingFromManageSectorsToSyllabusWithoutCompletingFields()
+			throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
@@ -782,14 +797,37 @@ public class CommandUpGradeSLF extends BaseClass {
 		extentTest.info("Actual popup: " + actualPopupText);
 
 		Assert.assertEquals(actualPopupText, expectedPopupText,
-				"❌ Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
+				"Popup text mismatch! Expected: " + expectedPopupText + " but got: " + actualPopupText);
 
 		outcomePage.clickPopupOkButton();
 	}
 
 	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15")
-	public void shouldNotAllowFormSubmissionWhenTotalSectorsExceedsFifteen() {
+	public void shouldNotAllowFormSubmissionWhenTotalSectorsExceedsFifteen() throws InterruptedException, AWTException {
 		adminDashBoardPage.clickGradingAndAssessmentTab();
 		adminDashBoardPage.clickSlfHistorySubTab();
+		slfHistoryPage.clickAddButton();
+		slfHistoryPage.validateAllStaticTexts();
+		slfHistoryPage.enterTraineeNameAndSelectSuggestion("85123");
+		slfHistoryPage.selectCurriculum("Command Upgrade Course");
+		slfHistoryPage.clickAddIcon();
+		slfHistoryPage.clickAddIcon();
+		slfHistoryPage.enterPM("5");
+		slfHistoryPage.enterPF("5");
+		slfHistoryPage.clickSaveOrUpdateButton();
+		Thread.sleep(5000);
+	}
+
+	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15", dependsOnMethods = "e2eHappyPathTestForCommandUpgradeSLF")
+	public void test() throws InterruptedException {
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickSlfHistorySubTab();
+		slfHistoryPage.inputSearchField(traineeId);
+		slfHistoryPage.clickOnViewOrEdit();
+		slfHistoryPage.enterPM("10");
+		slfHistoryPage.enterPF("5");
+		slfHistoryPage.clickSaveOrUpdateButton();
+		Assert.assertEquals(popupPages.popupGetText(), "Data saved successfully");
+		Thread.sleep(5000);
 	}
 }

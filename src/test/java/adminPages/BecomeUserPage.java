@@ -25,6 +25,7 @@ public class BecomeUserPage {
 	private WebElement becomeUserButton;
 
 	public void sendUserId() {
+		userIdField.clear();
 		String trainerId = ConfigReader.get("trainerId");
 		SeleniumUtils.type(driver, userIdField, trainerId, timeout);
 	}

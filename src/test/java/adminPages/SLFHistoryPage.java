@@ -1,7 +1,11 @@
 package adminPages;
 
+import java.util.List;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -54,11 +58,11 @@ public class SLFHistoryPage {
 	@FindBy(xpath = "//select[@id='a320Type']")
 	private WebElement aircraftTypeDropdown;
 
-	@FindBy(xpath = "//input[@id='pma320']")
-	private WebElement pmTextField;
+	@FindBy(xpath = "//input[@class='form-control pm-input']")
+	private List<WebElement> pmTextFields;
 
-	@FindBy(xpath = "//input[@id='pfa320']")
-	private WebElement pfTextField;
+	@FindBy(xpath = "//input[@class='form-control pf-input']")
+	private List<WebElement> pfTextFields;
 
 	@FindBy(xpath = "//i[@class='fas fa-plus']")
 	private WebElement addIcon;
@@ -69,6 +73,12 @@ public class SLFHistoryPage {
 	@FindBy(xpath = "//button[@id='update']")
 	private WebElement saveButton;
 
+	@FindBy(xpath = "//button[@id='approvebtn']")
+	private WebElement approveButton;
+	
+	@FindBy(xpath = "//button[@id='rejectbtn']")
+	private WebElement rejectButton;
+	
 	@FindBy(xpath = "//button[@id='cancel']")
 	private WebElement cancelButton;
 
@@ -133,31 +143,53 @@ public class SLFHistoryPage {
 	}
 
 	// Enter Trainee Name
-	public void enterTraineeName(String traineeName) {
-		traineeNameTextfield.clear();
-		SeleniumUtils.type(driver, traineeNameTextfield, traineeName, timeout);
+	public void enterTraineeNameAndSelectSuggestion(String traineeName) throws InterruptedException {
+		traineeNameTextfield.sendKeys(traineeName);
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.DOWN).perform();
+		action.sendKeys(Keys.ENTER).perform();
 	}
-
-	// Select Curriculum
+	
+	// Click Reject Button
+	public void clickRejectButton() {
+		SeleniumUtils.waitForVisibility(driver, rejectButton, timeout);
+		SeleniumUtils.click(driver, rejectButton, timeout);
+	}
+	
+	// Click Approve Button
+	public void clickApproveButton() {
+		SeleniumUtils.waitForVisibility(driver, approveButton, timeout);
+		SeleniumUtils.click(driver, approveButton, timeout);
+	}
+	
+   // Select Curriculum
 	public void selectCurriculum(String curriculum) throws InterruptedException {
+		SeleniumUtils.waitForVisibility(driver, curriculumDropdown, timeout);
 		SeleniumUtils.selectDropdownByVisibleText(driver, curriculumDropdown, curriculum, timeout);
 	}
 
 	// Select Aircraft Type
 	public void selectAircraftType(String aircraftType) throws InterruptedException {
+		SeleniumUtils.waitForVisibility(driver, aircraftTypeDropdown, timeout);
 		SeleniumUtils.selectDropdownByVisibleText(driver, aircraftTypeDropdown, aircraftType, timeout);
 	}
 
 	// Enter PM value
 	public void enterPM(String pm) {
-		pmTextField.clear();
-		SeleniumUtils.type(driver, pmTextField, pm, timeout);
+		for (WebElement pmTextField : pmTextFields) {
+			SeleniumUtils.waitForVisibility(driver, pmTextField, timeout);
+			pmTextField.clear();
+			SeleniumUtils.type(driver, pmTextField, pm, timeout);
+		}
 	}
 
 	// Enter PF value
 	public void enterPF(String pf) {
-		pfTextField.clear();
-		SeleniumUtils.type(driver, pfTextField, pf, timeout);
+		for (WebElement pfTextField : pfTextFields) {
+			SeleniumUtils.waitForVisibility(driver, pfTextField, timeout);
+			pfTextField.clear();
+			SeleniumUtils.type(driver, pfTextField, pf, timeout);
+		}
 	}
 
 	// Click Add Icon
@@ -170,8 +202,9 @@ public class SLFHistoryPage {
 		SeleniumUtils.click(driver, deleteIcon, timeout);
 	}
 
-	// Click Save
-	public void clickSaveButton() {
+	// Click Save or Update
+	public void clickSaveOrUpdateButton() {
+		SeleniumUtils.waitForVisibility(driver, saveButton, timeout);
 		SeleniumUtils.click(driver, saveButton, timeout);
 	}
 
@@ -187,11 +220,11 @@ public class SLFHistoryPage {
 	}
 
 	public void validateAllStaticTexts() {
-		Assert.assertEquals(getTraineeNameLabel(), "Trainee Name", "❌ Trainee Name label mismatch!");
-		Assert.assertEquals(getCurriculumLabel(), "Curriculum", "❌ Curriculum label mismatch!");
+		Assert.assertEquals(getTraineeNameLabel(), "Trainee Name *", "❌ Trainee Name label mismatch!");
+		Assert.assertEquals(getCurriculumLabel(), "Curriculum*", "❌ Curriculum label mismatch!");
 		Assert.assertEquals(getAircraftTypeLabel(), "Aircraft type", "❌ Aircraft Type label mismatch!");
-		Assert.assertEquals(getPmLabel(), "PM", "❌ PM label mismatch!");
-		Assert.assertEquals(getPfLabel(), "PF", "❌ PF label mismatch!");
+		Assert.assertEquals(getPmLabel(), "PM *", "❌ PM label mismatch!");
+		Assert.assertEquals(getPfLabel(), "PF *", "❌ PF label mismatch!");
 	}
 
 	// Alerts or Pop-up Handeling
@@ -212,4 +245,20 @@ public class SLFHistoryPage {
 	// Command Upgrade Course
 
 	// Please enter a valid staff number.
+	@FindBy(xpath = "//input[normalize-space(@class)='form-control search_field']")
+	private WebElement inputSearch;
+
+	@FindBy(xpath = "//input[normalize-space(@class)='form-control search_field']")
+	private WebElement viewOrEditButton;
+	// button[@class='btn btn-success btn-sm sector_edit']
+
+	public void inputSearchField(String traineeId) {
+		SeleniumUtils.type(driver, inputSearch, traineeId, timeout);
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ENTER);
+	}
+
+	public void clickOnViewOrEdit() {
+		SeleniumUtils.click(driver, viewOrEditButton, timeout);
+	}
 }
