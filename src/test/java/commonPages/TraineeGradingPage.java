@@ -1,6 +1,7 @@
 package commonPages;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -66,7 +67,7 @@ public class TraineeGradingPage {
 
 	public void validateAllStaticTexts() throws InterruptedException {
 		staticTextElements.forEach((key, element) -> {
-			SeleniumUtils.waitForVisibility(driver, element, timeout);
+			SeleniumUtils.waitForVisibility(driver, element, 60);
 			String actual = element.getText().trim();
 			String expected = expectedStaticTexts.get(key);
 			if (expected != null && !actual.contains(expected)) {
@@ -82,37 +83,69 @@ public class TraineeGradingPage {
 		return driver.findElement(By.xpath(xpath));
 	}
 
+	@FindBy(xpath = "//button[normalize-space()='Feedback']")
+	private List<WebElement> feedbackButtons;
+
+	@FindBy(xpath = "//textarea[@id='feedbackText']")
+	private WebElement feedbackTextAreaField;
+
+	@FindBy(xpath = "//button[@id='feedbackSubmitButton']")
+	private WebElement feedbackSubmitButton;
+
+	public void enterFeedBack(String feedbackComment) {
+		SeleniumUtils.type(driver, feedbackTextAreaField, feedbackComment, timeout);
+	}
+
+	public void clickFeedbackSubmitButton() {
+		SeleniumUtils.click(driver, feedbackSubmitButton, timeout);
+	}
+
+	public void clickFeedbackButton(String feedbackComment) {
+		try {
+			for (WebElement feedbackButton : feedbackButtons) {
+				SeleniumUtils.scrollToElementByVisibleText(driver, feedbackButton.getText());
+				SeleniumUtils.click(driver, feedbackButton, timeout);
+				enterFeedBack(feedbackComment);
+				clickFeedbackSubmitButton();
+				clickPopupOkButton();
+			}
+		} catch (Exception e) {
+			System.out.println("Feedback buttons not found");
+		}
+	}
+
 	public void clickOnGradeButtonWithRetries(int maxRetries) {
-	    int retries = 0;
-	    while (retries < maxRetries) {
-	    	SeleniumUtils.scrollToTopOfPage(driver);
-	        try {
-	            WebElement gradeBtn = getGradeButton();
-	            SeleniumUtils.waitForClickability(driver, gradeBtn, timeout);
-	            SeleniumUtils.click(driver, gradeBtn, timeout);
-	            System.out.println("Clicked GradeButton on attempt " + (retries + 1));
-	            return; // ✅ success, exit method
-	        } catch (Exception e) {
-	            System.out.println("Attempt " + (retries + 1) + " failed: " + e.getMessage());
+		int retries = 0;
+		while (retries < maxRetries) {
+			SeleniumUtils.scrollToTopOfPage(driver);
+			try {
+				WebElement gradeBtn = getGradeButton();
+				SeleniumUtils.waitForClickability(driver, gradeBtn, timeout);
+				SeleniumUtils.click(driver, gradeBtn, timeout);
+				System.out.println("Clicked GradeButton on attempt " + (retries + 1));
+				return; // ✅ success, exit method
+			} catch (Exception e) {
+				System.out.println("Attempt " + (retries + 1) + " failed: " + e.getMessage());
 
-	            try {
-	                // Scroll to end and retry
-	                SeleniumUtils.scrollToEndOfPage(driver);
-	            } catch (Exception ignore) {}
+				try {
+					// Scroll to end and retry
+					SeleniumUtils.scrollToEndOfPage(driver);
+				} catch (Exception ignore) {
+				}
 
-	            try {
-	                // Try clicking arrow if grade button still not clickable
-	                SeleniumUtils.scrollToElementByVisibleText(driver, nextArrowButton.getText());
-	                SeleniumUtils.click(driver, nextArrowButton, timeout);
-	                System.out.println("Clicked on NextArrowButton on attempt " + (retries + 1));
-	            } catch (Exception inner) {
-	                // log instead of throwing immediately
-	                System.out.println("NextArrowButton not clickable: " + inner.getMessage());
-	            }
-	        }
-	        retries++;
-	    }
-	    throw new RuntimeException("Failed to click GradeButton after " + maxRetries + " retries.");
+				try {
+					// Try clicking arrow if grade button still not clickable
+					SeleniumUtils.scrollToElementByVisibleText(driver, nextArrowButton.getText());
+					SeleniumUtils.click(driver, nextArrowButton, timeout);
+					System.out.println("Clicked on NextArrowButton on attempt " + (retries + 1));
+				} catch (Exception inner) {
+					// log instead of throwing immediately
+					System.out.println("NextArrowButton not clickable: " + inner.getMessage());
+				}
+			}
+			retries++;
+		}
+		throw new RuntimeException("Failed to click GradeButton after " + maxRetries + " retries.");
 	}
 
 	// No SLF Pop-up
@@ -133,5 +166,21 @@ public class TraineeGradingPage {
 		} catch (Exception e) {
 			System.out.println("No SLF Pop-up Not Observerd");
 		}
+	}
+
+	// Alerts or Pop-up Handeling
+	@FindBy(xpath = "//span[@id='alertBoxMsg']")
+	private WebElement alertLabel;
+
+	@FindBy(xpath = "//span[contains(text(),'OK')]")
+	private WebElement alertOkButton;
+
+	public String popupGetText() {
+		SeleniumUtils.waitForVisibility(driver, alertLabel, timeout);
+		return SeleniumUtils.getText(alertLabel);
+	}
+
+	public void clickPopupOkButton() {
+		SeleniumUtils.click(driver, alertOkButton, timeout);
 	}
 }

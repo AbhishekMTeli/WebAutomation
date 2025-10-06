@@ -13,9 +13,12 @@ import base.BaseClass;
 import commandUpgradeSLFPages.CommandUpgradeSLFOverallOutcomePage;
 import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingMangeSectorPage;
 import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingSallabusPage;
-import commandUpgradeSLFPages.PopupPages;
+import commonPages.GradingHistoryPage;
+import commonPages.LogoutPage;
+import commonPages.PopupPages;
 import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
+import traineePages.TraineeReviewPage;
 
 public class CommandUpGradeSLFTest extends BaseClass {
 	private TrainerDashBoradPage trainerDashBoradPage;
@@ -26,21 +29,29 @@ public class CommandUpGradeSLFTest extends BaseClass {
 	private BecomeUserPage becomeUserPage;
 	private AdminDashBoardPage adminDashBoardPage;
 	private SLFHistoryPage slfHistoryPage;
+	private GradingHistoryPage gradingHistoryPage;
+	private TraineeReviewPage traineeReviewPage;
+	private LogoutPage logoutPage;
 	private PopupPages popupPages;
 	private String traineeIdWithName;
 	private String traineeId;
+	private String traineeName;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
-		adminDashBoardPage = new AdminDashBoardPage(driver);
-		becomeUserPage = new BecomeUserPage(driver);
-		trainerDashBoradPage = new TrainerDashBoradPage(driver);
-		traineeGradingPage = new TraineeGradingPage(driver);
-		manageSectorPage = new CommandUpgradeSLFTraineeGradingMangeSectorPage(driver);
-		syllabusPage = new CommandUpgradeSLFTraineeGradingSallabusPage(driver);
-		outcomePage = new CommandUpgradeSLFOverallOutcomePage(driver);
-		slfHistoryPage = new SLFHistoryPage(driver);
-		popupPages = new PopupPages(driver);
+		adminDashBoardPage = new AdminDashBoardPage(getDriver());
+		becomeUserPage = new BecomeUserPage(getDriver());
+		trainerDashBoradPage = new TrainerDashBoradPage(getDriver());
+		traineeGradingPage = new TraineeGradingPage(getDriver());
+		manageSectorPage = new CommandUpgradeSLFTraineeGradingMangeSectorPage(getDriver());
+		syllabusPage = new CommandUpgradeSLFTraineeGradingSallabusPage(getDriver());
+		outcomePage = new CommandUpgradeSLFOverallOutcomePage(getDriver());
+		slfHistoryPage = new SLFHistoryPage(getDriver());
+		traineeReviewPage = new TraineeReviewPage(getDriver());
+		logoutPage = new LogoutPage(getDriver());
+		gradingHistoryPage = new GradingHistoryPage(getDriver());
+		popupPages = new PopupPages(getDriver());
+
 	}
 
 	@Test(description = "Happy Path for Command Upgrade SLF")
@@ -52,6 +63,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -68,10 +80,9 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		syllabusPage.clickNextButton();
 		outcomePage.performObAction("PRO", 0, "plus", "adding OB Comment");
 		outcomePage.clickObDoneButton("PRO");
-		outcomePage.clickOkPop_up();
+		outcomePage.clickPopupOkButton();
 		outcomePage.performObAction("KNO", 3, "minus", "adding OB Comment");
 		outcomePage.clickObDoneButton("KNO");
-//		outcomePage.clickNotYetCompetentRadioButton();
 		outcomePage.addRemark("adding remarks");
 		outcomePage.competencyRemarksLabelIsPresent();
 		outcomePage.selectQualification();
@@ -88,7 +99,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		outcomePage.dataSuccessfullyUploadedIsPresent();
 		outcomePage.clickOkPop_up();
-//		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.validateAllStaticTexts();
 	}
 
 	@Test(description = "Verify trainer can select up to 8 options in 'No. of Selected for this SLF Period' dropdown")
@@ -99,6 +110,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -119,6 +131,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 
@@ -146,6 +159,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.clickOverallOutcomeTab();
@@ -169,6 +183,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.clickSyllabusTab();
@@ -191,6 +206,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -215,6 +231,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -239,6 +256,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -263,6 +281,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -287,6 +306,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -310,6 +330,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -326,6 +347,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -342,6 +364,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -358,6 +381,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -372,6 +396,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -386,6 +411,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -413,6 +439,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -441,6 +468,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -471,6 +499,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 
@@ -513,6 +542,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 
@@ -558,6 +588,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -593,6 +624,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -629,6 +661,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -665,6 +698,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -703,6 +737,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -731,6 +766,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -765,6 +801,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -810,24 +847,264 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		slfHistoryPage.validateAllStaticTexts();
 		slfHistoryPage.enterTraineeNameAndSelectSuggestion("85123");
 		slfHistoryPage.selectCurriculum("Command Upgrade Course");
-		slfHistoryPage.clickAddIcon();
-		slfHistoryPage.clickAddIcon();
 		slfHistoryPage.enterPM("5");
 		slfHistoryPage.enterPF("5");
 		slfHistoryPage.clickSaveOrUpdateButton();
 		Thread.sleep(5000);
 	}
 
-	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15", dependsOnMethods = "e2eHappyPathTestForCommandUpgradeSLF")
-	public void test() throws InterruptedException {
-		adminDashBoardPage.clickGradingAndAssessmentTab();
-		adminDashBoardPage.clickSlfHistorySubTab();
-		slfHistoryPage.inputSearchField(traineeId);
-		slfHistoryPage.clickOnViewOrEdit();
-		slfHistoryPage.enterPM("10");
-		slfHistoryPage.enterPF("5");
-		slfHistoryPage.clickSaveOrUpdateButton();
-		Assert.assertEquals(popupPages.popupGetText(), "Data saved successfully");
-		Thread.sleep(5000);
+	@Test(description = "Validate trainer can access submitted form through Grading History")
+	public void validateTrainerCanAccessSubmittedFormThroughGradingHistory() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		traineeGradingPage.handelNoSlfHistoryPopup();
+		manageSectorPage.selectNoOfSectors("1");
+		traineeIdWithName = manageSectorPage.getTrainerId();
+		System.out.println("Trainee Name and Id is " + traineeIdWithName);
+		traineeId = traineeIdWithName.replaceAll(".*\\((\\d+)\\).*", "$1");
+		manageSectorPage.enterFrom();
+		manageSectorPage.enterTo();
+		manageSectorPage.enterRegNo();
+		manageSectorPage.enterAircraftType();
+		manageSectorPage.selectPFRadio();
+		manageSectorPage.clickNextButton();
+		syllabusPage.clickAllVisibleAndInteractableNoButtons();
+		syllabusPage.clickNextButton();
+		outcomePage.performObAction("PRO", 0, "plus", "adding OB Comment");
+		outcomePage.clickObDoneButton("PRO");
+		outcomePage.clickPopupOkButton();
+		outcomePage.performObAction("KNO", 3, "minus", "adding OB Comment");
+		outcomePage.clickObDoneButton("KNO");
+		outcomePage.addRemark("adding remarks");
+		outcomePage.competencyRemarksLabelIsPresent();
+		outcomePage.selectQualification();
+		outcomePage.clickSaveAndNextButton();
+		outcomePage.reasonForDelayLabelIsPresent();
+		outcomePage.addDelayComments("adding delay comments");
+		outcomePage.clickSubmitCommentButtonForDelayComment();
+		outcomePage.instructorAcknowldgementLabelIsPresent();
+		outcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		outcomePage.digitalSignitureLabelIsPresent();
+		outcomePage.digitalSign();
+		outcomePage.clickClearForDigitalSigniture();
+		outcomePage.digitalSign();
+		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		outcomePage.dataSuccessfullyUploadedIsPresent();
+		outcomePage.clickOkPop_up();
+		traineeGradingPage.validateAllStaticTexts();
+		gradingHistoryPage.clickGradingHistoryButton();
+		gradingHistoryPage.validateAllStaticTexts();
+		gradingHistoryPage.enterLessonName(traineeId);
+		gradingHistoryPage.clickViewButton();
+		gradingHistoryPage.validatePreviewHeader();
+		gradingHistoryPage.clickCloseButton();
+		gradingHistoryPage.clickViewButton();
+		gradingHistoryPage.clickCloseIcon();
 	}
+
+	@Test(description = "Validate trainee can acknowledge the submitted form")
+	public void validateTraineeCanAcknowledgeSubmittedForm() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		traineeGradingPage.handelNoSlfHistoryPopup();
+		manageSectorPage.selectNoOfSectors("1");
+		traineeIdWithName = manageSectorPage.getTrainerId();
+		System.out.println("Trainee Name and Id is " + traineeIdWithName);
+		traineeId = traineeIdWithName.replaceAll(".*\\((\\d+)\\).*", "$1");
+		manageSectorPage.enterFrom();
+		manageSectorPage.enterTo();
+		manageSectorPage.enterRegNo();
+		manageSectorPage.enterAircraftType();
+		manageSectorPage.selectPFRadio();
+		manageSectorPage.clickNextButton();
+		syllabusPage.clickAllVisibleAndInteractableNoButtons();
+		syllabusPage.clickNextButton();
+		outcomePage.performObAction("PRO", 3, "plus", "adding OB Comment");
+		outcomePage.clickObDoneButton("PRO");
+		outcomePage.addRemark("adding remarks");
+		outcomePage.competencyRemarksLabelIsPresent();
+		outcomePage.selectQualification();
+		outcomePage.clickSaveAndNextButton();
+		outcomePage.reasonForDelayLabelIsPresent();
+		outcomePage.addDelayComments("adding delay comments");
+		outcomePage.clickSubmitCommentButtonForDelayComment();
+		outcomePage.instructorAcknowldgementLabelIsPresent();
+		outcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		outcomePage.digitalSignitureLabelIsPresent();
+		outcomePage.digitalSign();
+		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		outcomePage.dataSuccessfullyUploadedIsPresent();
+		outcomePage.clickOkPop_up();
+		traineeGradingPage.validateAllStaticTexts();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+	}
+
+	@Test(description = "Validate trainee can mark the submitted form for review")
+	public void validateTraineeCanMarkFormForReview() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		traineeGradingPage.handelNoSlfHistoryPopup();
+		manageSectorPage.selectNoOfSectors("1");
+		traineeIdWithName = manageSectorPage.getTrainerId();
+		System.out.println("Trainee Name and Id is " + traineeIdWithName);
+		traineeId = traineeIdWithName.replaceAll(".*\\((\\d+)\\).*", "$1");
+		manageSectorPage.enterFrom();
+		manageSectorPage.enterTo();
+		manageSectorPage.enterRegNo();
+		manageSectorPage.enterAircraftType();
+		manageSectorPage.selectPFRadio();
+		manageSectorPage.clickNextButton();
+		syllabusPage.clickAllVisibleAndInteractableNoButtons();
+		syllabusPage.clickNextButton();
+		outcomePage.performObAction("PRO", 3, "plus", "adding OB Comment");
+		outcomePage.clickObDoneButton("PRO");
+		outcomePage.addRemark("adding remarks");
+		outcomePage.competencyRemarksLabelIsPresent();
+		outcomePage.selectQualification();
+		outcomePage.clickSaveAndNextButton();
+		outcomePage.reasonForDelayLabelIsPresent();
+		outcomePage.addDelayComments("adding delay comments");
+		outcomePage.clickSubmitCommentButtonForDelayComment();
+		outcomePage.instructorAcknowldgementLabelIsPresent();
+		outcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		outcomePage.digitalSignitureLabelIsPresent();
+		outcomePage.digitalSign();
+		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		outcomePage.dataSuccessfullyUploadedIsPresent();
+		outcomePage.clickOkPop_up();
+		traineeGradingPage.validateAllStaticTexts();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickMarkForReviewButton();
+		String actualText = traineeReviewPage.getMarkForReviewConfirmationText();
+		String expectedText = "Are you sure you want to mark this event for review by trainer ?";
+		Assert.assertEquals(actualText, expectedText,
+				"Text missmatch" + expectedText + "is expected but found " + actualText);
+		traineeReviewPage.clickNoButton();
+		traineeReviewPage.clickMarkForReviewButton();
+		traineeReviewPage.clickYesButton();
+		traineeReviewPage.validateAllStaticElements();
+	}
+
+	@Test(description = "Validate trainer can see action under pending grading after trainee marks form for review")
+	public void validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		traineeGradingPage.handelNoSlfHistoryPopup();
+		manageSectorPage.selectNoOfSectors("1");
+		traineeIdWithName = manageSectorPage.getTrainerId();
+		System.out.println("Trainee Name and Id is " + traineeIdWithName);
+		traineeId = traineeIdWithName.replaceAll(".*\\((\\d+)\\).*", "$1");
+		manageSectorPage.enterFrom();
+		manageSectorPage.enterTo();
+		manageSectorPage.enterRegNo();
+		manageSectorPage.enterAircraftType();
+		manageSectorPage.selectPFRadio();
+		manageSectorPage.clickNextButton();
+		syllabusPage.clickAllVisibleAndInteractableNoButtons();
+		syllabusPage.clickNextButton();
+		outcomePage.performObAction("PRO", 3, "plus", "adding OB Comment");
+		outcomePage.clickObDoneButton("PRO");
+		outcomePage.addRemark("adding remarks");
+		outcomePage.competencyRemarksLabelIsPresent();
+		outcomePage.selectQualification();
+		outcomePage.clickSaveAndNextButton();
+		outcomePage.reasonForDelayLabelIsPresent();
+		outcomePage.addDelayComments("adding delay comments");
+		outcomePage.clickSubmitCommentButtonForDelayComment();
+		outcomePage.instructorAcknowldgementLabelIsPresent();
+		outcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		outcomePage.digitalSignitureLabelIsPresent();
+		outcomePage.digitalSign();
+		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		outcomePage.dataSuccessfullyUploadedIsPresent();
+		outcomePage.clickOkPop_up();
+		traineeGradingPage.validateAllStaticTexts();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickMarkForReviewButton();
+		String actualText = traineeReviewPage.getMarkForReviewConfirmationText();
+		String expectedText = "Are you sure you want to mark this event for review by trainer ?";
+		Assert.assertEquals(actualText, expectedText,
+				"Text missmatch" + expectedText + "is expected but found " + actualText);
+		traineeReviewPage.clickNoButton();
+		traineeReviewPage.clickMarkForReviewButton();
+		traineeReviewPage.clickYesButton();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		
+	}
+
+//	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15", dependsOnMethods = "e2eHappyPathTestForCommandUpgradeSLF")
+//	public void test() throws InterruptedException {
+//		adminDashBoardPage.clickGradingAndAssessmentTab();
+//		adminDashBoardPage.clickSlfHistorySubTab();
+//		slfHistoryPage.inputSearchField(traineeId);
+//		slfHistoryPage.clickOnViewOrEdit();
+//		slfHistoryPage.enterPM("10");
+//		slfHistoryPage.enterPF("5");
+//		slfHistoryPage.clickSaveOrUpdateButton();
+//		Assert.assertEquals(popupPages.popupGetText(), "Data saved successfully");
+//		Thread.sleep(5000);
+//		// traineeGradingPage.clickFeedbackButton("adding feedback comments");
+//	}
 }

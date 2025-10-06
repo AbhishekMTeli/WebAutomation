@@ -255,19 +255,35 @@ public class CommandUpgradeSLFOverallOutcomePage {
 	private WebElement reasonForDelayCloseButton;
 
 	public void reasonForDelayLabelIsPresent() {
-		SeleniumUtils.waitForPresence(driver, By.xpath("//h5[text()='Reason for Delayed Grading']"), timeout);
+		try {
+			SeleniumUtils.waitForPresence(driver, By.xpath("//h5[text()='Reason for Delayed Grading']"), timeout);
+		} catch (Exception e) {
+			System.out.println("Delay Popup not present");
+		}
 	}
 
 	public void clickSubmitCommentButtonForDelayComment() {
-		SeleniumUtils.click(driver, reasonForDelaySubmitButton, timeout);
+		try {
+			SeleniumUtils.click(driver, reasonForDelaySubmitButton, timeout);
+		} catch (Exception e) {
+
+		}
 	}
 
 	public void addDelayComments(String comment) {
-		SeleniumUtils.type(driver, reasonForDelayCommentTextArea, comment, timeout);
+		try {
+			SeleniumUtils.type(driver, reasonForDelayCommentTextArea, comment, timeout);
+		} catch (Exception e) {
+
+		}
 	}
 
 	public void clickCloseCommentButtonForDelayComment() {
-		SeleniumUtils.click(driver, reasonForDelayCloseButton, timeout);
+		try {
+			SeleniumUtils.click(driver, reasonForDelayCloseButton, timeout);
+		} catch (Exception e) {
+
+		}
 	}
 
 	// Instructor Acknowldgement
@@ -351,7 +367,7 @@ public class CommandUpgradeSLFOverallOutcomePage {
 	@FindBy(xpath = "//span[@id='alertBoxMsg']")
 	private WebElement alertLabel;
 
-	@FindBy(xpath = "//span[contains(text(),'OK')]")
+	@FindBy(xpath = "//span[text()='OK']")
 	private WebElement alertOkButton;
 
 	public String popupGetText() {

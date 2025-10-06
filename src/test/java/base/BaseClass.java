@@ -27,12 +27,16 @@ import utils.DriverFactory;
 
 public class BaseClass {
 
-	protected WebDriver driver;
 	protected static ExtentReports extentReports;
 	protected ExtentTest extentTest;
 	protected AdminDashBoardPage adminDashBoardPage;
 	protected BecomeUserPage becomeUserPage;
 	protected LoginPage loginPage;
+
+	// Get driver from DriverFactory for thread safety
+	protected WebDriver getDriver() {
+		return DriverFactory.getDriver();
+	}
 
 	@BeforeSuite
 	public void setUpExtent() {
@@ -48,32 +52,35 @@ public class BaseClass {
 		ConfigReader.loadProperties();
 
 		String url = ConfigReader.get("baseUrl");
+		
+		
+		String remoteConfig = ConfigReader.get("remote");
+	    boolean isRemote = Boolean.parseBoolean(remoteConfig);
 
-		if (Boolean.parseBoolean(remote)) {
-			DesiredCapabilities capabilities = new DesiredCapabilities();
-			capabilities.setBrowserName(browser);
-			String gridUrl = ConfigReader.get("gridUrl");
-			driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			driver.manage().window().maximize();
-		} else {
-			driver = DriverFactory.initDriver(browser);
-		}
+	    if (isRemote) {
+	        DesiredCapabilities capabilities = new DesiredCapabilities();
+	        capabilities.setBrowserName(browser);
+	        String gridUrl = ConfigReader.get("gridUrl");
+	        RemoteWebDriver remoteDriver = new RemoteWebDriver(new URL(gridUrl), capabilities);
+	        remoteDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	        remoteDriver.manage().window().maximize();
+	        DriverFactory.setDriver(remoteDriver);
+	    } else {
+	        boolean headless = Boolean.parseBoolean(ConfigReader.get("headless"));
+	        DriverFactory.initDriver(browser, headless);
+	    }
 
-		driver.get(url);
+		getDriver().get(url);
 
-		extentTest = extentReports.createTest(getClass().getSimpleName() + " - " + Thread.currentThread().getId());
+		extentTest = extentReports
+				.createTest(getClass().getSimpleName() + " - ThreadId: " + Thread.currentThread().getId());
 		extentTest.info("Started test on browser: " + browser);
 
 		doStandardLoginAndUserSwitch();
 	}
 
-	/**
-	 * Centralizes the login and Become User flow.
-	 */
 	protected void doStandardLoginAndUserSwitch() {
-		// 1. Login Page
-		loginPage = new LoginPage(driver);
+		loginPage = new LoginPage(getDriver());
 		loginPage.clickTemporaryUserLink();
 		String userId = ConfigReader.get("userName");
 		String password = ConfigReader.get("password");
@@ -83,7 +90,7 @@ public class BaseClass {
 	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String screenshotPath = utils.SeleniumUtils.captureScreenshot(driver, result.getName());
+			String screenshotPath = utils.SeleniumUtils.captureScreenshot(getDriver(), result.getName());
 			extentTest.fail(result.getThrowable());
 			extentTest.addScreenCaptureFromPath(screenshotPath);
 		} else if (result.getStatus() == ITestResult.SKIP) {
