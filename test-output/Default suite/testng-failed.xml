@@ -8,8 +8,8 @@
           <include name="tearDown"/>
           <include name="initPages"/>
           <include name="setUp"/>
+          <include name="validateTraineeCanMarkFormForReview"/>
           <include name="tearDownExtent"/>
-          <include name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview"/>
           <include name="setUpExtent"/>
         </methods>
       </class> <!-- tests.CommandUpGradeSLFTest -->

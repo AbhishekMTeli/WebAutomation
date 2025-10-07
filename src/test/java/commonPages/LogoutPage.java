@@ -28,6 +28,7 @@ public class LogoutPage {
 	private WebElement logoutButton;
 
 	public void clickProfileIcon() {
+		SeleniumUtils.waitForVisibility(driver, profileIcon, timeout);
 		SeleniumUtils.click(driver, profileIcon, timeout);
 	}
 
@@ -36,6 +37,7 @@ public class LogoutPage {
 	}
 
 	public void clickLogoutButton() {
+		SeleniumUtils.waitForVisibility(driver, logoutButton, timeout);
 		SeleniumUtils.click(driver, logoutButton, timeout);
 	}
 }

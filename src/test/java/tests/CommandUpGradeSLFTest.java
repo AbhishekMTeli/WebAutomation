@@ -1082,13 +1082,17 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		String actualText = traineeReviewPage.getMarkForReviewConfirmationText();
 		String expectedText = "Are you sure you want to mark this event for review by trainer ?";
 		Assert.assertEquals(actualText, expectedText,
-				"Text missmatch" + expectedText + "is expected but found " + actualText);
+				"Text Mismatch" + expectedText + "is expected but found " + actualText);
 		traineeReviewPage.clickNoButton();
 		traineeReviewPage.clickMarkForReviewButton();
 		traineeReviewPage.clickYesButton();
 		traineeReviewPage.validateAllStaticElements();
+		System.out.println("clicking on profile icon");
 		logoutPage.clickProfileIcon();
+		System.out.println("clikced on profile icon");
+		System.out.println("clicking on logout button");
 		logoutPage.clickLogoutButton();
+		System.out.println("clicked on logout button");
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
@@ -1123,4 +1127,6 @@ public class CommandUpGradeSLFTest extends BaseClass {
 //		Thread.sleep(5000);
 //		// traineeGradingPage.clickFeedbackButton("adding feedback comments");
 //	}
+
+	// 45136
 }
