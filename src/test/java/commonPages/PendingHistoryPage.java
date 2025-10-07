@@ -1,5 +1,7 @@
 package commonPages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,7 +40,7 @@ public class PendingHistoryPage {
 		SeleniumUtils.scrollToElementByVisibleText(driver, pendingGradingLabel.getText());
 		SeleniumUtils.waitForVisibility(driver, pendingGradingLabel, timeout);
 		Assert.assertEquals(pendingGradingLabel.getText(), "Pending Grading",
-				"Text mismatch expected is 'Pending Grading but got' " + pendingGradingLabel.getText());
+				"Text mismatch expected is 'Pending Grading' but got' " + pendingGradingLabel.getText());
 		Assert.assertEquals(curriculumLabel.getText(), "Curriculum",
 				"Text mismatch expected is 'Curriculum' but got " + curriculumLabel.getText());
 		Assert.assertEquals(lessonLabel.getText(), "Lesson",
@@ -50,11 +52,88 @@ public class PendingHistoryPage {
 	}
 
 	@FindBy(xpath = "//div[@id='AimsDatatableCompleted_wrapper']//input[@class=' form-control search_field']")
-	private WebElement serachTextField;
+	private WebElement searchTextField;
 
-	@FindBy(xpath = "//span[normalize-space()='Pending Grading']")
-	private WebElement pendingGradingLabel;
+	@FindBy(xpath = "//button[normalize-space()='Review']")
+	private WebElement reviewButton;
 
-	@FindBy(xpath = "//span[normalize-space()='Pending Grading']")
-	private WebElement pendingGradingLabel;
+	@FindBy(xpath = "//label[normalize-space(text())='Do you want to update the general info?']")
+	private WebElement updateGeneralInfoPopupLabel;
+
+	@FindBy(xpath = "//button[@id='submitEditedGeneralInfo_button_no']")
+	private WebElement updateGeneralInfoPopupNoButton;
+
+	@FindBy(xpath = "//button[@id='submitEditedGeneralInfo_button_yes']")
+	private WebElement updateGeneralInfoPopupYesButton;
+
+	public void enterSearchText(String traineeId) {
+		SeleniumUtils.type(driver, searchTextField, traineeId, timeout);
+	}
+
+	public void clickReviewButton() {
+		SeleniumUtils.click(driver, reviewButton, timeout);
+	}
+
+	public void clickUpdateGeneralInfoPopupYesButton() {
+		SeleniumUtils.click(driver, updateGeneralInfoPopupYesButton, timeout);
+	}
+
+	public void clickUpdateGeneralInfoPopupNoButton() {
+		SeleniumUtils.click(driver, updateGeneralInfoPopupNoButton, timeout);
+	}
+
+	public void validateUpdateGeneralInfoPopupLabelText() {
+		SeleniumUtils.waitForVisibility(driver, updateGeneralInfoPopupLabel, timeout);
+		Assert.assertEquals(SeleniumUtils.getText(updateGeneralInfoPopupLabel),
+				"Do you want to update the general info?",
+				"Text mismatch expected is 'Do you want to update the general info?' but got "
+						+ SeleniumUtils.getText(updateGeneralInfoPopupLabel));
+	}
+
+	@FindBy(xpath = "//button[normalize-space()='Feedback']")
+	private List<WebElement> feedbackButtons;
+
+	@FindBy(xpath = "//textarea[@id='feedbackText']")
+	private WebElement feedbackTextAreaField;
+
+	@FindBy(xpath = "//button[@id='feedbackSubmitButton']")
+	private WebElement feedbackSubmitButton;
+
+	public void enterFeedBack(String feedbackComment) {
+		SeleniumUtils.type(driver, feedbackTextAreaField, feedbackComment, timeout);
+	}
+
+	public void clickFeedbackSubmitButton() {
+		SeleniumUtils.click(driver, feedbackSubmitButton, timeout);
+	}
+
+	public void clickFeedbackButton(String feedbackComment) {
+		try {
+			for (WebElement feedbackButton : feedbackButtons) {
+				SeleniumUtils.scrollToElementByVisibleText(driver, feedbackButton.getText());
+				SeleniumUtils.click(driver, feedbackButton, timeout);
+				enterFeedBack(feedbackComment);
+				clickFeedbackSubmitButton();
+				clickPopupOkButton();
+			}
+		} catch (Exception e) {
+			System.out.println("Feedback buttons not found");
+		}
+	}
+
+	// Alerts or Pop-up Handeling
+	@FindBy(xpath = "//span[@id='alertBoxMsg']")
+	private WebElement alertLabel;
+
+	@FindBy(xpath = "//span[contains(text(),'OK')]")
+	private WebElement alertOkButton;
+
+	public String popupGetText() {
+		SeleniumUtils.waitForVisibility(driver, alertLabel, timeout);
+		return SeleniumUtils.getText(alertLabel);
+	}
+
+	public void clickPopupOkButton() {
+		SeleniumUtils.click(driver, alertOkButton, timeout);
+	}
 }

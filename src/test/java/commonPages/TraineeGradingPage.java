@@ -1,7 +1,6 @@
 package commonPages;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -81,37 +80,6 @@ public class TraineeGradingPage {
 		String lessonName = ConfigReader.get("lessonName");
 		String xpath = "//td[text()='" + lessonName + "']";
 		return driver.findElement(By.xpath(xpath));
-	}
-
-	@FindBy(xpath = "//button[normalize-space()='Feedback']")
-	private List<WebElement> feedbackButtons;
-
-	@FindBy(xpath = "//textarea[@id='feedbackText']")
-	private WebElement feedbackTextAreaField;
-
-	@FindBy(xpath = "//button[@id='feedbackSubmitButton']")
-	private WebElement feedbackSubmitButton;
-
-	public void enterFeedBack(String feedbackComment) {
-		SeleniumUtils.type(driver, feedbackTextAreaField, feedbackComment, timeout);
-	}
-
-	public void clickFeedbackSubmitButton() {
-		SeleniumUtils.click(driver, feedbackSubmitButton, timeout);
-	}
-
-	public void clickFeedbackButton(String feedbackComment) {
-		try {
-			for (WebElement feedbackButton : feedbackButtons) {
-				SeleniumUtils.scrollToElementByVisibleText(driver, feedbackButton.getText());
-				SeleniumUtils.click(driver, feedbackButton, timeout);
-				enterFeedBack(feedbackComment);
-				clickFeedbackSubmitButton();
-				clickPopupOkButton();
-			}
-		} catch (Exception e) {
-			System.out.println("Feedback buttons not found");
-		}
 	}
 
 	public void clickOnGradeButtonWithRetries(int maxRetries) {

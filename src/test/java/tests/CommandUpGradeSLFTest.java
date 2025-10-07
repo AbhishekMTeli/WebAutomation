@@ -15,6 +15,7 @@ import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingMangeSectorPage;
 import commandUpgradeSLFPages.CommandUpgradeSLFTraineeGradingSallabusPage;
 import commonPages.GradingHistoryPage;
 import commonPages.LogoutPage;
+import commonPages.PendingHistoryPage;
 import commonPages.PopupPages;
 import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
@@ -32,6 +33,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 	private GradingHistoryPage gradingHistoryPage;
 	private TraineeReviewPage traineeReviewPage;
 	private LogoutPage logoutPage;
+	private PendingHistoryPage pendingHistoryPage;
 	private PopupPages popupPages;
 	private String traineeIdWithName;
 	private String traineeId;
@@ -51,6 +53,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		logoutPage = new LogoutPage(getDriver());
 		gradingHistoryPage = new GradingHistoryPage(getDriver());
 		popupPages = new PopupPages(getDriver());
+		pendingHistoryPage = new PendingHistoryPage(getDriver());
 
 	}
 
@@ -63,7 +66,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -110,7 +113,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -131,7 +134,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 
@@ -159,7 +162,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.clickOverallOutcomeTab();
@@ -183,7 +186,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.clickSyllabusTab();
@@ -206,7 +209,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -231,7 +234,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -256,7 +259,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -281,7 +284,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -306,7 +309,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -330,7 +333,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -347,7 +350,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -364,7 +367,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -381,7 +384,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -396,7 +399,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("8");
@@ -411,7 +414,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -439,7 +442,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -468,7 +471,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -499,7 +502,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 
@@ -542,7 +545,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 
@@ -588,7 +591,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -624,7 +627,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -661,7 +664,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -698,7 +701,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -737,7 +740,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -766,7 +769,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -801,7 +804,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -861,7 +864,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -916,7 +919,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -974,7 +977,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -1034,7 +1037,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickFeedbackButton("adding feedback comments");
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		traineeGradingPage.handelNoSlfHistoryPopup();
 		manageSectorPage.selectNoOfSectors("1");
@@ -1092,6 +1095,9 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
 		
+		pendingHistoryPage.clickReviewButton();
+
+		// General Info has been updated.
 	}
 
 //	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15", dependsOnMethods = "e2eHappyPathTestForCommandUpgradeSLF")
