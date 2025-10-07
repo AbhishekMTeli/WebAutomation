@@ -55,7 +55,7 @@ public class PendingHistoryPage {
 	private WebElement searchTextField;
 
 	@FindBy(xpath = "//button[normalize-space()='Review']")
-	private WebElement reviewButton;
+	private List<WebElement> reviewButtons;
 
 	@FindBy(xpath = "//label[normalize-space(text())='Do you want to update the general info?']")
 	private WebElement updateGeneralInfoPopupLabel;
@@ -71,7 +71,7 @@ public class PendingHistoryPage {
 	}
 
 	public void clickReviewButton() {
-		SeleniumUtils.click(driver, reviewButton, timeout);
+		SeleniumUtils.click(driver, reviewButtons.get(0), timeout);
 	}
 
 	public void clickUpdateGeneralInfoPopupYesButton() {

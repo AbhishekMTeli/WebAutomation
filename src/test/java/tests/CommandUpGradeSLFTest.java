@@ -1094,10 +1094,20 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		
+		System.out.println("passed here");
+		pendingHistoryPage.validatePengingGradingStaticTexts();
+		System.out.println("Failed here");
+		pendingHistoryPage.enterSearchText(traineeId);
 		pendingHistoryPage.clickReviewButton();
-
-		// General Info has been updated.
+		manageSectorPage.selectPMRadio();
+		manageSectorPage.clickNextButton();
+		String actualResult = pendingHistoryPage.popupGetText();
+		String expectedResult = "General Info has been updated.";
+		Assert.assertEquals(actualResult, expectedResult,
+				"Text Mismatch: expected '" + expectedResult + "' but got '" + actualResult + "'");
+		pendingHistoryPage.clickUpdateGeneralInfoPopupNoButton();
+		manageSectorPage.clickNextButton();
+		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 	}
 
 //	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15", dependsOnMethods = "e2eHappyPathTestForCommandUpgradeSLF")
