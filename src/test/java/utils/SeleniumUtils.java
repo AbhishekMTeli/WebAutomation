@@ -67,7 +67,7 @@ public class SeleniumUtils {
 	}
 
 	public static String getText(WebElement element) {
-		return element.getText().trim();
+		return element.getText().replaceAll("\\s+", " ").trim();
 	}
 
 	// Click the first element matching a predicate using Java Streams

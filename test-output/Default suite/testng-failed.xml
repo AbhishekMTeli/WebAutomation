@@ -7,9 +7,9 @@
         <methods>
           <include name="tearDown"/>
           <include name="initPages"/>
+          <include name="validateAdminCanMarkForReviewWithComments"/>
           <include name="setUp"/>
           <include name="tearDownExtent"/>
-          <include name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview"/>
           <include name="setUpExtent"/>
         </methods>
       </class> <!-- tests.CommandUpGradeSLFTest -->

@@ -3,6 +3,7 @@ package traineePages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -131,6 +132,18 @@ public class TraineeReviewPage {
 
 	@FindBy(xpath = "//label[normalize-space(text())='Are you sure you want to mark this event for review by trainer ?']")
 	private WebElement markForReviewConfirmationLabel;
+
+	public void markForReviewButtonNotVisible() {
+		try {
+			boolean isVisible = markForReviewButton.isDisplayed();
+			System.out.println("Is Mark for Review button visible? " + isVisible);
+			Assert.assertFalse(isVisible, "Mark for Review button should not be visible");
+		} catch (NoSuchElementException e) {
+			// Element not found: treat as not visible
+			System.out.println("Mark for Review button not found in DOM, considered not visible");
+			Assert.assertTrue(true);
+		}
+	}
 
 	public String getMarkForReviewConfirmationText() {
 		SeleniumUtils.waitForVisibility(driver, markForReviewConfirmationLabel, timeout);

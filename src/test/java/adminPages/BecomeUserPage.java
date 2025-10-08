@@ -30,6 +30,23 @@ public class BecomeUserPage {
 		SeleniumUtils.type(driver, userIdField, trainerId, timeout);
 	}
 
+	@FindBy(xpath = "//span[contains(text(),'Hi,')]")
+	private WebElement traineeNameandId;
+
+	public String getTraineeIdWithName() {
+		SeleniumUtils.waitForVisibility(driver, traineeNameandId, timeout);
+		return traineeNameandId.getText();
+	}
+
+	public String getTraineeId() {
+		System.out.println(getTraineeIdWithName());
+		String fullNameWithId = getTraineeIdWithName();
+		if (fullNameWithId != null) {
+			return fullNameWithId.replaceAll(".*\\((\\d+)\\).*", "$1");
+		}
+		return null;
+	}
+
 	public void sendTraineeId(String traineeId) {
 		userIdField.clear();
 		SeleniumUtils.type(driver, userIdField, traineeId, timeout);

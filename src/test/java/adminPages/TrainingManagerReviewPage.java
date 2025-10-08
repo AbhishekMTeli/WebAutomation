@@ -97,11 +97,20 @@ public class TrainingManagerReviewPage {
 	@FindBy(xpath = "//label[normalize-space(text())='Are you sure you want to Approve?']")
 	private WebElement areSureYouWantToApproveLabel;
 
+	@FindBy(xpath = "//label[normalize-space(text())='Are you sure you want to mark this event for review by trainer ?']")
+	private WebElement areSureYouWantToMarkForReview;
+
 	@FindBy(xpath = "//button[@id='home_button_yes']")
-	private WebElement yesButton;
+	private WebElement yesButtonForApprove;
 
 	@FindBy(xpath = "//button[@id='home_button_no']")
-	private WebElement noButton;
+	private WebElement noButtonForApprove;
+
+	@FindBy(xpath = "//button[@id='markForReview_button_yes']")
+	private WebElement yesButtonForReview;
+
+	@FindBy(xpath = "//button[@id='markForReview_button_yes']")
+	private WebElement noButtonForReview;
 
 	public void searchforTrainee(String traineeId) {
 		SeleniumUtils.type(driver, searchTextField, traineeId, timeout);
@@ -109,6 +118,10 @@ public class TrainingManagerReviewPage {
 
 	public void clickViewButton() {
 		SeleniumUtils.click(driver, viewButton, timeout);
+	}
+
+	public void presenceOfViewButton() {
+		SeleniumUtils.waitForVisibility(driver, viewButton, 60);
 	}
 
 	public void clickCloseIcon() {
@@ -124,6 +137,7 @@ public class TrainingManagerReviewPage {
 	}
 
 	public void clickApproveButton() {
+		SeleniumUtils.waitForClickability(driver, approveButton, timeout);
 		SeleniumUtils.click(driver, approveButton, timeout);
 	}
 
@@ -139,21 +153,52 @@ public class TrainingManagerReviewPage {
 		SeleniumUtils.click(driver, feedBackButton, timeout);
 	}
 
-	public void clickYesButton() {
-		SeleniumUtils.click(driver, yesButton, timeout);
+	public void clickYesButtonForApprove() {
+		SeleniumUtils.click(driver, yesButtonForApprove, timeout);
 	}
 
-	public void clickNoButton() {
-		SeleniumUtils.click(driver, noButton, timeout);
+	public void clickNoButtonForApprove() {
+		SeleniumUtils.click(driver, noButtonForApprove, timeout);
+	}
+
+	public void clickYesButtonForReview() {
+		SeleniumUtils.click(driver, yesButtonForReview, timeout);
+	}
+
+	public void clickNoButtonForReview() {
+		SeleniumUtils.click(driver, noButtonForReview, timeout);
 	}
 
 	public void validateTextAreSureYouWantToApprove() {
+		SeleniumUtils.waitForVisibility(driver, areSureYouWantToApproveLabel, timeout);
 		Assert.assertEquals(SeleniumUtils.getText(areSureYouWantToApproveLabel), "Are you sure you want to Approve?",
 				"Are you sure you want to Approve? Label Mismatch");
+	}
+
+	public void validateTextAreSureYouWantToMarkForReview() {
+		SeleniumUtils.waitForVisibility(driver, areSureYouWantToMarkForReview, timeout);
+		Assert.assertEquals(SeleniumUtils.getText(areSureYouWantToMarkForReview),
+				"Are you sure you want to mark this event for review by trainer ?",
+				"'Are you sure you want to mark this event for review by trainer ?' Label Mismatch");
 	}
 
 	public void validateTrainingRecordsApproval() {
 		Assert.assertEquals(SeleniumUtils.getText(trainingRecordsPopupHeader), "Training Records Approval",
 				"Training Records Approval Label Mismatch");
+	}
+
+	@FindBy(xpath = "//div[@id='popup']")
+	private WebElement popUpLabel;
+
+	@FindBy(xpath = "//span[text()='OK']")
+	private WebElement popUpOkButton;
+
+	public String getTextOfPopup() {
+		SeleniumUtils.waitForVisibility(driver, popUpLabel, timeout);
+		return SeleniumUtils.getText(popUpLabel);
+	}
+
+	public void clickOkPopupButton() {
+		SeleniumUtils.click(driver, popUpOkButton, timeout);
 	}
 }

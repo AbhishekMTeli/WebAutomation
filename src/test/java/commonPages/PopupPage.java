@@ -8,12 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
-public class PopupPages {
+public class PopupPage {
 
 	private WebDriver driver;
 	private int timeout;
 
-	public PopupPages(WebDriver driver) {
+	public PopupPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		this.timeout = Integer.parseInt(ConfigReader.get("timeout"));
