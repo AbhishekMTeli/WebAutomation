@@ -106,10 +106,10 @@ public class TrainingManagerReviewPage {
 	@FindBy(xpath = "//button[@id='home_button_no']")
 	private WebElement noButtonForApprove;
 
-	@FindBy(xpath = "//button[@id='markForReview_button_yes']")
+	@FindBy(xpath = "//button[normalize-space(@id)='markForReview_button_yes']")
 	private WebElement yesButtonForReview;
 
-	@FindBy(xpath = "//button[@id='markForReview_button_yes']")
+	@FindBy(xpath = "//button[normalize-space(@id)='markForReview_button_no']")
 	private WebElement noButtonForReview;
 
 	public void searchforTrainee(String traineeId) {
@@ -133,6 +133,7 @@ public class TrainingManagerReviewPage {
 	}
 
 	public void enterComment(String comment) {
+		SeleniumUtils.waitForVisibility(driver, commentTextAreaField, timeout);
 		SeleniumUtils.type(driver, commentTextAreaField, comment, timeout);
 	}
 
