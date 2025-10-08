@@ -1099,12 +1099,12 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		pendingHistoryPage.enterSearchText(traineeId);
 		pendingHistoryPage.clickReviewButton();
 		manageSectorPage.selectPMRadio();
-		manageSectorPage.clickNextButton();
-		manageSectorPage.enterDuration("45:00");
+//		manageSectorPage.enterDuration("45:00");
 		manageSectorPage.enterFrom();
 		manageSectorPage.enterTo();
 		manageSectorPage.enterRegNo();
 		manageSectorPage.enterAircraftType();
+		manageSectorPage.clickNextButton();
 		pendingHistoryPage.clickUpdateGeneralInfoPopupNoButton();
 		manageSectorPage.clickNextButton();
 		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
