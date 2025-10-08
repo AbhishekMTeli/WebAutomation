@@ -29,7 +29,7 @@ public class BecomeUserPage {
 		String trainerId = ConfigReader.get("trainerId");
 		SeleniumUtils.type(driver, userIdField, trainerId, timeout);
 	}
-	
+
 	public void sendTraineeId(String traineeId) {
 		userIdField.clear();
 		SeleniumUtils.type(driver, userIdField, traineeId, timeout);

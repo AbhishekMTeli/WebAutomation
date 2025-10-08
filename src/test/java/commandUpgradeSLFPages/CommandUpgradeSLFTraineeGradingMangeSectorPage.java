@@ -191,6 +191,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 	}
 
 	public void enterDuration(String duration) {
+		SeleniumUtils.waitForVisibility(driver, durationField, timeout);
 		SeleniumUtils.type(driver, durationField, duration, timeout);
 	}
 
@@ -343,6 +344,7 @@ public class CommandUpgradeSLFTraineeGradingMangeSectorPage {
 	}
 
 	public void clickNextButton() {
+		SeleniumUtils.waitForClickability(driver, nextButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, nextButton.getText());
 		SeleniumUtils.click(driver, nextButton, timeout);
 	}

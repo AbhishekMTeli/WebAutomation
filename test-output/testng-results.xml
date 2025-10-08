@@ -2,16 +2,16 @@
 <testng-results ignored="31" total="32" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-07T15:22:14 IST" name="Default suite" finished-at="2025-10-07T15:24:41 IST" duration-ms="146335">
+  <suite started-at="2025-10-07T18:23:10 IST" name="Default suite" finished-at="2025-10-07T18:26:20 IST" duration-ms="189639">
     <groups>
     </groups>
-    <test started-at="2025-10-07T15:22:14 IST" name="Default test" finished-at="2025-10-07T15:24:41 IST" duration-ms="146335">
+    <test started-at="2025-10-07T18:23:10 IST" name="Default test" finished-at="2025-10-07T18:26:20 IST" duration-ms="189639">
       <class name="tests.CommandUpGradeSLFTest">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T15:22:14 IST" name="setUpExtent" finished-at="2025-10-07T15:22:14 IST" duration-ms="182" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T18:23:10 IST" name="setUpExtent" finished-at="2025-10-07T18:23:10 IST" duration-ms="185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T15:22:14 IST" name="setUp" finished-at="2025-10-07T15:22:31 IST" duration-ms="16795" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T18:23:10 IST" name="setUp" finished-at="2025-10-07T18:23:23 IST" duration-ms="12625" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,23 +27,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T15:22:31 IST" name="initPages" finished-at="2025-10-07T15:22:31 IST" duration-ms="49" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T18:23:23 IST" name="initPages" finished-at="2025-10-07T18:23:23 IST" duration-ms="47" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateTraineeCanMarkFormForReview()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T15:22:31 IST" name="validateTraineeCanMarkFormForReview" description="Validate trainee can mark the submitted form for review" finished-at="2025-10-07T15:24:39 IST" duration-ms="128139" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+        <test-method signature="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T18:23:23 IST" name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview" description="Validate trainer can see action under pending grading after trainee marks form for review" finished-at="2025-10-07T18:26:19 IST" duration-ms="175962" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //span[normalize-space(text())='Grading & Assessment']' (tried for 5 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[Text Mismatch: expected 'General Info has been updated.' but got 'Please enter duration.' expected [General Info has been updated.] but found [Please enter duration.]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //span[normalize-space(text())='Grading & Assessment']' (tried for 5 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at utils.SeleniumUtils.waitForClickability(SeleniumUtils.java:37)
-at utils.SeleniumUtils.click(SeleniumUtils.java:48)
-at traineePages.TraineeReviewPage.clickGradingAndAssessmentTab(TraineeReviewPage.java:79)
-at tests.CommandUpGradeSLFTest.validateTraineeCanMarkFormForReview(CommandUpGradeSLFTest.java:1017)
+              <![CDATA[java.lang.AssertionError: Text Mismatch: expected 'General Info has been updated.' but got 'Please enter duration.' expected [General Info has been updated.] but found [Please enter duration.]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at tests.CommandUpGradeSLFTest.validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview(CommandUpGradeSLFTest.java:1110)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -70,57 +70,24 @@ at org.testng.TestNG.run(TestNG.java:1079)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[normalize-space(text())='Grading & Assessment']"}
-  (Session info: chrome=141.0.7390.54)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.6.1', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ae02a4491833f772271948a21c162318, findElement {value=//span[normalize-space(text())='Grading & Assessment'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.54, chrome: {chromedriverVersion: 141.0.7390.54 (b95610d5c4a5..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61480}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61480/devtoo..., se:cdpVersion: 141.0.7390.54, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ae02a4491833f772271948a21c162318
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at jdk.proxy2/jdk.proxy2.$Proxy18.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
-at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-... 30 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateTraineeCanMarkFormForReview -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T15:24:39 IST" name="tearDown" finished-at="2025-10-07T15:24:41 IST" duration-ms="1328" status="PASS">
+        </test-method> <!-- validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T18:26:19 IST" name="tearDown" finished-at="2025-10-07T18:26:20 IST" duration-ms="983" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateTraineeCanMarkFormForReview status=FAILURE method=CommandUpGradeSLFTest.validateTraineeCanMarkFormForReview()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff] output={null}]]]>
+                <![CDATA[[TestResult name=validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview status=FAILURE method=CommandUpGradeSLFTest.validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T15:24:41 IST" name="tearDownExtent" finished-at="2025-10-07T15:24:41 IST" duration-ms="218" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@2dde1bff]" started-at="2025-10-07T18:26:20 IST" name="tearDownExtent" finished-at="2025-10-07T18:26:20 IST" duration-ms="345" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

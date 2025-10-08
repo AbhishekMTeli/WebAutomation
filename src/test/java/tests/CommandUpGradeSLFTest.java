@@ -1087,31 +1087,31 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		traineeReviewPage.clickMarkForReviewButton();
 		traineeReviewPage.clickYesButton();
 		traineeReviewPage.validateAllStaticElements();
-		System.out.println("clicking on profile icon");
 		logoutPage.clickProfileIcon();
-		System.out.println("clikced on profile icon");
-		System.out.println("clicking on logout button");
 		logoutPage.clickLogoutButton();
-		System.out.println("clicked on logout button");
+		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		System.out.println("passed here");
 		pendingHistoryPage.validatePengingGradingStaticTexts();
-		System.out.println("Failed here");
 		pendingHistoryPage.enterSearchText(traineeId);
 		pendingHistoryPage.clickReviewButton();
 		manageSectorPage.selectPMRadio();
 		manageSectorPage.clickNextButton();
+		manageSectorPage.enterDuration("45:00");
+		manageSectorPage.enterFrom();
+		manageSectorPage.enterTo();
+		manageSectorPage.enterRegNo();
+		manageSectorPage.enterAircraftType();
+		pendingHistoryPage.clickUpdateGeneralInfoPopupNoButton();
+		manageSectorPage.clickNextButton();
+		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 		String actualResult = pendingHistoryPage.popupGetText();
 		String expectedResult = "General Info has been updated.";
 		Assert.assertEquals(actualResult, expectedResult,
 				"Text Mismatch: expected '" + expectedResult + "' but got '" + actualResult + "'");
-		pendingHistoryPage.clickUpdateGeneralInfoPopupNoButton();
-		manageSectorPage.clickNextButton();
-		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 	}
 
 //	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15", dependsOnMethods = "e2eHappyPathTestForCommandUpgradeSLF")
@@ -1127,6 +1127,4 @@ public class CommandUpGradeSLFTest extends BaseClass {
 //		Thread.sleep(5000);
 //		// traineeGradingPage.clickFeedbackButton("adding feedback comments");
 //	}
-
-	// 45136
 }

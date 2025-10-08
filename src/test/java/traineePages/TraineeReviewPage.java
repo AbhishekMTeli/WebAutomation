@@ -51,6 +51,7 @@ public class TraineeReviewPage {
 	private WebElement viewLabel;
 
 	public void validateAllStaticElements() {
+		driver.navigate().refresh();
 		SeleniumUtils.waitForVisibility(driver, scheduledDateLabel, 60);
 		Assert.assertEquals(scheduledDateLabel.getText(), "Scheduled Date", "Scheduled Date label mismatch!");
 		Assert.assertEquals(traineeLabel.getText(), "Trainee", "Trainee label mismatch!");
@@ -76,7 +77,7 @@ public class TraineeReviewPage {
 	private List<WebElement> viewButtons;
 
 	public void clickGradingAndAssessmentTab() {
-		SeleniumUtils.click(driver, gradingAndAssessmentTab, timeout);
+		SeleniumUtils.click(driver, gradingAndAssessmentTab, 10);
 	}
 
 	public void clickTraineeReviewTab() {
