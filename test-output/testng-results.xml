@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="35" total="36" passed="1" failed="0" skipped="0">
+<testng-results ignored="36" total="37" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-08T17:51:49 IST" name="Default suite" finished-at="2025-10-08T17:54:18 IST" duration-ms="148839">
+  <suite started-at="2025-10-09T11:58:16 IST" name="Default suite" finished-at="2025-10-09T12:00:51 IST" duration-ms="155515">
     <groups>
     </groups>
-    <test started-at="2025-10-08T17:51:49 IST" name="Default test" finished-at="2025-10-08T17:54:18 IST" duration-ms="148839">
+    <test started-at="2025-10-09T11:58:16 IST" name="Default test" finished-at="2025-10-09T12:00:51 IST" duration-ms="155515">
       <class name="tests.CommandUpGradeSLFTest">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@247d8ae]" started-at="2025-10-08T17:51:49 IST" name="setUpExtent" finished-at="2025-10-08T17:51:49 IST" duration-ms="163" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:15 IST" name="setUpExtent" finished-at="2025-10-09T11:58:16 IST" duration-ms="324" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLFTest@247d8ae]" started-at="2025-10-08T17:51:49 IST" name="setUp" finished-at="2025-10-08T17:52:01 IST" duration-ms="12057" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:16 IST" name="setUp" finished-at="2025-10-09T11:58:34 IST" duration-ms="18743" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,26 +27,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLFTest@247d8ae]" started-at="2025-10-08T17:52:01 IST" name="initPages" finished-at="2025-10-08T17:52:01 IST" duration-ms="49" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:34 IST" name="initPages" finished-at="2025-10-09T11:58:34 IST" duration-ms="50" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateAdminCanMarkForReviewWithComments()[pri:0, instance:tests.CommandUpGradeSLFTest@247d8ae]" started-at="2025-10-08T17:52:01 IST" name="validateAdminCanMarkForReviewWithComments" description="Validate admin can mark for review with adding comments" finished-at="2025-10-08T17:54:17 IST" duration-ms="136095" status="PASS">
+        <test-method signature="validateMarkForReviewButtonAbsentAfterTrainerSubmission()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:34 IST" name="validateMarkForReviewButtonAbsentAfterTrainerSubmission" description="Validate &quot;Mark for Review&quot; button absence after trainer form submission" finished-at="2025-10-09T12:00:50 IST" duration-ms="136068" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateAdminCanMarkForReviewWithComments -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLFTest@247d8ae]" started-at="2025-10-08T17:54:17 IST" name="tearDown" finished-at="2025-10-08T17:54:18 IST" duration-ms="610" status="PASS">
+        </test-method> <!-- validateMarkForReviewButtonAbsentAfterTrainerSubmission -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T12:00:50 IST" name="tearDown" finished-at="2025-10-09T12:00:51 IST" duration-ms="619" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateAdminCanMarkForReviewWithComments status=SUCCESS method=CommandUpGradeSLFTest.validateAdminCanMarkForReviewWithComments()[pri:0, instance:tests.CommandUpGradeSLFTest@247d8ae] output={null}]]]>
+                <![CDATA[[TestResult name=validateMarkForReviewButtonAbsentAfterTrainerSubmission status=SUCCESS method=CommandUpGradeSLFTest.validateMarkForReviewButtonAbsentAfterTrainerSubmission()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@247d8ae]" started-at="2025-10-08T17:54:18 IST" name="tearDownExtent" finished-at="2025-10-08T17:54:18 IST" duration-ms="205" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T12:00:51 IST" name="tearDownExtent" finished-at="2025-10-09T12:00:51 IST" duration-ms="226" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

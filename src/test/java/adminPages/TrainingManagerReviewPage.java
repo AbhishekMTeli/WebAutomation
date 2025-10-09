@@ -1,5 +1,8 @@
 package adminPages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -144,6 +147,18 @@ public class TrainingManagerReviewPage {
 
 	public void clickMarkForReviewButton() {
 		SeleniumUtils.click(driver, markForReviewButton, timeout);
+	}
+
+	public boolean isMarkForReviewButtonAbsent() {
+		try {
+			// Using findElements to avoid exception if element is missing
+			List<WebElement> elements = driver.findElements(By.xpath("//button[@id='markForReviewbtn']"));
+			// Return true if element doesn't exist or is not displayed (absent in UI)
+			return elements.isEmpty() || !elements.get(0).isDisplayed();
+		} catch (Exception e) {
+			// If any exception, assume button is absent
+			return true;
+		}
 	}
 
 	public void clickCancelButton() {

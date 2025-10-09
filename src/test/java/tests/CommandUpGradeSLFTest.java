@@ -1431,6 +1431,133 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainingManagerReviewPage.clickOkPopupButton();
 	}
 
+	@Test(description = "Validate \"Mark for Review\" button absence after trainer form submission")
+	public void validateMarkForReviewButtonAbsentAfterTrainerSubmission() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		traineeGradingPage.handelNoSlfHistoryPopup();
+		manageSectorPage.selectNoOfSectors("1");
+		traineeIdWithName = manageSectorPage.getTrainerId();
+		System.out.println("Trainee Name and Id is " + traineeIdWithName);
+		traineeId = traineeIdWithName.replaceAll(".*\\((\\d+)\\).*", "$1");
+		manageSectorPage.enterFrom();
+		manageSectorPage.enterTo();
+		manageSectorPage.enterRegNo();
+		manageSectorPage.enterAircraftType();
+		manageSectorPage.selectPFRadio();
+		manageSectorPage.clickNextButton();
+		syllabusPage.clickAllVisibleAndInteractableNoButtons();
+		syllabusPage.clickNextButton();
+		outcomePage.performObAction("PRO", 3, "plus", "adding OB Comment");
+		outcomePage.clickObDoneButton("PRO");
+		outcomePage.addRemark("adding remarks");
+		outcomePage.competencyRemarksLabelIsPresent();
+		outcomePage.selectQualification();
+		outcomePage.clickSaveAndNextButton();
+		outcomePage.reasonForDelayLabelIsPresent();
+		outcomePage.addDelayComments("adding delay comments");
+		outcomePage.clickSubmitCommentButtonForDelayComment();
+		outcomePage.instructorAcknowldgementLabelIsPresent();
+		outcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		outcomePage.digitalSignitureLabelIsPresent();
+		outcomePage.digitalSign();
+		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		outcomePage.dataSuccessfullyUploadedIsPresent();
+		outcomePage.clickOkPop_up();
+		traineeGradingPage.validateAllStaticTexts();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.clickViewButton();
+		boolean isAbsent = trainingManagerReviewPage.isMarkForReviewButtonAbsent();
+		Assert.assertTrue(isAbsent, "Mark for Review button should be absent after trainer form submission");
+	}
+
+	@Test(description = "Validate approved form is visible under Approved Docs and can be viewed via Training Records Approval page")
+	public void validateApprovedFormVisibleUnderApprovedDocs() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		pendingHistoryPage.clickFeedbackButton("adding feedback comments");
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		traineeGradingPage.handelNoSlfHistoryPopup();
+		manageSectorPage.selectNoOfSectors("1");
+		traineeIdWithName = manageSectorPage.getTrainerId();
+		System.out.println("Trainee Name and Id is " + traineeIdWithName);
+		traineeId = traineeIdWithName.replaceAll(".*\\((\\d+)\\).*", "$1");
+		manageSectorPage.enterFrom();
+		manageSectorPage.enterTo();
+		manageSectorPage.enterRegNo();
+		manageSectorPage.enterAircraftType();
+		manageSectorPage.selectPFRadio();
+		manageSectorPage.clickNextButton();
+		syllabusPage.clickAllVisibleAndInteractableNoButtons();
+		syllabusPage.clickNextButton();
+		outcomePage.performObAction("PRO", 3, "plus", "adding OB Comment");
+		outcomePage.clickObDoneButton("PRO");
+		outcomePage.addRemark("adding remarks");
+		outcomePage.competencyRemarksLabelIsPresent();
+		outcomePage.selectQualification();
+		outcomePage.clickSaveAndNextButton();
+		outcomePage.reasonForDelayLabelIsPresent();
+		outcomePage.addDelayComments("adding delay comments");
+		outcomePage.clickSubmitCommentButtonForDelayComment();
+		outcomePage.instructorAcknowldgementLabelIsPresent();
+		outcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		outcomePage.digitalSignitureLabelIsPresent();
+		outcomePage.digitalSign();
+		outcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		outcomePage.dataSuccessfullyUploadedIsPresent();
+		outcomePage.clickOkPop_up();
+		traineeGradingPage.validateAllStaticTexts();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.enterComment("adding comments");
+		trainingManagerReviewPage.clickApproveButton();
+		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
+		trainingManagerReviewPage.clickYesButtonForApprove();
+		String actualText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedText = "OK Approved successfully";
+		Assert.assertEquals(actualText, expectedText,
+				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		trainingManagerReviewPage.clickOkPopupButton();
+	}
+
 //	@Test(description = "Validate that trainer cannot submit form if Total Sectors Completed exceeds 15", dependsOnMethods = "e2eHappyPathTestForCommandUpgradeSLF")
 //	public void test() throws InterruptedException {
 //		adminDashBoardPage.clickGradingAndAssessmentTab();
