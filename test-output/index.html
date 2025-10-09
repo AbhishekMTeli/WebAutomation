@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLFTest" class="method navigator-link" hash-for-method="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLFTest" class="method navigator-link" hash-for-method="validateReportDownloadAsZipWhenSingleCheckboxSelected">validateReportDownloadAsZipWhenSingleCheckboxSelected</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,11 +126,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected">
-                  </a> <!-- validateReportsDownloadAsZipWhenMultipleCheckboxesSelected -->
-                  <span class="method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
+                  <a name="validateReportDownloadAsZipWhenSingleCheckboxSelected">
+                  </a> <!-- validateReportDownloadAsZipWhenSingleCheckboxSelected -->
+                  <span class="method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
                   <em>
-(Validate reports can be downloaded as a .zip file when multiple checkboxes are selected)                  </em>
+(Validate reports can be downloaded as a .zip file when a single checkbox is selected)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-253985182/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-1692038653/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -149,7 +149,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;tests.CommandUpGradeSLFTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;validateReportsDownloadAsZipWhenMultipleCheckboxesSelected&quot;/&gt;
+          &lt;include name=&quot;validateReportDownloadAsZipWhenSingleCheckboxSelected&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.CommandUpGradeSLFTest --&gt;
     &lt;/classes&gt;
@@ -193,9 +193,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateReportsDownloadAsZipWhenMultipleCheckboxesSelected')
+data.setCell(0, 1, 'validateReportDownloadAsZipWhenSingleCheckboxSelected')
 data.setCell(0, 2, 'tests.CommandUpGradeSLFTest')
-data.setCell(0, 3, 134092);
+data.setCell(0, 3, 164718);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -241,8 +241,6 @@ return data;
                 <br/>
                 <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
                 <br/>
-                <span class="ignored-method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
-                <br/>
                 <span class="ignored-method-name">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</span>
                 <br/>
                 <span class="ignored-method-name">validateApprovedFormReportVisibleUnderEFormReports</span>
@@ -276,6 +274,8 @@ return data;
                 <span class="ignored-method-name">e2eHappyPathTestForCommandUpgradeSLF</span>
                 <br/>
                 <span class="ignored-method-name">shouldAllowNavigationFromSectorsToSyllabusAfterFillingData</span>
+                <br/>
+                <span class="ignored-method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
                 <br/>
                 <span class="ignored-method-name">shouldAutoSelectCompetentAndDisableNotYetCompetent</span>
                 <br/>
@@ -318,23 +318,23 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">176 ms</span>
+                <span class="method-start">202 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">10180 ms</span>
+                <span class="method-start">8374 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
-                <span class="method-start">10240 ms</span>
+                <span class="method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
+                <span class="method-start">8461 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=validateReportsDownloadAsZipWhenMultipleCheckboxesSelected status=SUCCESS method=Co...)</span>
-                <span class="method-start">144334 ms</span>
+                <span class="method-name">tearDown([TestResult name=validateReportDownloadAsZipWhenSingleCheckboxSelected status=SUCCESS method=Command...)</span>
+                <span class="method-start">173181 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">144980 ms</span>
+                <span class="method-start">173772 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
