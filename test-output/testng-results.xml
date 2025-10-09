@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="36" total="37" passed="1" failed="0" skipped="0">
+<testng-results ignored="40" total="41" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-09T11:58:16 IST" name="Default suite" finished-at="2025-10-09T12:00:51 IST" duration-ms="155515">
+  <suite started-at="2025-10-09T16:26:33 IST" name="Default suite" finished-at="2025-10-09T16:28:58 IST" duration-ms="144796">
     <groups>
     </groups>
-    <test started-at="2025-10-09T11:58:16 IST" name="Default test" finished-at="2025-10-09T12:00:51 IST" duration-ms="155515">
+    <test started-at="2025-10-09T16:26:33 IST" name="Default test" finished-at="2025-10-09T16:28:58 IST" duration-ms="144796">
       <class name="tests.CommandUpGradeSLFTest">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:15 IST" name="setUpExtent" finished-at="2025-10-09T11:58:16 IST" duration-ms="324" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@223aa2f7]" started-at="2025-10-09T16:26:33 IST" name="setUpExtent" finished-at="2025-10-09T16:26:33 IST" duration-ms="157" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:16 IST" name="setUp" finished-at="2025-10-09T11:58:34 IST" duration-ms="18743" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CommandUpGradeSLFTest@223aa2f7]" started-at="2025-10-09T16:26:33 IST" name="setUp" finished-at="2025-10-09T16:26:43 IST" duration-ms="10003" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,26 +27,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:34 IST" name="initPages" finished-at="2025-10-09T11:58:34 IST" duration-ms="50" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CommandUpGradeSLFTest@223aa2f7]" started-at="2025-10-09T16:26:43 IST" name="initPages" finished-at="2025-10-09T16:26:43 IST" duration-ms="59" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateMarkForReviewButtonAbsentAfterTrainerSubmission()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T11:58:34 IST" name="validateMarkForReviewButtonAbsentAfterTrainerSubmission" description="Validate &quot;Mark for Review&quot; button absence after trainer form submission" finished-at="2025-10-09T12:00:50 IST" duration-ms="136068" status="PASS">
+        <test-method signature="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected()[pri:0, instance:tests.CommandUpGradeSLFTest@223aa2f7]" started-at="2025-10-09T16:26:43 IST" name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected" description="Validate reports can be downloaded as a .zip file when multiple checkboxes are selected" finished-at="2025-10-09T16:28:57 IST" duration-ms="134092" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateMarkForReviewButtonAbsentAfterTrainerSubmission -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T12:00:50 IST" name="tearDown" finished-at="2025-10-09T12:00:51 IST" duration-ms="619" status="PASS">
+        </test-method> <!-- validateReportsDownloadAsZipWhenMultipleCheckboxesSelected -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CommandUpGradeSLFTest@223aa2f7]" started-at="2025-10-09T16:28:57 IST" name="tearDown" finished-at="2025-10-09T16:28:58 IST" duration-ms="619" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateMarkForReviewButtonAbsentAfterTrainerSubmission status=SUCCESS method=CommandUpGradeSLFTest.validateMarkForReviewButtonAbsentAfterTrainerSubmission()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45] output={null}]]]>
+                <![CDATA[[TestResult name=validateReportsDownloadAsZipWhenMultipleCheckboxesSelected status=SUCCESS method=CommandUpGradeSLFTest.validateReportsDownloadAsZipWhenMultipleCheckboxesSelected()[pri:0, instance:tests.CommandUpGradeSLFTest@223aa2f7] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@48974e45]" started-at="2025-10-09T12:00:51 IST" name="tearDownExtent" finished-at="2025-10-09T12:00:51 IST" duration-ms="226" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CommandUpGradeSLFTest@223aa2f7]" started-at="2025-10-09T16:28:58 IST" name="tearDownExtent" finished-at="2025-10-09T16:28:58 IST" duration-ms="203" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

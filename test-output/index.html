@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLFTest" class="method navigator-link" hash-for-method="validateMarkForReviewButtonAbsentAfterTrainerSubmission">validateMarkForReviewButtonAbsentAfterTrainerSubmission</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.CommandUpGradeSLFTest" class="method navigator-link" hash-for-method="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,11 +126,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validateMarkForReviewButtonAbsentAfterTrainerSubmission">
-                  </a> <!-- validateMarkForReviewButtonAbsentAfterTrainerSubmission -->
-                  <span class="method-name">validateMarkForReviewButtonAbsentAfterTrainerSubmission</span>
+                  <a name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected">
+                  </a> <!-- validateReportsDownloadAsZipWhenMultipleCheckboxesSelected -->
+                  <span class="method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
                   <em>
-(Validate "Mark for Review" button absence after trainer form submission)                  </em>
+(Validate reports can be downloaded as a .zip file when multiple checkboxes are selected)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--1604593462/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-253985182/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -149,7 +149,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;tests.CommandUpGradeSLFTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;validateMarkForReviewButtonAbsentAfterTrainerSubmission&quot;/&gt;
+          &lt;include name=&quot;validateReportsDownloadAsZipWhenMultipleCheckboxesSelected&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.CommandUpGradeSLFTest --&gt;
     &lt;/classes&gt;
@@ -193,9 +193,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateMarkForReviewButtonAbsentAfterTrainerSubmission')
+data.setCell(0, 1, 'validateReportsDownloadAsZipWhenMultipleCheckboxesSelected')
 data.setCell(0, 2, 'tests.CommandUpGradeSLFTest')
-data.setCell(0, 3, 136068);
+data.setCell(0, 3, 134092);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -215,83 +215,91 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">36 ignored methods</span>
+            <span class="header-content">40 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">tests.CommandUpGradeSLFTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">shouldShowErrorPopupWhenNavigatingFromManageSectorsToSyllabusWithoutCompletingFields</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</span>
-                <br/>
-                <span class="ignored-method-name">shouldNotDeleteOnlyRowInSectorDetails</span>
-                <br/>
-                <span class="ignored-method-name">shouldAutoSelectNotYetCompetentForValue1AndHandleOBs</span>
-                <br/>
-                <span class="ignored-method-name">shouldAllowManualSelectionOfCompetentOrNotYetCompetentForValue2</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowErrorPopupWhenDurationFieldIsEmpty</span>
-                <br/>
-                <span class="ignored-method-name">verifyDeleteFunctionalityForMultipleSectors</span>
-                <br/>
-                <span class="ignored-method-name">shouldAllowNavigationFromSectorsToSyllabusAfterFillingData</span>
-                <br/>
-                <span class="ignored-method-name">e2eHappyPathTestForCommandUpgradeSLF</span>
+                <span class="ignored-method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
                 <br/>
                 <span class="ignored-method-name">shouldShowDeletePopupForMultipleSectors</span>
                 <br/>
-                <span class="ignored-method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowErrorPopupWhenSwitchingFromGradingToOutcomeWithoutSaving</span>
-                <br/>
-                <span class="ignored-method-name">validateCommentRequirementAndRadioSelectionAcrossAllSections</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowPopupWhenSyllabusToggleIsDefaultOnNext</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowErrorPopupWhenAircraftTypeFieldIsEmptyOnSave</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowErrorPopupWhenFromFieldIsEmptyOnSave</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowErrorPopupWhenRegNoFieldIsEmptyOnSave</span>
+                <span class="ignored-method-name">shouldCloseDelayCommentPopupUsingCloseButtonAndXIcon</span>
                 <br/>
                 <span class="ignored-method-name">shouldNotAllowFormSubmissionWhenTotalSectorsExceedsFifteen</span>
                 <br/>
-                <span class="ignored-method-name">validateAdminCannotMarkForReviewWithoutComments</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCanAcknowledgeSubmittedForm</span>
-                <br/>
-                <span class="ignored-method-name">validateAdminCanApproveFormAfterTraineeAcknowledgement</span>
-                <br/>
-                <span class="ignored-method-name">validateAdminCanMarkForReviewWithComments</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCanMarkFormForReview</span>
-                <br/>
-                <span class="ignored-method-name">shouldShowErrorWhenDelayCommentIsEmpty</span>
-                <br/>
-                <span class="ignored-method-name">validateMandatoryOverallCommentsForNotYetCompetent</span>
-                <br/>
-                <span class="ignored-method-name">validateErrorWhenNoCompetentSelectionAfterAddingOBs</span>
-                <br/>
-                <span class="ignored-method-name">validateDataSubmissionPopup</span>
+                <span class="ignored-method-name">shouldShowErrorPopupWhenFromFieldIsEmptyOnSave</span>
                 <br/>
                 <span class="ignored-method-name">shouldShowErrorPopupWhenPMorPFNotSelectedOnSave</span>
                 <br/>
-                <span class="ignored-method-name">shouldShowErrorPopupWhenToFieldIsEmptyOnSave</span>
-                <br/>
                 <span class="ignored-method-name">validatePleaseEnterDuration</span>
                 <br/>
-                <span class="ignored-method-name">validateTrainerCanAccessSubmittedFormThroughGradingHistory</span>
+                <span class="ignored-method-name">shouldShowPopupWhenSyllabusToggleIsDefaultOnNext</span>
+                <br/>
+                <span class="ignored-method-name">validateCommentRequirementAndRadioSelectionAcrossAllSections</span>
+                <br/>
+                <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
+                <br/>
+                <span class="ignored-method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
+                <br/>
+                <span class="ignored-method-name">shouldShowErrorWhenAddingCommentsWithoutSelectingOBs</span>
+                <br/>
+                <span class="ignored-method-name">validateApprovedFormReportVisibleUnderEFormReports</span>
+                <br/>
+                <span class="ignored-method-name">shouldAllowManualSelectionOfCompetentOrNotYetCompetentForValue2</span>
+                <br/>
+                <span class="ignored-method-name">shouldShowErrorPopupWhenToFieldIsEmptyOnSave</span>
+                <br/>
+                <span class="ignored-method-name">validateAdminCanApproveFormAfterTraineeAcknowledgement</span>
+                <br/>
+                <span class="ignored-method-name">validateMandatoryOverallCommentsForNotYetCompetent</span>
+                <br/>
+                <span class="ignored-method-name">verifyDeleteFunctionalityForMultipleSectors</span>
+                <br/>
+                <span class="ignored-method-name">validateAdminCanMarkForReviewWithComments</span>
+                <br/>
+                <span class="ignored-method-name">shouldShowErrorWhenDelayCommentIsEmpty</span>
                 <br/>
                 <span class="ignored-method-name">validateSignCanvas</span>
                 <br/>
-                <span class="ignored-method-name">shouldCloseDelayCommentPopupUsingCloseButtonAndXIcon</span>
+                <span class="ignored-method-name">validateTraineeCanMarkFormForReview</span>
+                <br/>
+                <span class="ignored-method-name">validateErrorWhenNoCompetentSelectionAfterAddingOBs</span>
+                <br/>
+                <span class="ignored-method-name">validateMarkForReviewButtonAbsentAfterTrainerSubmission</span>
+                <br/>
+                <span class="ignored-method-name">validateTrainerCanAccessSubmittedFormThroughGradingHistory</span>
+                <br/>
+                <span class="ignored-method-name">shouldShowErrorPopupWhenRegNoFieldIsEmptyOnSave</span>
+                <br/>
+                <span class="ignored-method-name">e2eHappyPathTestForCommandUpgradeSLF</span>
+                <br/>
+                <span class="ignored-method-name">shouldAllowNavigationFromSectorsToSyllabusAfterFillingData</span>
+                <br/>
+                <span class="ignored-method-name">shouldAutoSelectCompetentAndDisableNotYetCompetent</span>
                 <br/>
                 <span class="ignored-method-name">validateMandatoryQualificationDropdown</span>
                 <br/>
-                <span class="ignored-method-name">shouldAutoSelectCompetentAndDisableNotYetCompetent</span>
+                <span class="ignored-method-name">shouldShowErrorPopupWhenSwitchingFromGradingToOutcomeWithoutSaving</span>
+                <br/>
+                <span class="ignored-method-name">validateAdminCannotMarkForReviewWithoutComments</span>
+                <br/>
+                <span class="ignored-method-name">shouldShowErrorPopupWhenNavigatingFromManageSectorsToSyllabusWithoutCompletingFields</span>
+                <br/>
+                <span class="ignored-method-name">shouldAutoSelectNotYetCompetentForValue1AndHandleOBs</span>
+                <br/>
+                <span class="ignored-method-name">validateTraineeCanAcknowledgeSubmittedForm</span>
+                <br/>
+                <span class="ignored-method-name">shouldShowErrorPopupWhenDurationFieldIsEmpty</span>
+                <br/>
+                <span class="ignored-method-name">shouldNotDeleteOnlyRowInSectorDetails</span>
+                <br/>
+                <span class="ignored-method-name">shouldShowErrorPopupWhenAircraftTypeFieldIsEmptyOnSave</span>
+                <br/>
+                <span class="ignored-method-name">validateApprovedFormVisibleUnderApprovedDocs</span>
+                <br/>
+                <span class="ignored-method-name">validateDataSubmissionPopup</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -310,23 +318,23 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">354 ms</span>
+                <span class="method-start">176 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">19098 ms</span>
+                <span class="method-start">10180 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">validateMarkForReviewButtonAbsentAfterTrainerSubmission</span>
-                <span class="method-start">19149 ms</span>
+                <span class="method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
+                <span class="method-start">10240 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=validateMarkForReviewButtonAbsentAfterTrainerSubmission status=SUCCESS method=Comma...)</span>
-                <span class="method-start">155220 ms</span>
+                <span class="method-name">tearDown([TestResult name=validateReportsDownloadAsZipWhenMultipleCheckboxesSelected status=SUCCESS method=Co...)</span>
+                <span class="method-start">144334 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">155867 ms</span>
+                <span class="method-start">144980 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

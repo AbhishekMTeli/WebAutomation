@@ -2,6 +2,8 @@ package adminPages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,14 +49,14 @@ public class EFormReportsPage {
 
 	public void validateAllStaticElements() {
 		SeleniumUtils.waitForVisibility(driver, traineeNameLabel, timeout);
-		Assert.assertEquals(traineeNameLabel.getText(), "Trainee Name[IGA]']", "Trainee Name[IGA]'] label mismatch!");
+		Assert.assertEquals(traineeNameLabel.getText(), "Trainee Name[IGA]", "Trainee Name[IGA]] label mismatch!");
 		Assert.assertEquals(trainerNameLabel.getText(), "Trainer Name[IGA]", "Trainer Name[IGA] label mismatch!");
 		Assert.assertEquals(cirriculumDescriptionLabel.getText(), "Curriculum Description",
 				"Curriculum Description label mismatch!");
 		Assert.assertEquals(lessonDetailsLabel.getText(), "Lesson Details", "Lesson Details label mismatch!");
 		Assert.assertEquals(completeDateLabel.getText(), "Completed Date", "Completed Date label mismatch!");
 		Assert.assertEquals(actionLabel.getText(), "Action", "Action label mismatch!");
-		Assert.assertEquals(dateRangeLabel.getText(), "Date range", "Date range label mismatch!");
+		Assert.assertEquals(dateRangeLabel.getText(), "Date range*", "Date range label mismatch!");
 		Assert.assertEquals(formReportsLabel.getText(), "Form Reports", "Form Reports label mismatch!");
 	}
 
@@ -85,9 +87,6 @@ public class EFormReportsPage {
 	@FindBy(xpath = "//a[@class='paginate_button >|']")
 	private WebElement paginateToLastPageButton;
 
-	@FindBy(xpath = "//label[contains(@for,'jasper')]")
-	private List<WebElement> checkBoxes;
-
 	public void searchForTrainee(String trineeId) {
 		SeleniumUtils.type(driver, searchTextField, trineeId, timeout);
 	}
@@ -111,6 +110,7 @@ public class EFormReportsPage {
 	}
 
 	public void clickDownloadButtton() {
+		SeleniumUtils.scrollToTopOfPage(driver);
 		SeleniumUtils.click(driver, downloadButton, timeout);
 	}
 
@@ -128,9 +128,12 @@ public class EFormReportsPage {
 		SeleniumUtils.click(driver, paginateToLastPageButton, timeout);
 	}
 
-	public void clickCheckBoxesButtton() {
-		for (WebElement checkBox : checkBoxes) {
-			SeleniumUtils.click(driver, checkBox, timeout);
+	public void clickCheckBoxesButton() {
+		List<WebElement> inputs = driver.findElements(By.xpath("//input[contains(@id,'jasper')]"));
+
+		for (WebElement input : inputs) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input);
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", input);
 		}
 	}
 

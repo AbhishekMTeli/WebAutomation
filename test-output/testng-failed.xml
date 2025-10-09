@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="initPages"/>
-          <include name="validateAdminCanMarkForReviewWithComments"/>
+          <include name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected"/>
           <include name="setUp"/>
           <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
