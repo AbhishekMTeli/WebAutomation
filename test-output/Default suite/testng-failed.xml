@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.CommandUpGradeSLFTest">
+      <class name="tests.CA40Test">
         <methods>
-          <include name="tearDown"/>
           <include name="initPages"/>
-          <include name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="test"/>
           <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
         </methods>
-      </class> <!-- tests.CommandUpGradeSLFTest -->
+      </class> <!-- tests.CA40Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

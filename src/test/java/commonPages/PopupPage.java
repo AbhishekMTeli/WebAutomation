@@ -25,9 +25,28 @@ public class PopupPage {
 	@FindBy(xpath = "//span[contains(text(),'OK')]")
 	private WebElement alertOkButton;
 
-	public String popupGetText() {
+	public String alertGetText() {
 		SeleniumUtils.waitForVisibility(driver, alertLabel, timeout);
 		return SeleniumUtils.getText(alertLabel);
+	}
+
+	public void clickAlertOkButton() {
+		SeleniumUtils.click(driver, alertOkButton, timeout);
+	}
+
+	@FindBy(xpath = "//div[@id='popup']")
+	private WebElement popupLabel;
+
+	@FindBy(xpath = "//span[text()='OK']")
+	private WebElement popupOkButton;
+
+	public String popupGetText() {
+		SeleniumUtils.waitForVisibility(driver, popupLabel, timeout);
+		return SeleniumUtils.getText(popupLabel);
+	}
+
+	public void clickPopupOkButton() {
+		SeleniumUtils.click(driver, popupOkButton, timeout);
 	}
 
 }

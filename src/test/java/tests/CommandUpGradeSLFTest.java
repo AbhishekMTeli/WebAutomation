@@ -1430,7 +1430,7 @@ public class CommandUpGradeSLFTest extends BaseClass {
 		trainingManagerReviewPage.clickMarkForReviewButton();
 		trainingManagerReviewPage.validateTextAreSureYouWantToMarkForReview();
 		trainingManagerReviewPage.clickYesButtonForReview();
-		String actualText = popupPage.popupGetText();
+		String actualText = popupPage.alertGetText();
 		String expectedText = "The training event has been marked for review.";
 		Assert.assertEquals(actualText, expectedText,
 				"Text mismatch : expected " + expectedText + " but got " + actualText);
