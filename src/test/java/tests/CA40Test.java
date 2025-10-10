@@ -7,6 +7,7 @@ import adminPages.AdminDashBoardPage;
 import adminPages.BecomeUserPage;
 import base.BaseClass;
 import ca4041Pages.CA4041GeneralInfoGradingPage;
+import ca4041Pages.CA4041TaskGradePage;
 import ca4041Pages.GradingTraineeListPage;
 import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
@@ -16,6 +17,7 @@ public class CA40Test extends BaseClass {
 	private TrainerDashBoradPage trainerDashBoradPage;
 	private TraineeGradingPage traineeGradingPage;
 	private CA4041GeneralInfoGradingPage cA4041GeneralInfoGradingPage;
+	private CA4041TaskGradePage cA4041TaskGradePage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -25,10 +27,11 @@ public class CA40Test extends BaseClass {
 		trainerDashBoradPage = new TrainerDashBoradPage(getDriver());
 		traineeGradingPage = new TraineeGradingPage(getDriver());
 		cA4041GeneralInfoGradingPage = new CA4041GeneralInfoGradingPage(getDriver());
+		cA4041TaskGradePage = new CA4041TaskGradePage(getDriver());
 	}
 
-	@Test
-	public void test() throws InterruptedException {
+	@Test(description = "CA 40//41 Form e2e Happy Path test case")
+	public void happyPathCA4041Test() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
 		becomeUserPage.clickOnBecomeUser();
@@ -39,5 +42,15 @@ public class CA40Test extends BaseClass {
 		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
 		gradingTraineeListPage.clickOnFirstGradeButton();
 		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.enterRegistrationNumber("TESTUSER");
+		cA4041GeneralInfoGradingPage.selectLocationDropDown("BLR");
+		cA4041GeneralInfoGradingPage.selectSimulatorLevelDropDown("FFS Level D");
+		cA4041GeneralInfoGradingPage.selectSeatOccupiedDropDown("LHS");
+		cA4041GeneralInfoGradingPage.selectTypeOfCheckDropDown("IR");
+		cA4041GeneralInfoGradingPage.clickDayIconButton();
+		cA4041GeneralInfoGradingPage.selectCrewStatusDropDown("Trainee Co-Pilot");
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		cA4041TaskGradePage.clickTakeOffPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
 	}
 }

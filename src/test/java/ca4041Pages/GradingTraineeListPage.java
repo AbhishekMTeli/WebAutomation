@@ -55,7 +55,9 @@ public class GradingTraineeListPage {
 	@FindBy(xpath = "//button[normalize-space()='Back']")
 	private WebElement backButton;
 
-	public void clickOnFirstGradeButton() {
+	public void clickOnFirstGradeButton() throws InterruptedException {
+		Thread.sleep(1000);
+		SeleniumUtils.waitForClickability(driver, gradeButton.get(0), timeout);
 		SeleniumUtils.click(driver, gradeButton.get(0), timeout);
 	}
 

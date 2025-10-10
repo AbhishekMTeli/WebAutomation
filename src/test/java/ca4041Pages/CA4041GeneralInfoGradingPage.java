@@ -68,7 +68,7 @@ public class CA4041GeneralInfoGradingPage {
 	private WebElement crewStatusLabel;
 
 	public void validateGeneralInfoLabels() {
-		SeleniumUtils.waitForVisibility(driver, designationLabel, timeout);
+		SeleniumUtils.waitForVisibility(driver, designationLabel, 60);
 		Assert.assertEquals(SeleniumUtils.getText(designationLabel), "Designation -",
 				"Text mismatch expected is : Designation - but got : " + SeleniumUtils.getText(designationLabel));
 		Assert.assertEquals(SeleniumUtils.getText(testOnLabel), "Test on: *",
@@ -127,13 +127,13 @@ public class CA4041GeneralInfoGradingPage {
 	@FindBy(xpath = "//input[@id='OFFLANDINGTIME']")
 	private WebElement offOrLandingDatePicker;
 
-	@FindBy(xpath = "//input[@id='RegNo']")
+	@FindBy(xpath = "//i[@class='fa fa-sun-o']")
 	private WebElement daySymbolButton;
 
-	@FindBy(xpath = "//input[@id='RegNo']")
+	@FindBy(xpath = "//i[@class='fa fa-moon-o']")
 	private WebElement nightSymbolButton;
 
-	@FindBy(xpath = "//input[@id='RegNo']")
+	@FindBy(xpath = "//label[@for='NA']")
 	private WebElement NAButton;
 
 	@FindBy(xpath = "//select[@id='crewstatus']")
@@ -147,8 +147,8 @@ public class CA4041GeneralInfoGradingPage {
 		SeleniumUtils.selectDropdownByValue(driver, locationDropdown, location, timeout);
 	}
 
-	public void selectAeroplaneTypeDropDown(String location) {
-		SeleniumUtils.selectDropdownByValue(driver, aeroplaneTypeDropdown, location, timeout);
+	public void selectAeroplaneTypeDropDown(String aeroPlaneType) {
+		SeleniumUtils.selectDropdownByValue(driver, aeroplaneTypeDropdown, aeroPlaneType, timeout);
 	}
 
 	public void enterScheduledDate() throws InterruptedException {
@@ -169,16 +169,34 @@ public class CA4041GeneralInfoGradingPage {
 		Thread.sleep(500);
 	}
 
-	public void selectSimulatorLevelDropDown(String location) {
-		SeleniumUtils.selectDropdownByValue(driver, simulatorLevelDropdown, location, timeout);
+	public void selectSimulatorLevelDropDown(String simulatorLevel) {
+		SeleniumUtils.selectDropdownByValue(driver, simulatorLevelDropdown, simulatorLevel, timeout);
 	}
 
-	public void selectSeatOccupiedDropDown(String location) {
-		SeleniumUtils.selectDropdownByValue(driver, seatOccupiedDropdown, location, timeout);
+	public void selectSeatOccupiedDropDown(String seatOccupied) {
+		SeleniumUtils.selectDropdownByValue(driver, seatOccupiedDropdown, seatOccupied, timeout);
 	}
 
-	public void selectTypeOfCheckDropDown(String location) {
-		SeleniumUtils.selectDropdownByValue(driver, typeOfCheckDropdown, location, timeout);
+	public void selectTypeOfCheckDropDown(String typeOfCheck) {
+		// Click the dropdown to open options
+		SeleniumUtils.click(driver, typeOfCheckDropdown, timeout);
+
+		// XPath to locate dropdown option by visible text, adjust if needed
+		String optionXPath = String.format("//span[contains(text(),'%s')]", typeOfCheck);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+
+		// Wait for option to be clickable
+		WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(optionXPath)));
+
+		// Click option or fallback to JS click
+		try {
+			option.click();
+		} catch (Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", option);
+		}
+		SeleniumUtils.click(driver, typeOfCheckDropdown, timeout);
 	}
 
 	public void enterOnOrTakeOffDate() throws InterruptedException {
