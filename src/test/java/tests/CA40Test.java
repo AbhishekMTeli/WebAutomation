@@ -50,7 +50,33 @@ public class CA40Test extends BaseClass {
 		cA4041GeneralInfoGradingPage.clickDayIconButton();
 		cA4041GeneralInfoGradingPage.selectCrewStatusDropDown("Trainee Co-Pilot");
 		cA4041GeneralInfoGradingPage.clickNextButton();
+		cA4041TaskGradePage.clickFlightPreparationPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.selectGarde("PRO", "2");
+		cA4041TaskGradePage.clickAllMinusButtons("PRO");
+		cA4041TaskGradePage.enterObComment("entering OB Comment", "PRO");
+		cA4041TaskGradePage.clickObDoneButton("PRO");
 		cA4041TaskGradePage.clickTakeOffPanel();
 		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.selectGarde("PRO", "2");
+		cA4041TaskGradePage.clickAllMinusButtons("PRO");
+		cA4041TaskGradePage.enterObComment("entering OB Comment", "PRO");
+		cA4041TaskGradePage.clickObDoneButton("PRO");
+		cA4041TaskGradePage.clickFlightmanoeuresAndProcedurePanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.clickNormalAndAbnormalOperationsPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.clickNormalAndAbnormalEmergencyProceduresPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.clickMIRILS_ApprochesPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.clickMissedApproacheProceduresPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.clickLandingPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.clickLowVisibilityOperationsPanel();
+		cA4041TaskGradePage.clickAllYesButtons();
+		cA4041TaskGradePage.clickSaveButton();
+		cA4041TaskGradePage.clickWishToMaintainDefaultGradingPopupYesButton();
 	}
 }

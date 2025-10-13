@@ -1,6 +1,7 @@
 package commandUpgradeSLFPages;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -64,15 +65,19 @@ public class CommandUpgradeSLFOverallOutcomePage {
 
 	// ---- Dynamic plus/minus buttons retrieval ----
 	public List<WebElement> getPlusButtonsForTable(String competencyTableId) {
-		String plusXpath = String.format("//table[contains(@id,'%s')]//td/button[contains(@class,'fa-plus')]",
+		String plusXpath = String.format("//table[contains(@id,'%sa')]//td/button[contains(@class,'fa-plus')]",
 				competencyTableId);
-		return driver.findElements(By.xpath(plusXpath));
+		List<WebElement> allPlusButtons = driver.findElements(By.xpath(plusXpath));
+		// Filter only visible elements
+		return allPlusButtons.stream().filter(WebElement::isDisplayed).collect(Collectors.toList());
 	}
 
 	public List<WebElement> getMinusButtonsForTable(String competencyTableId) {
-		String minusXpath = String.format("//table[contains(@id,'%s')]//td/button[contains(@class,'fa-minus')]",
+		String minusXpath = String.format("//table[contains(@id,'%sa')]//td/button[contains(@class,'fa-minus')]",
 				competencyTableId);
-		return driver.findElements(By.xpath(minusXpath));
+		List<WebElement> allMinusButtons = driver.findElements(By.xpath(minusXpath));
+		// Filter only visible elements
+		return allMinusButtons.stream().filter(WebElement::isDisplayed).collect(Collectors.toList());
 	}
 
 	public void clickAllPlusButtons(String competencyTableId) {
