@@ -69,8 +69,9 @@ public class CA4041GeneralInfoGradingPage {
 
 	public void validateGeneralInfoLabels() {
 		SeleniumUtils.waitForVisibility(driver, designationLabel, 60);
-		Assert.assertEquals(SeleniumUtils.getText(designationLabel), "Designation -",
-				"Text mismatch expected is : Designation - but got : " + SeleniumUtils.getText(designationLabel));
+		Assert.assertTrue(SeleniumUtils.getText(designationLabel).contains("Designation -"),
+				"Text mismatch, expected substring 'Designation -' but got: "
+						+ SeleniumUtils.getText(designationLabel));
 		Assert.assertEquals(SeleniumUtils.getText(testOnLabel), "Test on: *",
 				"Text mismatch expected is : Test on: * but got : " + SeleniumUtils.getText(testOnLabel));
 		Assert.assertEquals(SeleniumUtils.getText(registrationNumberLabel), "Registration Number: *",
@@ -98,6 +99,11 @@ public class CA4041GeneralInfoGradingPage {
 				"Text mismatch expected is : DAY/NIGHT: * but got : " + SeleniumUtils.getText(dayOrNightLabel));
 		Assert.assertEquals(SeleniumUtils.getText(crewStatusLabel), "Crew Status: *",
 				"Text mismatch expected is : Crew Status: * but got : " + SeleniumUtils.getText(crewStatusLabel));
+	}
+
+	public String getDesignation() {
+		SeleniumUtils.waitForVisibility(driver, designationLabel, timeout);
+		return designationLabel.getText();
 	}
 
 	@FindBy(xpath = "//input[@id='RegNo']")

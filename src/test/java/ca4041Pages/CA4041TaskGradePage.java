@@ -199,8 +199,8 @@ public class CA4041TaskGradePage {
 		for (WebElement plus : plusButtons) {
 			try {
 				if (plus.isDisplayed() && plus.isEnabled()) {
-					SeleniumUtils.waitForClickability(driver, plus, timeout);
-					SeleniumUtils.click(driver, plus, timeout);
+					SeleniumUtils.waitForClickability(driver, plus, 1);
+					SeleniumUtils.click(driver, plus, 1);
 					clickedCount++;
 				}
 			} catch (StaleElementReferenceException e) {
@@ -222,16 +222,14 @@ public class CA4041TaskGradePage {
 		for (WebElement minus : minusButtons) {
 			try {
 				// Wait for element to be visible
-				SeleniumUtils.waitForVisibility(driver, minus, timeout);
+				SeleniumUtils.waitForVisibility(driver, minus, 1);
 
 				if (minus.isDisplayed() && minus.isEnabled()) {
 					// Scroll element into view
 					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});",
 							minus);
-					Thread.sleep(200); // small delay for scroll to settle
-
 					try {
-						SeleniumUtils.waitForClickability(driver, minus, timeout);
+						SeleniumUtils.waitForClickability(driver, minus, 1);
 						minus.click();
 					} catch (ElementClickInterceptedException e) {
 						// fallback using JS click if blocked
@@ -301,8 +299,6 @@ public class CA4041TaskGradePage {
 				if (obDoneButton.isDisplayed() && obDoneButton.isEnabled()) {
 					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});",
 							obDoneButton);
-					Thread.sleep(200);
-
 					try {
 						SeleniumUtils.waitForClickability(driver, obDoneButton, timeout);
 						obDoneButton.click();
@@ -338,8 +334,6 @@ public class CA4041TaskGradePage {
 				if (obCancelButton.isDisplayed() && obCancelButton.isEnabled()) {
 					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});",
 							obCancelButton);
-					Thread.sleep(200);
-
 					try {
 						SeleniumUtils.waitForClickability(driver, obCancelButton, timeout);
 						obCancelButton.click();

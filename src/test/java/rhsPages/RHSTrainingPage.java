@@ -1,6 +1,7 @@
-package ca4041Pages;
+package rhsPages;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,11 +14,11 @@ import org.testng.Assert;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
-public class CA4041OverallOutComePage {
+public class RHSTrainingPage {
 	private WebDriver driver;
 	private int timeout;
 
-	public CA4041OverallOutComePage(WebDriver driver) {
+	public RHSTrainingPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		this.timeout = Integer.parseInt(ConfigReader.get("timeout"));
@@ -31,11 +32,11 @@ public class CA4041OverallOutComePage {
 	private WebElement obCommentTextarea;
 
 	// Overall Assessment radios
-	@FindBy(xpath = "//input[@id='LHS_S']")
-	private WebElement passRadioButton;
+	@FindBy(xpath = "//input[@id='LHS_C']")
+	private WebElement competentRadioButton;
 
-	@FindBy(xpath = "//input[@id='LHS_US']")
-	private WebElement failedRadioButton;
+	@FindBy(xpath = "//input[@id='LHS_ATR']")
+	private WebElement notYetCompetentRadioButton;
 
 	// Remark text and label elements
 	@FindBy(xpath = "//textarea[@id='overallcomment_textarea_LHS']")
@@ -47,14 +48,14 @@ public class CA4041OverallOutComePage {
 	@FindBy(xpath = "//label[normalize-space(text())='REMARKS']")
 	private WebElement remarksLabel;
 
-	@FindBy(xpath = "(//h2[normalize-space(text())='QUALIFICATION:'])[2]")
-	private WebElement qualificationLabel;
+	@FindBy(xpath = "//h2[normalize-space(text())='TRAINING QUALIFICATION:']")
+	private WebElement trainingQualificationLabel;
 
 	@FindBy(xpath = "//div[@id='overallOC_txtAreaLHS']//h4[contains(text(),'OVERALL')]")
 	private WebElement overallAssessmentLabel;
 
-	@FindBy(xpath = "//select[@id='TRIDE']")
-	private WebElement qualificationDropdown;
+	@FindBy(xpath = "//select[@id='TRIDET']")
+	private WebElement trainingQualificationDropdown;
 
 	@FindBy(xpath = "//button[normalize-space(text())='Save and next']")
 	private WebElement saveAndNextButton;
@@ -62,31 +63,148 @@ public class CA4041OverallOutComePage {
 	@FindBy(xpath = "//button[normalize-space(text())='Save and next']")
 	private WebElement discardButton;
 
+	// ---- Dynamic plus/minus buttons retrieval ----
+	public List<WebElement> getPlusButtonsForTable(String competencyTableId) {
+		String plusXpath = String.format("//table[contains(@id,'%sa')]//td/button[contains(@class,'fa-plus')]",
+				competencyTableId);
+		List<WebElement> allPlusButtons = driver.findElements(By.xpath(plusXpath));
+		// Filter only visible elements
+		return allPlusButtons.stream().filter(WebElement::isDisplayed).collect(Collectors.toList());
+	}
+
+	public List<WebElement> getMinusButtonsForTable(String competencyTableId) {
+		String minusXpath = String.format("//table[contains(@id,'%sa')]//td/button[contains(@class,'fa-minus')]",
+				competencyTableId);
+		List<WebElement> allMinusButtons = driver.findElements(By.xpath(minusXpath));
+		// Filter only visible elements
+		return allMinusButtons.stream().filter(WebElement::isDisplayed).collect(Collectors.toList());
+	}
+
+	public void clickAllPlusButtons(String competencyTableId) {
+		for (WebElement plus : getPlusButtonsForTable(competencyTableId)) {
+			SeleniumUtils.click(driver, plus, timeout);
+		}
+	}
+
+	public void clickAllMinusButtons(String competencyTableId) {
+		for (WebElement minus : getMinusButtonsForTable(competencyTableId)) {
+			SeleniumUtils.click(driver, minus, timeout);
+		}
+	}
+
+	public void clickGradingCell(String section, int optionIndex) {
+		String xpath = String.format("//td[@id='LHS_%s_%d']", section, optionIndex);
+		By cellBy = By.xpath(xpath);
+		int maxScrolls = 5;
+		int attempts = 0;
+		WebElement cell = null;
+
+		while (attempts < maxScrolls) {
+			List<WebElement> cells = driver.findElements(cellBy);
+			if (!cells.isEmpty()) {
+				cell = cells.get(0);
+				break;
+			} else {
+				SeleniumUtils.scrollToElementByVisibleText(driver, section);
+			}
+			attempts++;
+		}
+
+		if (cell == null) {
+			throw new RuntimeException("Grading cell not found after scrolling: " + section + " option " + optionIndex);
+		}
+
+		SeleniumUtils.waitForClickability(driver, cell, timeout);
+		SeleniumUtils.click(driver, cell, timeout);
+	}
+
+	public List<String> getValidationTextStrings() {
+		return SeleniumUtils.getTexts(validationTexts);
+	}
+
+	public void enterObComment(String comment, String competencyPrefix) {
+		WebElement textarea = getObCommentTextarea(competencyPrefix);
+		if (comment == null) {
+			comment = ""; // convert null to empty string
+		}
+		SeleniumUtils.type(driver, textarea, comment, timeout);
+	}
+
+	public WebElement getObCommentTextarea(String competencyPrefix) {
+		String xpath = String.format(
+				"//div[text()='Characters remaining: 3000']/preceding-sibling::textarea[contains(@id,'%s_competency_comment_txtarea')]",
+				competencyPrefix);
+		return driver.findElement(By.xpath(xpath));
+	}
+
+	public void performObAction(String section, int optionIndex, String action, String comment) {
+		clickGradingCell(section, optionIndex);
+
+		switch (action.toLowerCase()) {
+		case "plus":
+			clickAllPlusButtons(section + "_Task_Table_");
+			break;
+		case "minus":
+			clickAllMinusButtons(section + "_Task_Table_");
+			break;
+		default:
+			System.out.println(("Invalid action: " + action));
+		}
+		enterObComment(comment, section);
+	}
+
+	public void clickObDoneButton(String section) {
+		String xpath = String.format(
+				"//button[contains(@class, 'btn-success') and contains(@onclick,'save_overall') and contains(@onclick,'%s')]",
+				section);
+		WebElement obDoneButton = driver.findElement(By.xpath(xpath));
+		SeleniumUtils.click(driver, obDoneButton, timeout);
+	}
+
+	public void clickObCancelButton(String section) {
+		String xpath = String.format(
+				"//button[contains(@class, 'btn-success') and contains(@onclick,'save_overall') and contains(@onclick,'%s')]/preceding-sibling::a",
+				section);
+		WebElement obCancelButton = driver.findElement(By.xpath(xpath));
+		SeleniumUtils.click(driver, obCancelButton, timeout);
+	}
+
 	public void validateRadioSelectionBasedOnOptionIndex(int optionIndex) throws InterruptedException {
 		switch (optionIndex) {
 		case 1:
-			Assert.assertTrue(failedRadioButton.isSelected(), "Expected 'FAIL' to be auto-selected for optionIndex 1");
+			// Auto-select "NOT YET COMPETENT"
+			Assert.assertTrue(notYetCompetentRadioButton.isSelected(),
+					"Expected 'NOT YET COMPETENT' to be auto-selected for optionIndex 1");
 			break;
 		case 2:
+			// User must select manually
+			if (!competentRadioButton.isSelected() && !notYetCompetentRadioButton.isSelected()) {
+				// Default: select "NOT YET COMPETENT" (or you can pick "COMPETENT")
+				clickNotYetCompetentRadioButton();
+			}
+			Assert.assertTrue(competentRadioButton.isSelected() || notYetCompetentRadioButton.isSelected(),
+					"Expected one radio button to be selected for optionIndex 2");
+			break;
 		case 3:
 		case 4:
 		case 5:
-			Assert.assertTrue(passRadioButton.isSelected(),
-					"Expected 'PASS' to be auto-selected for optionIndex " + optionIndex);
+			// Auto-select "COMPETENT"
+			Assert.assertTrue(competentRadioButton.isSelected(),
+					"Expected 'COMPETENT' to be auto-selected for optionIndex " + optionIndex);
 			break;
 		default:
 			throw new IllegalArgumentException("Unexpected optionIndex: " + optionIndex);
 		}
 	}
 
-	public void isSelectedPassRadioButton() {
+	public void clickCompetentRadioButton() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, overallAssessmentLabel.getText());
-		passRadioButton.isSelected();
+		SeleniumUtils.click(driver, competentRadioButton, timeout);
 	}
 
-	public void isSelectedFailRadioButton() {
+	public void clickNotYetCompetentRadioButton() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, overallAssessmentLabel.getText());
-		failedRadioButton.isSelected();
+		SeleniumUtils.click(driver, notYetCompetentRadioButton, timeout);
 	}
 
 	public void addRemark(String comment) {
@@ -106,15 +224,17 @@ public class CA4041OverallOutComePage {
 	}
 
 	public void qualificationLabelIsPresent() {
-		SeleniumUtils.waitForPresence(driver, By.xpath("(//h2[normalize-space(text())='QUALIFICATION:'])[2]"), timeout);
+		SeleniumUtils.waitForPresence(driver, By.xpath("//h2[normalize-space(text())='TRAINING QUALIFICATION:']"),
+				timeout);
 	}
 
 	// Qaulification Dropdown
 
-	public void selectQualification(String qualification) throws InterruptedException {
-		SeleniumUtils.waitForVisibility(driver, qualificationLabel, timeout);
-		SeleniumUtils.scrollToElementByVisibleText(driver, qualificationLabel.getText());
-		SeleniumUtils.selectDropdownByVisibleText(driver, qualificationDropdown, qualification, timeout);
+	public void selectTrainingQualification(String trainingQualification) throws InterruptedException {
+		SeleniumUtils.waitForVisibility(driver, trainingQualificationLabel, timeout);
+		SeleniumUtils.scrollToElementByVisibleText(driver, trainingQualificationLabel.getText());
+		SeleniumUtils.selectDropdownByVisibleText(driver, trainingQualificationDropdown, trainingQualification,
+				timeout);
 	}
 
 	public void clickSaveAndNextButton() {
@@ -263,34 +383,5 @@ public class CA4041OverallOutComePage {
 
 	public void clickPopupOkButton() {
 		SeleniumUtils.click(driver, alertOkButton, timeout);
-	}
-
-	// Preview Popup
-	@FindBy(xpath = "//h4[normalize-space()='Preview']")
-	private WebElement previewHeader;
-
-	@FindBy(xpath = "//div[@role='document']//span[@id='closeButton']")
-	private WebElement previewCloseIcon;
-
-	@FindBy(xpath = "//span[@class='glyphicon glyphicon-share']")
-	private WebElement previewShareIcon;
-
-	@FindBy(xpath = "//button[@id='previewNext']")
-	private WebElement previewNextButton;
-
-	public void visibilityOfPreviewHeader() {
-		SeleniumUtils.waitForVisibility(driver, previewHeader, timeout);
-	}
-
-	public void clickPreviewCloseIcon() {
-		SeleniumUtils.click(driver, previewCloseIcon, timeout);
-	}
-
-	public void clickPreviewShareIcon() {
-		SeleniumUtils.click(driver, previewShareIcon, timeout);
-	}
-
-	public void clickPreviewNextButton() {
-		SeleniumUtils.click(driver, previewNextButton, timeout);
 	}
 }

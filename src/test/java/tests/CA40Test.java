@@ -7,10 +7,15 @@ import adminPages.AdminDashBoardPage;
 import adminPages.BecomeUserPage;
 import base.BaseClass;
 import ca4041Pages.CA4041GeneralInfoGradingPage;
+import ca4041Pages.CA4041OverallOutComePage;
 import ca4041Pages.CA4041TaskGradePage;
 import ca4041Pages.GradingTraineeListPage;
+import commonPages.PopupPage;
 import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
+import rhsPages.RHSGradingPage;
+import rhsPages.RHSTrainingPage;
+import utils.SeleniumUtils;
 
 public class CA40Test extends BaseClass {
 	private GradingTraineeListPage gradingTraineeListPage;
@@ -18,6 +23,11 @@ public class CA40Test extends BaseClass {
 	private TraineeGradingPage traineeGradingPage;
 	private CA4041GeneralInfoGradingPage cA4041GeneralInfoGradingPage;
 	private CA4041TaskGradePage cA4041TaskGradePage;
+	private CA4041OverallOutComePage cA4041OverallOutComePage;
+	private RHSGradingPage rHSGradingPage;
+	private RHSTrainingPage rHSTrainingPage;
+	private PopupPage popupPage;
+	private String designation;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -28,6 +38,10 @@ public class CA40Test extends BaseClass {
 		traineeGradingPage = new TraineeGradingPage(getDriver());
 		cA4041GeneralInfoGradingPage = new CA4041GeneralInfoGradingPage(getDriver());
 		cA4041TaskGradePage = new CA4041TaskGradePage(getDriver());
+		cA4041OverallOutComePage = new CA4041OverallOutComePage(getDriver());
+		rHSGradingPage = new RHSGradingPage(getDriver());
+		popupPage = new PopupPage(getDriver());
+		rHSTrainingPage = new RHSTrainingPage(getDriver());
 	}
 
 	@Test(description = "CA 40//41 Form e2e Happy Path test case")
@@ -42,6 +56,7 @@ public class CA40Test extends BaseClass {
 		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
 		gradingTraineeListPage.clickOnFirstGradeButton();
 		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		designation = cA4041GeneralInfoGradingPage.getDesignation();
 		cA4041GeneralInfoGradingPage.enterRegistrationNumber("TESTUSER");
 		cA4041GeneralInfoGradingPage.selectLocationDropDown("BLR");
 		cA4041GeneralInfoGradingPage.selectSimulatorLevelDropDown("FFS Level D");
@@ -52,13 +67,13 @@ public class CA40Test extends BaseClass {
 		cA4041GeneralInfoGradingPage.clickNextButton();
 		cA4041TaskGradePage.clickFlightPreparationPanel();
 		cA4041TaskGradePage.clickAllYesButtons();
-		cA4041TaskGradePage.selectGarde("PRO", "2");
+		cA4041TaskGradePage.selectGarde("PRO", "3");
 		cA4041TaskGradePage.clickAllMinusButtons("PRO");
 		cA4041TaskGradePage.enterObComment("entering OB Comment", "PRO");
 		cA4041TaskGradePage.clickObDoneButton("PRO");
 		cA4041TaskGradePage.clickTakeOffPanel();
 		cA4041TaskGradePage.clickAllYesButtons();
-		cA4041TaskGradePage.selectGarde("PRO", "2");
+		cA4041TaskGradePage.selectGarde("PRO", "3");
 		cA4041TaskGradePage.clickAllMinusButtons("PRO");
 		cA4041TaskGradePage.enterObComment("entering OB Comment", "PRO");
 		cA4041TaskGradePage.clickObDoneButton("PRO");
@@ -78,5 +93,39 @@ public class CA40Test extends BaseClass {
 		cA4041TaskGradePage.clickAllYesButtons();
 		cA4041TaskGradePage.clickSaveButton();
 		cA4041TaskGradePage.clickWishToMaintainDefaultGradingPopupYesButton();
+		cA4041OverallOutComePage.isSelectedPassRadioButton();
+		cA4041OverallOutComePage.addRemark("adding remarks");
+		cA4041OverallOutComePage.selectQualification("DE");
+		cA4041OverallOutComePage.clickSaveAndNextButton();
+		cA4041OverallOutComePage.reasonForDelayLabelIsPresent();
+		cA4041OverallOutComePage.addDelayComments("adding delay comments");
+		cA4041OverallOutComePage.clickSubmitCommentButtonForDelayComment();
+		cA4041OverallOutComePage.visibilityOfPreviewHeader();
+		cA4041OverallOutComePage.clickPreviewNextButton();
+		cA4041OverallOutComePage.instructorAcknowldgementLabelIsPresent();
+		cA4041OverallOutComePage.clickSubmitButtonForInstructorAcknowldgement();
+		cA4041OverallOutComePage.digitalSignitureLabelIsPresent();
+		cA4041OverallOutComePage.digitalSign();
+		cA4041OverallOutComePage.clickSaveSignitureButtonForDigitalSigniture();
+		cA4041OverallOutComePage.dataSuccessfullyUploadedIsPresent();
+		popupPage.popupGetText();
+		popupPage.clickPopupOkButton();
+		popupPage.alertGetText();
+		if (designation.equalsIgnoreCase("Captain")) {
+			SeleniumUtils.acceptAlert(getDriver(), 5);
+			rHSGradingPage.validateAllTextForRHSGradingPage();
+			rHSGradingPage.enterRegistrationNumber("TestUser");
+			rHSGradingPage.selectLocationDropDown("BLR");
+			rHSGradingPage.clickRhsCheckCheckBox();
+			SeleniumUtils.acceptAlert(getDriver(), 5);
+			rHSGradingPage.clickRhsTrainingCheckBox();
+			SeleniumUtils.acceptAlert(getDriver(), 5);
+			rHSGradingPage.clickNextButton();
+			SeleniumUtils.acceptAlert(getDriver(), 5);
+			rHSTrainingPage.performObAction("PRO", 3, "plus", "adding OB Comment");
+			rHSTrainingPage.clickObDoneButton("PRO");
+			rHSTrainingPage.selectTrainingQualification("SFI");
+			rHSTrainingPage.clickSaveAndNextButton();
+		}
 	}
 }
