@@ -13,6 +13,7 @@ import ca4041Pages.GradingTraineeListPage;
 import commonPages.PopupPage;
 import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
+import rhsPages.RHSCheckPage;
 import rhsPages.RHSGradingPage;
 import rhsPages.RHSTrainingPage;
 import utils.SeleniumUtils;
@@ -28,6 +29,7 @@ public class CA40Test extends BaseClass {
 	private RHSTrainingPage rHSTrainingPage;
 	private PopupPage popupPage;
 	private String designation;
+	private RHSCheckPage rHSCheckPage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -42,6 +44,7 @@ public class CA40Test extends BaseClass {
 		rHSGradingPage = new RHSGradingPage(getDriver());
 		popupPage = new PopupPage(getDriver());
 		rHSTrainingPage = new RHSTrainingPage(getDriver());
+		rHSCheckPage = new RHSCheckPage(getDriver());
 	}
 
 	@Test(description = "CA 40//41 Form e2e Happy Path test case")
@@ -111,8 +114,8 @@ public class CA40Test extends BaseClass {
 		popupPage.popupGetText();
 		popupPage.clickPopupOkButton();
 		popupPage.alertGetText();
+		rHSGradingPage.handelAlert();
 		if (designation.equalsIgnoreCase("Captain")) {
-			SeleniumUtils.acceptAlert(getDriver(), 5);
 			rHSGradingPage.validateAllTextForRHSGradingPage();
 			rHSGradingPage.enterRegistrationNumber("TestUser");
 			rHSGradingPage.selectLocationDropDown("BLR");
@@ -122,10 +125,16 @@ public class CA40Test extends BaseClass {
 			SeleniumUtils.acceptAlert(getDriver(), 5);
 			rHSGradingPage.clickNextButton();
 			SeleniumUtils.acceptAlert(getDriver(), 5);
+			rHSTrainingPage.validateRhsTrainingOverallGrade();
 			rHSTrainingPage.performObAction("PRO", 3, "plus", "adding OB Comment");
 			rHSTrainingPage.clickObDoneButton("PRO");
 			rHSTrainingPage.selectTrainingQualification("SFI");
 			rHSTrainingPage.clickSaveAndNextButton();
+			rHSCheckPage.validateRhsCheckOverallGrade();
+			rHSCheckPage.performObAction("PRO", 3, "plus", "adding OB Comment");
+			rHSCheckPage.clickObDoneButton("PRO");
+			rHSCheckPage.selectCheckQualification("SFI");
+			rHSCheckPage.clickSaveAndNextButton();
 		}
 	}
 }

@@ -69,6 +69,10 @@ public class RHSGradingPage {
 				"Text Missmatch expected: 'RHS Check' but got :" + SeleniumUtils.getText(rhsCheckLabel));
 	}
 
+	public void handelAlert() {
+		SeleniumUtils.acceptAlert(driver);
+	}
+
 	@FindBy(xpath = "//input[@id='RegNo']")
 	private WebElement registrationTextField;
 

@@ -14,11 +14,11 @@ import org.testng.Assert;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
-public class RHSTrainingPage {
+public class RHSCheckPage {
 	private WebDriver driver;
 	private int timeout;
 
-	public RHSTrainingPage(WebDriver driver) {
+	public RHSCheckPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		this.timeout = Integer.parseInt(ConfigReader.get("timeout"));
@@ -32,10 +32,10 @@ public class RHSTrainingPage {
 	private WebElement obCommentTextarea;
 
 	// Overall Assessment radios
-	@FindBy(xpath = "//input[@id='LHS_C']")
+	@FindBy(xpath = "//input[@id='RHS_C']")
 	private WebElement competentRadioButton;
 
-	@FindBy(xpath = "//input[@id='LHS_ATR']")
+	@FindBy(xpath = "//input[@id='RHS_ATR']")
 	private WebElement notYetCompetentRadioButton;
 
 	// Remark text and label elements
@@ -48,14 +48,14 @@ public class RHSTrainingPage {
 	@FindBy(xpath = "//label[normalize-space(text())='REMARKS']")
 	private WebElement remarksLabel;
 
-	@FindBy(xpath = "//h2[normalize-space(text())='TRAINING QUALIFICATION:']")
-	private WebElement trainingQualificationLabel;
+	@FindBy(xpath = "(//h2[normalize-space(text())='CHECK QUALIFICATION:'])[2]")
+	private WebElement checkQualificationLabel;
 
-	@FindBy(xpath = "//a[@data-parent='#overallOC_accordion_LHS']")
-	private WebElement rhsTrainingOverallGrade;
+	@FindBy(xpath = "//a[@id='e1L_check']")
+	private WebElement rhsCheckgOverallGrade;
 
-	@FindBy(xpath = "//select[@id='TRIDET']")
-	private WebElement trainingQualificationDropdown;
+	@FindBy(xpath = "//select[@id='TRIDE']")
+	private WebElement checkQualificationDropdown;
 
 	@FindBy(xpath = "//button[normalize-space(text())='Save and next']")
 	private WebElement saveAndNextButton;
@@ -198,18 +198,18 @@ public class RHSTrainingPage {
 	}
 
 	public void clickCompetentRadioButton() {
-		SeleniumUtils.scrollToElementByVisibleText(driver, rhsTrainingOverallGrade.getText());
+		SeleniumUtils.scrollToElementByVisibleText(driver, rhsCheckgOverallGrade.getText());
 		SeleniumUtils.click(driver, competentRadioButton, timeout);
 	}
 
-	public void validateRhsTrainingOverallGrade() {
-		SeleniumUtils.scrollToElementByVisibleText(driver, rhsTrainingOverallGrade.getText());
-		Assert.assertEquals(SeleniumUtils.getText(rhsTrainingOverallGrade), "RHS TRAINING OVERALL GRADE",
-				"Text mismatch expected :  but got : " + SeleniumUtils.getText(rhsTrainingOverallGrade));
+	public void validateRhsCheckOverallGrade() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, rhsCheckgOverallGrade.getText());
+		Assert.assertEquals(SeleniumUtils.getText(rhsCheckgOverallGrade), "RHS TRAINING OVERALL GRADE",
+				"Text mismatch expected :  but got : " + SeleniumUtils.getText(rhsCheckgOverallGrade));
 	}
 
 	public void clickNotYetCompetentRadioButton() {
-		SeleniumUtils.scrollToElementByVisibleText(driver, rhsTrainingOverallGrade.getText());
+		SeleniumUtils.scrollToElementByVisibleText(driver, rhsCheckgOverallGrade.getText());
 		SeleniumUtils.click(driver, notYetCompetentRadioButton, timeout);
 	}
 
@@ -236,11 +236,10 @@ public class RHSTrainingPage {
 
 	// Qaulification Dropdown
 
-	public void selectTrainingQualification(String trainingQualification) throws InterruptedException {
-		SeleniumUtils.waitForVisibility(driver, trainingQualificationLabel, timeout);
-		SeleniumUtils.scrollToElementByVisibleText(driver, trainingQualificationLabel.getText());
-		SeleniumUtils.selectDropdownByVisibleText(driver, trainingQualificationDropdown, trainingQualification,
-				timeout);
+	public void selectCheckQualification(String trainingQualification) throws InterruptedException {
+		SeleniumUtils.waitForVisibility(driver, checkQualificationLabel, timeout);
+		SeleniumUtils.scrollToElementByVisibleText(driver, checkQualificationLabel.getText());
+		SeleniumUtils.selectDropdownByVisibleText(driver, checkQualificationDropdown, trainingQualification, timeout);
 	}
 
 	public void clickSaveAndNextButton() {
