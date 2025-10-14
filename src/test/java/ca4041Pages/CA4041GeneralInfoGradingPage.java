@@ -188,8 +188,7 @@ public class CA4041GeneralInfoGradingPage {
 		SeleniumUtils.click(driver, typeOfCheckDropdown, timeout);
 
 		// XPath to locate dropdown option by visible text, adjust if needed
-		String optionXPath = String.format("//span[contains(text(),'%s')]", typeOfCheck);
-
+		String optionXPath = String.format("//option[@value='%s']", typeOfCheck);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 
 		// Wait for option to be clickable
@@ -203,6 +202,7 @@ public class CA4041GeneralInfoGradingPage {
 			js.executeScript("arguments[0].click();", option);
 		}
 		SeleniumUtils.click(driver, typeOfCheckDropdown, timeout);
+		SeleniumUtils.click(driver, typeOfCheckLabel, timeout);
 	}
 
 	public void enterOnOrTakeOffDate() throws InterruptedException {

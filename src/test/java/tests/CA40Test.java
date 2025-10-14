@@ -115,6 +115,7 @@ public class CA40Test extends BaseClass {
 		popupPage.clickPopupOkButton();
 		popupPage.alertGetText();
 		rHSGradingPage.handelAlert();
+		rHSGradingPage.handelAlert();
 		if (designation.equalsIgnoreCase("Captain")) {
 			rHSGradingPage.validateAllTextForRHSGradingPage();
 			rHSGradingPage.enterRegistrationNumber("TestUser");
