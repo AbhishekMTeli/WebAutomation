@@ -25,9 +25,17 @@ public class PopupPage {
 	@FindBy(xpath = "//span[contains(text(),'OK')]")
 	private WebElement alertOkButton;
 
+	@FindBy(xpath = "//div[@id='alertBoxMsgNEW']")
+	private WebElement newAlertLabel;
+
 	public String alertGetText() {
 		SeleniumUtils.waitForVisibility(driver, alertLabel, timeout);
 		return SeleniumUtils.getText(alertLabel);
+	}
+
+	public String alertNewGetText() {
+		SeleniumUtils.waitForVisibility(driver, newAlertLabel, timeout);
+		return SeleniumUtils.getText(newAlertLabel);
 	}
 
 	public void clickAlertOkButton() {

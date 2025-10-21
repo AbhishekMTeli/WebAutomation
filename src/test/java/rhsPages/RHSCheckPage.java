@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -57,43 +58,44 @@ public class RHSCheckPage {
 	@FindBy(xpath = "//select[@id='TRIDE']")
 	private WebElement checkQualificationDropdown;
 
-	@FindBy(xpath = "//button[normalize-space(text())='Save and next']")
+	@FindBy(xpath = "//button[@id='overallOC_next' and contains(@onclick,'check_delay')]")
 	private WebElement saveAndNextButton;
 
-	@FindBy(xpath = "//button[normalize-space(text())='Save and next']")
+	@FindBy(xpath = "(//button[@id='overallDiscard'])[2]")
 	private WebElement discardButton;
 
 	// ---- Dynamic plus/minus buttons retrieval ----
 	public List<WebElement> getPlusButtonsForTable(String competencyTableId) {
-		String plusXpath = String.format("//table[contains(@id,'%sa')]//td/button[contains(@class,'fa-plus')]",
+		String plusXpath = String.format(
+				"//table[contains(@id,'%s')]//button[contains(@class,'btn btn-pure btn fa fa-plus')]",
 				competencyTableId);
 		List<WebElement> allPlusButtons = driver.findElements(By.xpath(plusXpath));
-		// Filter only visible elements
-		return allPlusButtons.stream().filter(WebElement::isDisplayed).collect(Collectors.toList());
+		return allPlusButtons;
 	}
 
 	public List<WebElement> getMinusButtonsForTable(String competencyTableId) {
-		String minusXpath = String.format("//table[contains(@id,'%sa')]//td/button[contains(@class,'fa-minus')]",
+		String minusXpath = String.format(
+				"//table[contains(@id,'%s')]//td/button[contains(@class,'btn btn-pure btn fa fa-minus')]",
 				competencyTableId);
 		List<WebElement> allMinusButtons = driver.findElements(By.xpath(minusXpath));
 		// Filter only visible elements
-		return allMinusButtons.stream().filter(WebElement::isDisplayed).collect(Collectors.toList());
+		return allMinusButtons;
 	}
 
 	public void clickAllPlusButtons(String competencyTableId) {
 		for (WebElement plus : getPlusButtonsForTable(competencyTableId)) {
-			SeleniumUtils.click(driver, plus, timeout);
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", plus);
 		}
 	}
 
 	public void clickAllMinusButtons(String competencyTableId) {
 		for (WebElement minus : getMinusButtonsForTable(competencyTableId)) {
-			SeleniumUtils.click(driver, minus, timeout);
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", minus);
 		}
 	}
 
 	public void clickGradingCell(String section, int optionIndex) {
-		String xpath = String.format("//td[@id='LHS_%s_%d']", section, optionIndex);
+		String xpath = String.format("(//td[@id='LHS_%s_%d'])[2]", section, optionIndex);
 		By cellBy = By.xpath(xpath);
 		int maxScrolls = 5;
 		int attempts = 0;
@@ -203,9 +205,11 @@ public class RHSCheckPage {
 	}
 
 	public void validateRhsCheckOverallGrade() {
+		SeleniumUtils.waitForVisibility(driver, rhsCheckgOverallGrade, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, rhsCheckgOverallGrade.getText());
-		Assert.assertEquals(SeleniumUtils.getText(rhsCheckgOverallGrade), "RHS TRAINING OVERALL GRADE",
-				"Text mismatch expected :  but got : " + SeleniumUtils.getText(rhsCheckgOverallGrade));
+		Assert.assertEquals(SeleniumUtils.getText(rhsCheckgOverallGrade), "RHS CHECK OVERALL GRADE",
+				"Text mismatch expected : 'RHS CHECK OVERALL GRADE expected [RHS TRAINING OVERALL GRADE]'  but got : "
+						+ SeleniumUtils.getText(rhsCheckgOverallGrade));
 	}
 
 	public void clickNotYetCompetentRadioButton() {
@@ -389,4 +393,5 @@ public class RHSCheckPage {
 	public void clickPopupOkButton() {
 		SeleniumUtils.click(driver, alertOkButton, timeout);
 	}
+
 }

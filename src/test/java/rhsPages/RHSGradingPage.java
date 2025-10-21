@@ -51,25 +51,26 @@ public class RHSGradingPage {
 
 	public void validateAllTextForRHSGradingPage() {
 		SeleniumUtils.waitForVisibility(driver, trainingDeviceLabel, timeout);
-		Assert.assertEquals(SeleniumUtils.getText(trainingDeviceLabel), "Training Device:",
-				"Text Missmatch expected: 'Training Device:' but got :" + SeleniumUtils.getText(trainingDeviceLabel));
-		Assert.assertEquals(SeleniumUtils.getText(registrationNoLabel), "Registration No:",
-				"Text Missmatch expected: 'Registration No:' but got :" + SeleniumUtils.getText(registrationNoLabel));
-		Assert.assertEquals(SeleniumUtils.getText(locationLabel), "Location:",
-				"Text Missmatch expected: 'Location:' but got :" + SeleniumUtils.getText(locationLabel));
-		Assert.assertEquals(SeleniumUtils.getText(scheduledDateLabel), "Scheduled Date:",
-				"Text Missmatch expected: 'Scheduled Date:' but got :" + SeleniumUtils.getText(scheduledDateLabel));
-		Assert.assertEquals(SeleniumUtils.getText(simulatorLevelLabel), "Simulator Level:",
-				"Text Missmatch expected: 'Simulator Level:' but got :" + SeleniumUtils.getText(simulatorLevelLabel));
-		Assert.assertEquals(SeleniumUtils.getText(durationLabel), "Duration:",
-				"Text Missmatch expected: 'Duration:' but got :" + SeleniumUtils.getText(durationLabel));
+		Assert.assertEquals(SeleniumUtils.getText(trainingDeviceLabel), "Training Device: *",
+				"Text Missmatch expected: 'Training Device: *' but got :" + SeleniumUtils.getText(trainingDeviceLabel));
+		Assert.assertEquals(SeleniumUtils.getText(registrationNoLabel), "Registration No:*",
+				"Text Missmatch expected: 'Registration No:*' but got :" + SeleniumUtils.getText(registrationNoLabel));
+		Assert.assertEquals(SeleniumUtils.getText(locationLabel), "Location: *",
+				"Text Missmatch expected: 'Location: *' but got :" + SeleniumUtils.getText(locationLabel));
+		Assert.assertEquals(SeleniumUtils.getText(scheduledDateLabel), "Scheduled Date: *",
+				"Text Missmatch expected: 'Scheduled Date:' but got : *" + SeleniumUtils.getText(scheduledDateLabel));
+		Assert.assertEquals(SeleniumUtils.getText(simulatorLevelLabel), "Simulator Level: *",
+				"Text Missmatch expected: 'Simulator Level:' but got : *" + SeleniumUtils.getText(simulatorLevelLabel));
+		Assert.assertEquals(SeleniumUtils.getText(durationLabel), "Duration: *",
+				"Text Missmatch expected: 'Duration:' but got : *" + SeleniumUtils.getText(durationLabel));
 		Assert.assertEquals(SeleniumUtils.getText(rhsTrainingLabel), "RHS Training",
 				"Text Missmatch expected: 'RHS Training' but got :" + SeleniumUtils.getText(rhsTrainingLabel));
 		Assert.assertEquals(SeleniumUtils.getText(rhsCheckLabel), "RHS Check",
 				"Text Missmatch expected: 'RHS Check' but got :" + SeleniumUtils.getText(rhsCheckLabel));
 	}
 
-	public void handelAlert() {
+	public void handelAlert() throws InterruptedException {
+		Thread.sleep(2000);
 		SeleniumUtils.acceptAlert(driver);
 	}
 

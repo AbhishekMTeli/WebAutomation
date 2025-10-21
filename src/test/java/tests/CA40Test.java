@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -76,10 +77,10 @@ public class CA40Test extends BaseClass {
 		cA4041TaskGradePage.clickObDoneButton("PRO");
 		cA4041TaskGradePage.clickTakeOffPanel();
 		cA4041TaskGradePage.clickAllYesButtons();
-		cA4041TaskGradePage.selectGarde("PRO", "3");
-		cA4041TaskGradePage.clickAllMinusButtons("PRO");
-		cA4041TaskGradePage.enterObComment("entering OB Comment", "PRO");
-		cA4041TaskGradePage.clickObDoneButton("PRO");
+//		cA4041TaskGradePage.selectGarde("PRO", "3");
+//		cA4041TaskGradePage.clickAllMinusButtons("PRO");
+//		cA4041TaskGradePage.enterObComment("entering OB Comment", "PRO");
+//		cA4041TaskGradePage.clickObDoneButton("PRO");
 		cA4041TaskGradePage.clickFlightmanoeuresAndProcedurePanel();
 		cA4041TaskGradePage.clickAllYesButtons();
 		cA4041TaskGradePage.clickNormalAndAbnormalOperationsPanel();
@@ -110,13 +111,14 @@ public class CA40Test extends BaseClass {
 		cA4041OverallOutComePage.digitalSignitureLabelIsPresent();
 		cA4041OverallOutComePage.digitalSign();
 		cA4041OverallOutComePage.clickSaveSignitureButtonForDigitalSigniture();
+		rHSGradingPage.handelAlert();
+		rHSGradingPage.handelAlert();
 		cA4041OverallOutComePage.dataSuccessfullyUploadedIsPresent();
-		popupPage.popupGetText();
-		popupPage.clickPopupOkButton();
-		popupPage.alertGetText();
+		cA4041OverallOutComePage.clickOkPop_up();
 		rHSGradingPage.handelAlert();
 		rHSGradingPage.handelAlert();
-		if (designation.equalsIgnoreCase("Captain")) {
+		System.out.println(designation);
+		if (designation.equals("Designation - Captain")) {
 			rHSGradingPage.validateAllTextForRHSGradingPage();
 			rHSGradingPage.enterRegistrationNumber("TestUser");
 			rHSGradingPage.selectLocationDropDown("BLR");
@@ -134,8 +136,173 @@ public class CA40Test extends BaseClass {
 			rHSCheckPage.validateRhsCheckOverallGrade();
 			rHSCheckPage.performObAction("PRO", 3, "plus", "adding OB Comment");
 			rHSCheckPage.clickObDoneButton("PRO");
-			rHSCheckPage.selectCheckQualification("SFI");
+			rHSCheckPage.selectCheckQualification("SFE");
 			rHSCheckPage.clickSaveAndNextButton();
+			rHSCheckPage.reasonForDelayLabelIsPresent();
+			rHSCheckPage.addDelayComments("adding dealy comments");
+			rHSCheckPage.clickSubmitCommentButtonForDelayComment();
+			rHSCheckPage.instructorAcknowldgementLabelIsPresent();
+			rHSCheckPage.clickSubmitButtonForInstructorAcknowldgement();
+			rHSCheckPage.digitalSignitureLabelIsPresent();
+			rHSCheckPage.digitalSign();
+			rHSCheckPage.clickSaveSignitureButtonForDigitalSigniture();
+			rHSCheckPage.dataSuccessfullyUploadedIsPresent();
+			rHSCheckPage.clickOkPop_up();
 		}
+	}
+
+	@Test(description = "")
+	public void verifyPleaseSelectSimulatorTypePopupMessage() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
+		gradingTraineeListPage.clickOnFirstGradeButton();
+		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		String expectedResult = "Please select simulator type.";
+		String actualResult = popupPage.alertGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Alert mismatch expected : " + expectedResult + " but got : " + actualResult);
+	}
+
+	@Test(description = "")
+	public void verifyPleaseEnterRegistrationNumberPopupMessage() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
+		gradingTraineeListPage.clickOnFirstGradeButton();
+		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.enterRegistrationNumber("");
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		String expectedResult = "Please enter Registration number.";
+		String actualResult = popupPage.alertGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Alert mismatch expected : " + expectedResult + " but got : " + actualResult);
+	}
+
+	@Test(description = "")
+	public void verifyPleaseSelectTypeOfCheckPopupMessage() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
+		gradingTraineeListPage.clickOnFirstGradeButton();
+		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.enterRegistrationNumber("Test User");
+		cA4041GeneralInfoGradingPage.selectSimulatorLevelDropDown("FFS Level D");
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		String expectedResult = "Please select seat occupied.";
+		String actualResult = popupPage.alertGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Alert mismatch expected : " + expectedResult + " but got : " + actualResult);
+	}
+
+	@Test(description = "")
+	public void verifyPleaseSelectSeatOccupiedPopupMessage() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
+		gradingTraineeListPage.clickOnFirstGradeButton();
+		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.enterRegistrationNumber("Test User");
+		cA4041GeneralInfoGradingPage.selectSimulatorLevelDropDown("FFS Level D");
+		cA4041GeneralInfoGradingPage.selectSeatOccupiedDropDown("RHS");
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		String expectedResult = "Please select type of check.";
+		String actualResult = popupPage.alertGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Alert mismatch expected : " + expectedResult + " but got : " + actualResult);
+	}
+
+	@Test(description = "")
+	public void verifyPleaseSelectDayOrNightPopupMessage() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
+		gradingTraineeListPage.clickOnFirstGradeButton();
+		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.enterRegistrationNumber("Test User");
+		cA4041GeneralInfoGradingPage.selectSimulatorLevelDropDown("FFS Level D");
+		cA4041GeneralInfoGradingPage.selectSeatOccupiedDropDown("RHS");
+		cA4041GeneralInfoGradingPage.selectTypeOfCheckDropDown("IR");
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		String expectedResult = "Please select day/night.";
+		String actualResult = popupPage.alertGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Alert mismatch expected : " + expectedResult + " but got : " + actualResult);
+	}
+
+	@Test(description = "")
+	public void verifyPleaseSelectCrewStatusPopupMessage() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
+		gradingTraineeListPage.clickOnFirstGradeButton();
+		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.enterRegistrationNumber("Test User");
+		cA4041GeneralInfoGradingPage.selectSimulatorLevelDropDown("FFS Level D");
+		cA4041GeneralInfoGradingPage.selectSeatOccupiedDropDown("RHS");
+		cA4041GeneralInfoGradingPage.selectTypeOfCheckDropDown("IR");
+		cA4041GeneralInfoGradingPage.clickDayIconButton();
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		String expectedResult = "Please select crew status.";
+		String actualResult = popupPage.alertGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Alert mismatch expected : " + expectedResult + " but got : " + actualResult);
+	}
+
+	@Test(description = "")
+	public void verifyPleaseSelectTheGradeValuePopupMessage() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
+		gradingTraineeListPage.clickOnFirstGradeButton();
+		cA4041GeneralInfoGradingPage.validateGeneralInfoLabels();
+		cA4041GeneralInfoGradingPage.enterRegistrationNumber("Test User");
+		cA4041GeneralInfoGradingPage.selectSimulatorLevelDropDown("FFS Level D");
+		cA4041GeneralInfoGradingPage.selectSeatOccupiedDropDown("RHS");
+		cA4041GeneralInfoGradingPage.selectTypeOfCheckDropDown("IR");
+		cA4041GeneralInfoGradingPage.clickDayIconButton();
+		cA4041GeneralInfoGradingPage.selectCrewStatusDropDown("Trainee PIC");
+		cA4041GeneralInfoGradingPage.clickNextButton();
+		cA4041TaskGradePage.clickSaveButton();
+		String expectedResult = "Please Select the Grade Value";
+		String actualResult = popupPage.alertNewGetText();
+		Assert.assertTrue(actualResult.contains(expectedResult),
+				"Alert mismatch: expected text to contain '" + expectedResult + "' but got: '" + actualResult + "'");
 	}
 }

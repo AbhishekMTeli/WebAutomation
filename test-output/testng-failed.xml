@@ -9,7 +9,7 @@
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="tearDownExtent"/>
-          <include name="happyPathCA4041Test"/>
+          <include name="verifyPleaseSelectTheGradeValuePopupMessage"/>
           <include name="setUpExtent"/>
         </methods>
       </class> <!-- tests.CA40Test -->
