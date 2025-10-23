@@ -43,7 +43,6 @@ public class CommandUpGradeSLFTest extends BaseClass {
 	private UserDocsPage userDocsPage;
 	private String traineeIdWithName;
 	private String traineeId;
-	private String traineeName;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {

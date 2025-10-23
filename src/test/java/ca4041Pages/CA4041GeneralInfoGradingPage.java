@@ -284,4 +284,12 @@ public class CA4041GeneralInfoGradingPage {
 	public void clickTaskGradesTab() {
 		SeleniumUtils.click(driver, taskGradesTab, timeout);
 	}
+
+	@FindBy(xpath = "//div[@id='LFUS_nav_body']//span[@id='lhsDesignation']/preceding-sibling::span[@class='text-truncate Tfont Traineename']")
+	private WebElement tarineeId;
+
+	public String getTrainerId() {
+		SeleniumUtils.waitForVisibility(driver, tarineeId, timeout);
+		return SeleniumUtils.getText(tarineeId);
+	}
 }

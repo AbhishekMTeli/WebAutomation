@@ -136,4 +136,25 @@ public class RHSGradingPage {
 	public void clickNextButton() {
 		SeleniumUtils.click(driver, nextButton, timeout);
 	}
+
+	@FindBy(xpath = "//label[text()='Do you want to update the general info?']")
+	private WebElement modalBody;
+
+	@FindBy(xpath = "//button[@id='submitEditedGeneralInfo_button_no']")
+	private WebElement modalBodyNoButton;
+
+	@FindBy(xpath = "//button[@id='submitEditedGeneralInfo_button_yes']")
+	private WebElement modalBodyYesButton;
+
+	public String getTextModalBody() {
+		return SeleniumUtils.getText(modalBody);
+	}
+
+	public void clickModelBodyNoButton() {
+		SeleniumUtils.click(driver, modalBodyNoButton, timeout);
+	}
+
+	public void clickModelBodyYesButton() {
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", modalBodyYesButton);
+	}
 }

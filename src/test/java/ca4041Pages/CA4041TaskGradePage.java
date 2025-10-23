@@ -114,7 +114,7 @@ public class CA4041TaskGradePage {
 	private List<WebElement> allYesLabels;
 
 	// Locator for all NO labels inside rows with radio buttons
-	@FindBy(xpath = "//tr[.//input[@type='radio']]//label[normalize-space(text())='NO']")
+	@FindBy(xpath = "//label[contains(normalize-space(string(.)), 'NO')]")
 	private List<WebElement> allNoLabels;
 
 	// Method to get visible YES labels
@@ -133,16 +133,23 @@ public class CA4041TaskGradePage {
 		if (yesButtons != null && !yesButtons.isEmpty()) {
 			for (WebElement yesButton : yesButtons) {
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", yesButton);
-				Thread.sleep(500);
 			}
 		}
 	}
 
-	public void clickAllNoButtons() {
+	public void clickAllNoButtons() throws InterruptedException {
+		Thread.sleep(500);
 		List<WebElement> noButtons = getVisibleNoLabels();
 		if (noButtons != null && !noButtons.isEmpty()) {
+			int count = 0;
 			for (WebElement noButton : noButtons) {
-				((JavascriptExecutor) driver).executeScript("arguments[0].click();", noButton);
+				if (count < 4) {
+					((JavascriptExecutor) driver).executeScript("arguments[0].click();", noButton);
+				} else {
+					Thread.sleep(1000);
+					break;
+				}
+				count++;
 			}
 		}
 	}

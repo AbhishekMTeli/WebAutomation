@@ -57,4 +57,26 @@ public class PopupPage {
 		SeleniumUtils.click(driver, popupOkButton, timeout);
 	}
 
+	@FindBy(xpath = "//div[@id='popup_modall']//div[@class='modal-body']")
+	private WebElement modalBody;
+
+	@FindBy(xpath = "//button[@id='popup_modal_no']")
+	private WebElement modalBodyNoButton;
+
+	@FindBy(xpath = "//button[@id='popup_modal_yes']")
+	private WebElement modalBodyYesButton;
+
+	public String modalBodyGetText() {
+		SeleniumUtils.waitForVisibility(driver, modalBody, timeout);
+		return SeleniumUtils.getText(modalBody);
+	}
+
+	public void clickModalBodyYesButton() {
+		SeleniumUtils.click(driver, modalBodyYesButton, timeout);
+	}
+
+	public void clickModalBodyNoButton() {
+		SeleniumUtils.click(driver, modalBodyNoButton, timeout);
+	}
+
 }

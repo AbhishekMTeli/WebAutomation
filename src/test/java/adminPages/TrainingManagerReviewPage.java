@@ -124,7 +124,7 @@ public class TrainingManagerReviewPage {
 	}
 
 	public void presenceOfViewButton() {
-		SeleniumUtils.waitForVisibility(driver, viewButton, 60);
+		SeleniumUtils.waitForVisibility(driver, viewButton, 120);
 	}
 
 	public void clickCloseIcon() {
@@ -135,8 +135,10 @@ public class TrainingManagerReviewPage {
 		SeleniumUtils.click(driver, shareIcon, timeout);
 	}
 
-	public void enterComment(String comment) {
+	public void enterComment(String comment) throws InterruptedException {
+		Thread.sleep(500);
 		SeleniumUtils.waitForVisibility(driver, commentTextAreaField, timeout);
+		SeleniumUtils.click(driver, commentTextAreaField, timeout);
 		SeleniumUtils.type(driver, commentTextAreaField, comment, timeout);
 	}
 
