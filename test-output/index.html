@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.CA40Test" class="method navigator-link" hash-for-method="validateAdminCanMarkForReviewWithComments">validateAdminCanMarkForReviewWithComments</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.PBSTest" class="method navigator-link" hash-for-method="e2eHappyPathTestForCommandUpgradeSLF">e2eHappyPathTestForCommandUpgradeSLF</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,16 +121,16 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">tests.CA40Test</span>
+              <span class="class-name">tests.PBSTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validateAdminCanMarkForReviewWithComments">
-                  </a> <!-- validateAdminCanMarkForReviewWithComments -->
-                  <span class="method-name">validateAdminCanMarkForReviewWithComments</span>
+                  <a name="e2eHappyPathTestForCommandUpgradeSLF">
+                  </a> <!-- e2eHappyPathTestForCommandUpgradeSLF -->
+                  <span class="method-name">e2eHappyPathTestForCommandUpgradeSLF</span>
                   <em>
-(Validate admin can mark for review with adding comments)                  </em>
+(Happy Path for Practice Book Session)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-1145253062/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--326360830/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -147,11 +147,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tests.CA40Test&quot;&gt;
+      &lt;class name=&quot;tests.PBSTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;validateAdminCanMarkForReviewWithComments&quot;/&gt;
+          &lt;include name=&quot;e2eHappyPathTestForCommandUpgradeSLF&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- tests.CA40Test --&gt;
+      &lt;/class&gt; &lt;!-- tests.PBSTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -193,14 +193,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateAdminCanMarkForReviewWithComments')
-data.setCell(0, 2, 'tests.CA40Test')
-data.setCell(0, 3, 132995);
+data.setCell(0, 1, 'e2eHappyPathTestForCommandUpgradeSLF')
+data.setCell(0, 2, 'tests.PBSTest')
+data.setCell(0, 3, 22139);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 22 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -215,70 +215,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">28 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">tests.CA40Test</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">validateAdminCannotMarkForReviewWithoutComments</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseSelectSimulatorTypePopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseSelectCrewStatusPopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseSelectSeatOccupiedPopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseSelectTheGradeValuePopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
-                <br/>
-                <span class="ignored-method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
-                <br/>
-                <span class="ignored-method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
-                <br/>
-                <span class="ignored-method-name">validateApprovedFormReportVisibleUnderEFormReports</span>
-                <br/>
-                <span class="ignored-method-name">validateApprovedFormVisibleUnderApprovedDocs</span>
-                <br/>
-                <span class="ignored-method-name">validateMarkForReviewButtonAbsentAfterTrainerSubmission</span>
-                <br/>
-                <span class="ignored-method-name">validateAdminCanApproveFormAfterTraineeAcknowledgement</span>
-                <br/>
-                <span class="ignored-method-name">selectingOBGradeASOneCheckTraineeAutoFail</span>
-                <br/>
-                <span class="ignored-method-name">verifyYouHaveSelectedNoPopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">selectingOBGradeASThreeCheckTraineeAutoPass</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCanMarkFormForReview</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseEnterQualificationPopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">verifyYouMustEnterRemarkPopup</span>
-                <br/>
-                <span class="ignored-method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
-                <br/>
-                <span class="ignored-method-name">verifyPeaseProvideASignatureFirstRemarkPopup</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseEnterRegistrationNumberPopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseSelectTypeOfCheckPopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">verifyEnterDelayCommentRemarkPopup</span>
-                <br/>
-                <span class="ignored-method-name">happyPathCA4041Test</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCanAcknowledgeSubmittedForm</span>
-                <br/>
-                <span class="ignored-method-name">validateTrainerCanAccessSubmittedFormThroughGradingHistory</span>
-                <br/>
-                <span class="ignored-method-name">verifyPleaseSelectDayOrNightPopupMessage</span>
-                <br/>
-                <span class="ignored-method-name">verifyYouMustSelectSeatOccupiedPopupMessage</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -287,30 +226,30 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.CA40Test</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.PBSTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setUpExtent</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">211 ms</span>
+                <span class="method-start">224 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">9931 ms</span>
+                <span class="method-start">12951 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">validateAdminCanMarkForReviewWithComments</span>
-                <span class="method-start">10003 ms</span>
+                <span class="method-name">e2eHappyPathTestForCommandUpgradeSLF</span>
+                <span class="method-start">13053 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=validateAdminCanMarkForReviewWithComments status=SUCCESS method=CA40Test.validateAd...)</span>
-                <span class="method-start">143000 ms</span>
+                <span class="method-name">tearDown([TestResult name=e2eHappyPathTestForCommandUpgradeSLF status=SUCCESS method=PBSTest.e2eHappyPathTest...)</span>
+                <span class="method-start">35194 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">143707 ms</span>
+                <span class="method-start">35662 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.CA40Test">
+      <class name="tests.PBSTest">
         <methods>
-          <include name="initPages"/>
           <include name="tearDown"/>
+          <include name="initPages"/>
           <include name="setUp"/>
-          <include name="validateMarkForReviewButtonAbsentAfterTrainerSubmission"/>
+          <include name="e2eHappyPathTestForCommandUpgradeSLF"/>
           <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
         </methods>
-      </class> <!-- tests.CA40Test -->
+      </class> <!-- tests.PBSTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
