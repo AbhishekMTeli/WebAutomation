@@ -38,12 +38,12 @@ public class TrainerDashBoradPage {
 	private WebElement traineeReviewSubTab;
 
 	public void clickOnGradingAssessmentTab() {
-		SeleniumUtils.waitForVisibility(driver, gradingAndAssessmentTab, timeout);
+		SeleniumUtils.waitForClickability(driver, gradingAndAssessmentTab, timeout);
 		SeleniumUtils.click(driver, gradingAndAssessmentTab, timeout);
 	}
 
 	public void clickOnGradingSubTab() {
-		SeleniumUtils.waitForVisibility(driver, gradingSubTab, timeout);
+		SeleniumUtils.waitForClickability(driver, gradingSubTab, timeout);
 		SeleniumUtils.click(driver, gradingSubTab, timeout);
 	}
 

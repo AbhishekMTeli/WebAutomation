@@ -340,6 +340,8 @@ public class PracticeBookSessionGradingPage {
 	}
 
 	public void clickSaveAndNextButton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("preloader")));
 		SeleniumUtils.waitForClickability(driver, saveAndNextButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);

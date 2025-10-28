@@ -1,11 +1,15 @@
 package practiceBookSessionPages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import utils.ConfigReader;
@@ -274,6 +278,8 @@ public class PracticeBookSessionOverallOutcomePage {
 	}
 
 	public void clickSaveAndNextButton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("preloader")));
 		SeleniumUtils.waitForVisibility(driver, saveAndNextButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);

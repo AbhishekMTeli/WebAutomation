@@ -941,7 +941,6 @@ public class PBSTest extends BaseClass {
 		traineeReviewPage.validateAllStaticElements();
 	}
 
-	// from here
 	@Test(description = "Validate trainer can see action under pending grading after trainee marks form for review")
 	public void validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
@@ -1067,6 +1066,7 @@ public class PBSTest extends BaseClass {
 		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 	}
 
+	// from here
 	@Test(description = "Validate trainee cannot mark the form for review after it has been reviewed and submitted by trainer")
 	public void validateTraineeCannotMarkFormForReviewAfterTrainerSubmission() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
@@ -1119,24 +1119,48 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		popupPage.clickAlertOkButton();
 		traineeGradingPage.validateAllStaticTexts();
+
+		// lhs
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
 		traineeReviewPage.validateAllStaticElements();
 		traineeReviewPage.clickViewButton();
 		traineeReviewPage.clickMarkForReviewButton();
-		String actualText = traineeReviewPage.getMarkForReviewConfirmationText();
-		String expectedText = "Are you sure you want to mark this event for review by trainer ?";
-		Assert.assertEquals(actualText, expectedText,
-				"Text Mismatch" + expectedText + "is expected but found " + actualText);
+		String actualLHSText = traineeReviewPage.getMarkForReviewConfirmationText();
+		String expectedLHSText = "Are you sure you want to mark this event for review by trainer ?";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text Mismatch" + expectedLHSText + "is expected but found " + actualLHSText);
 		traineeReviewPage.clickNoButton();
 		traineeReviewPage.clickMarkForReviewButton();
 		traineeReviewPage.clickYesButton();
 		traineeReviewPage.validateAllStaticElements();
+
+		// rhs
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickMarkForReviewButton();
+		String actualRHSText = traineeReviewPage.getMarkForReviewConfirmationText();
+		String expectedRHSText = "Are you sure you want to mark this event for review by trainer ?";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text Mismatch" + expectedRHSText + "is expected but found " + actualRHSText);
+		traineeReviewPage.clickNoButton();
+		traineeReviewPage.clickMarkForReviewButton();
+		traineeReviewPage.clickYesButton();
+		traineeReviewPage.validateAllStaticElements();
+
+		// trainer for lhs user
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
@@ -1146,24 +1170,53 @@ public class PBSTest extends BaseClass {
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
 		pendingHistoryPage.validatePengingGradingStaticTexts();
-		pendingHistoryPage.enterSearchText(traineeId);
+		pendingHistoryPage.enterSearchText(lhsTraineeId);
 		pendingHistoryPage.clickReviewButton();
-		manageSectorPage.validateAllStaticTexts();
-		manageSectorPage.enterFrom();
-		manageSectorPage.enterTo();
-		manageSectorPage.enterRegNo();
-		manageSectorPage.enterAircraftType();
-		manageSectorPage.selectPMRadio();
-		manageSectorPage.clickNextButton();
+		practiceBookSessionGradingPage.selectAircraftType("A321");
+		practiceBookSessionGradingPage.clickSaveAndNextButton();
+		practiceBookSessionOverallOutcomePage.clickSaveAndNextButton();
 		pendingHistoryPage.validateUpdateGeneralInfoPopupLabelText();
 		pendingHistoryPage.clickUpdateGeneralInfoPopupNoButton();
-		manageSectorPage.clickNextButton();
+		practiceBookSessionOverallOutcomePage.clickSaveAndNextButton();
 		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 		traineeGradingPage.validateAllStaticTexts();
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.enterTrainId(becomeUserPage.getTraineeId());
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.markForReviewButtonNotVisible();
+		traineeReviewPage.clickAcknowledgeButton();
+
+		// trainer for rhs user
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		pendingHistoryPage.validatePengingGradingStaticTexts();
+		pendingHistoryPage.enterSearchText(rhsTraineeId);
+		pendingHistoryPage.clickReviewButton();
+		practiceBookSessionGradingPage.selectAircraftType("A321");
+		practiceBookSessionGradingPage.clickSaveAndNextButton();
+		practiceBookSessionOverallOutcomePage.clickSaveAndNextButton();
+		pendingHistoryPage.validateUpdateGeneralInfoPopupLabelText();
+		pendingHistoryPage.clickUpdateGeneralInfoPopupNoButton();
+		practiceBookSessionOverallOutcomePage.clickSaveAndNextButton();
+		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
+		traineeGradingPage.validateAllStaticTexts();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();

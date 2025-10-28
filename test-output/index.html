@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.PBSTest" class="method navigator-link" hash-for-method="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.PBSTest" class="method navigator-link" hash-for-method="validateTraineeCannotMarkFormForReviewAfterTrainerSubmission">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -126,37 +126,15 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview">
-                  </a> <!-- validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview -->
-                  <span class="method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button id=&quot;eventGrading&quot; type=&quot;button&quot; class=&quot;btn btn-success center-block gb&quot; style=&quot;background: #313689; margin-top: 1%; display: inline; margin: auto&quot;&gt;...&lt;/button&gt; is not clickable at point (953, 456). Other element would receive the click: &lt;div id=&quot;preloader&quot; style=&quot;display: block;&quot;&gt;&lt;/div&gt;
-  (Session info: chrome=141.0.7390.123)
-Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;26.0.1&apos;, java.version: &apos;21.0.7&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b4880547f7cba3e256778f32e74e112b, clickElement {id=f.B1780B4CC728B76D97CAC3AB33EFC92B.d.9726666A879A257CDFF624284627341E.e.1300}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65149}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:65149/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on mac (b4880547f7cba3e256778f32e74e112b)] -&gt; xpath: //button[@id=&apos;eventGrading&apos;]]
-Session ID: b4880547f7cba3e256778f32e74e112b
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
-	at utils.SeleniumUtils.click(SeleniumUtils.java:49)
-	at practiceBookSessionPages.PracticeBookSessionGradingPage.clickSaveAndNextButton(PracticeBookSessionGradingPage.java:345)
-	at tests.PBSTest.validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview(PBSTest.java:1050)
+                  <a name="validateTraineeCannotMarkFormForReviewAfterTrainerSubmission">
+                  </a> <!-- validateTraineeCannotMarkFormForReviewAfterTrainerSubmission -->
+                  <span class="method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //span[normalize-space(text())=&apos;Grading &amp; Assessment&apos;]&apos; (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at utils.SeleniumUtils.waitForVisibility(SeleniumUtils.java:32)
+	at traineePages.TraineeReviewPage.clickGradingAndAssessmentTab(TraineeReviewPage.java:81)
+	at tests.PBSTest.validateTraineeCannotMarkFormForReviewAfterTrainerSubmission(PBSTest.java:1149)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -183,10 +161,41 @@ Session ID: b4880547f7cba3e256778f32e74e112b
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[normalize-space(text())=&apos;Grading &amp; Assessment&apos;]&quot;}
+  (Session info: chrome=141.0.7390.123)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;26.0.1&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ca9f91d17b60cb50f75ec2bd42b87827, findElement {value=//span[normalize-space(text())=&apos;Grading &amp; Assessment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49624}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49624/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ca9f91d17b60cb50f75ec2bd42b87827
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 29 more
 
 </div> <!-- stack-trace -->
                   <em>
-(Validate trainer can see action under pending grading after trainee marks form for review)                  </em>
+(Validate trainee cannot mark the form for review after it has been reviewed and submitted by trainer)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -194,7 +203,7 @@ Session ID: b4880547f7cba3e256778f32e74e112b
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse-409881063/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--716951063/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -205,7 +214,7 @@ Session ID: b4880547f7cba3e256778f32e74e112b
     &lt;classes&gt;
       &lt;class name=&quot;tests.PBSTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview&quot;/&gt;
+          &lt;include name=&quot;validateTraineeCannotMarkFormForReviewAfterTrainerSubmission&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.PBSTest --&gt;
     &lt;/classes&gt;
@@ -249,14 +258,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview')
+data.setCell(0, 1, 'validateTraineeCannotMarkFormForReviewAfterTrainerSubmission')
 data.setCell(0, 2, 'tests.PBSTest')
-data.setCell(0, 3, 135731);
+data.setCell(0, 3, 117166);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -319,8 +328,6 @@ return data;
                 <br/>
                 <span class="ignored-method-name">e2eHappyPathTestForCommandUpgradeSLF</span>
                 <br/>
-                <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
-                <br/>
                 <span class="ignored-method-name">validateMarkForReviewButtonAbsentAfterTrainerSubmission</span>
                 <br/>
                 <span class="ignored-method-name">validateAdminCanApproveFormAfterTraineeAcknowledgement</span>
@@ -336,6 +343,8 @@ return data;
                 <span class="ignored-method-name">validateAutoSelectionOfCompetent</span>
                 <br/>
                 <span class="ignored-method-name">validatePleaseEnterACommentBeforeSubmitting</span>
+                <br/>
+                <span class="ignored-method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
                 <br/>
                 <span class="ignored-method-name">validatePleaseSelectAirCraftType</span>
                 <br/>
@@ -358,25 +367,25 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">190 ms</span>
+                <span class="method-start">209 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">19790 ms</span>
+                <span class="method-start">21172 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
-                <span class="method-start">19842 ms</span>
+                <span class="method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
+                <span class="method-start">21222 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview status=FAILURE me...)</span>
-                <span class="method-start">155578 ms</span>
+                <span class="method-name">tearDown([TestResult name=validateTraineeCannotMarkFormForReviewAfterTrainerSubmission status=FAILURE method=...)</span>
+                <span class="method-start">138392 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">156479 ms</span>
+                <span class="method-start">140029 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

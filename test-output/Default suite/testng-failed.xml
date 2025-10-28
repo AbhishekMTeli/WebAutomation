@@ -6,9 +6,9 @@
       <class name="tests.PBSTest">
         <methods>
           <include name="initPages"/>
+          <include name="validateTraineeCannotMarkFormForReviewAfterTrainerSubmission"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview"/>
           <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
         </methods>
