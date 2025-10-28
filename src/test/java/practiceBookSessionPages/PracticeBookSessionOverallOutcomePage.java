@@ -1,7 +1,9 @@
 package practiceBookSessionPages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -48,10 +50,10 @@ public class PracticeBookSessionOverallOutcomePage {
 	@FindBy(xpath = "//input[@id='LHS_C']")
 	private WebElement lhsCompetentRadioButton;
 
-	@FindBy(xpath = "//input[@id='LHS_ATR']")
+	@FindBy(xpath = "//input[@id='RHS_C']")
 	private WebElement rhsCompetentRadioButton;
 
-	@FindBy(xpath = "//input[@id='RHS_C']")
+	@FindBy(xpath = "//input[@id='LHS_ATR']")
 	private WebElement lhsNotYetCompetentRadioButton;
 
 	@FindBy(xpath = "//input[@id='RHS_ATR']")
@@ -73,34 +75,34 @@ public class PracticeBookSessionOverallOutcomePage {
 		SeleniumUtils.click(driver, rhsNotYetCompetentRadioButton, timeout);
 	}
 
-	public void rhsNotYetCompetentIsSelected() {
+	public boolean rhsNotYetCompetentIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsOverallAssessmentLable.getText());
 		SeleniumUtils.waitForVisibility(driver, rhsNotYetCompetentRadioButton, timeout);
-		rhsNotYetCompetentRadioButton.isSelected();
+		return rhsNotYetCompetentRadioButton.isSelected();
 	}
 
-	public void lhsNotYetCompetentIsSelected() {
+	public boolean lhsNotYetCompetentIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsOverallAssessmentLable.getText());
 		SeleniumUtils.waitForVisibility(driver, lhsNotYetCompetentRadioButton, timeout);
-		lhsNotYetCompetentRadioButton.isSelected();
+		return lhsNotYetCompetentRadioButton.isSelected();
 	}
 
-	public void lhsCompetentIsSelected() {
+	public boolean lhsCompetentIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsOverallAssessmentLable.getText());
 		SeleniumUtils.waitForVisibility(driver, lhsCompetentRadioButton, timeout);
-		lhsCompetentRadioButton.isSelected();
+		return lhsCompetentRadioButton.isSelected();
 	}
 
-	public void rhsCompetentIsSelected() {
+	public boolean rhsCompetentIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsOverallAssessmentLable.getText());
 		SeleniumUtils.waitForVisibility(driver, rhsCompetentRadioButton, timeout);
-		rhsCompetentRadioButton.isSelected();
+		return rhsCompetentRadioButton.isSelected();
 	}
 
 	@FindBy(xpath = "//textarea[@id='overallcomment_textarea_LHS']")
 	private WebElement lhsRemarksTextAreaField;
 
-	@FindBy(xpath = "//input[@id='RHS_ATR']")
+	@FindBy(xpath = "//textarea[@id='overallcomment_textarea_RHS']")
 	private WebElement rhsRemarksTextAreaField;
 
 	@FindBy(xpath = "//div[@id='overallOC_txtArea_LHS']//label[@for='comment'][normalize-space()='REMARKS']")
@@ -121,10 +123,10 @@ public class PracticeBookSessionOverallOutcomePage {
 		SeleniumUtils.type(driver, rhsRemarksTextAreaField, remarks, timeout);
 	}
 
-	@FindBy(xpath = "//div[@id='textarea_feedback_LHS']//b[contains(text(),'6000 characters remaining')]")
+	@FindBy(xpath = "//div[@id='textarea_feedback_LHS']//b")
 	private WebElement lhsRemainingCharacterLabel;
 
-	@FindBy(xpath = "//div[@id='textarea_feedback_RHS']//b[contains(text(),'6000 characters remaining')]")
+	@FindBy(xpath = "//div[@id='textarea_feedback_RHS']//b")
 	private WebElement rhsRemainingCharacterLabel;
 
 	public int lhsCharacterCount() throws InterruptedException {
@@ -169,28 +171,28 @@ public class PracticeBookSessionOverallOutcomePage {
 		SeleniumUtils.click(driver, lhsLVTONoCheckBox, timeout);
 	}
 
-	public void lhsLVTOYesIsSelected() {
+	public boolean lhsLVTOYesIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
 		SeleniumUtils.waitForVisibility(driver, lhsLVTOYesCheckBox, timeout);
-		lhsLVTOYesCheckBox.isSelected();
+		return lhsLVTOYesCheckBox.isSelected();
 	}
 
-	public void rhsLVTOYesIsSelected() {
+	public boolean rhsLVTOYesIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
 		SeleniumUtils.waitForVisibility(driver, rhsLVTOYesCheckBox, timeout);
-		rhsLVTOYesCheckBox.isSelected();
+		return rhsLVTOYesCheckBox.isSelected();
 	}
 
-	public void lhsLVTONoIsSelected() {
+	public boolean lhsLVTONoIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
 		SeleniumUtils.waitForVisibility(driver, lhsLVTONoCheckBox, timeout);
-		lhsLVTONoCheckBox.isSelected();
+		return lhsLVTONoCheckBox.isSelected();
 	}
 
-	public void rhsLVTONoIsSelected() {
+	public boolean rhsLVTONoIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
 		SeleniumUtils.waitForVisibility(driver, rhsLVTONoCheckBox, timeout);
-		rhsLVTONoCheckBox.isSelected();
+		return rhsLVTONoCheckBox.isSelected();
 	}
 
 	@FindBy(xpath = "//input[@id='Cat_YES']")
@@ -207,46 +209,46 @@ public class PracticeBookSessionOverallOutcomePage {
 
 	public void clickRHSYesCATCheckBox() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, rhsRemainingCharacterLabel.getText());
-		SeleniumUtils.click(driver, rhsLVTOYesCheckBox, timeout);
+		SeleniumUtils.click(driver, rhsCATYesCheckBox, timeout);
 	}
 
 	public void clickLHSYesCATCheckBox() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
-		SeleniumUtils.click(driver, lhsLVTOYesCheckBox, timeout);
+		SeleniumUtils.click(driver, lhsCATYesCheckBox, timeout);
 	}
 
 	public void clickRHSNoCATCheckBox() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, rhsRemainingCharacterLabel.getText());
-		SeleniumUtils.click(driver, rhsLVTONoCheckBox, timeout);
+		SeleniumUtils.click(driver, rhsCATNoCheckBox, timeout);
 	}
 
 	public void clickLHSNoCATCheckBox() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
-		SeleniumUtils.click(driver, lhsLVTONoCheckBox, timeout);
+		SeleniumUtils.click(driver, lhsCATNoCheckBox, timeout);
 	}
 
-	public void lhsCATYesIsSelected() {
+	public boolean lhsCATYesIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
-		SeleniumUtils.waitForVisibility(driver, lhsLVTOYesCheckBox, timeout);
-		lhsLVTOYesCheckBox.isSelected();
+		SeleniumUtils.waitForVisibility(driver, lhsCATYesCheckBox, timeout);
+		return lhsCATYesCheckBox.isSelected();
 	}
 
-	public void rhsCATYesIsSelected() {
+	public boolean rhsCATYesIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
-		SeleniumUtils.waitForVisibility(driver, rhsLVTOYesCheckBox, timeout);
-		rhsLVTOYesCheckBox.isSelected();
+		SeleniumUtils.waitForVisibility(driver, rhsCATYesCheckBox, timeout);
+		return rhsCATYesCheckBox.isSelected();
 	}
 
-	public void lhsCATNoIsSelected() {
+	public boolean lhsCATNoIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
-		SeleniumUtils.waitForVisibility(driver, lhsLVTONoCheckBox, timeout);
-		lhsLVTONoCheckBox.isSelected();
+		SeleniumUtils.waitForVisibility(driver, lhsCATNoCheckBox, timeout);
+		return lhsCATNoCheckBox.isSelected();
 	}
 
-	public void rhsCATNoIsSelected() {
+	public boolean rhsCATNoIsSelected() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
-		SeleniumUtils.waitForVisibility(driver, rhsLVTONoCheckBox, timeout);
-		rhsLVTONoCheckBox.isSelected();
+		SeleniumUtils.waitForVisibility(driver, rhsCATNoCheckBox, timeout);
+		return rhsCATNoCheckBox.isSelected();
 	}
 
 	@FindBy(xpath = "//h2[normalize-space(text())='QUALIFICATION:']")
@@ -260,4 +262,229 @@ public class PracticeBookSessionOverallOutcomePage {
 
 	@FindBy(xpath = "//button[@id='overallOC_next']")
 	private WebElement saveAndNextButton;
+
+	public void selectQualification(String qualification) throws InterruptedException {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(qualificationLabel));
+		SeleniumUtils.selectDropdownByVisibleText(driver, qualificationDropdown, qualification, timeout);
+	}
+
+	public void clickDiscardButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(discardButton));
+		SeleniumUtils.click(driver, discardButton, timeout);
+	}
+
+	public void clickSaveAndNextButton() {
+		SeleniumUtils.waitForVisibility(driver, saveAndNextButton, timeout);
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
+		SeleniumUtils.click(driver, saveAndNextButton, timeout);
+	}
+
+	@FindBy(xpath = "//input[@id='Additional_YES']")
+	private WebElement numberOfApprochesLHS3CheckBox;
+
+	@FindBy(xpath = "//input[@id='Additional_YES_rhs']")
+	private WebElement numberOfApprochesRHS3CheckBox;
+
+	@FindBy(xpath = "//input[@id='Additional_NO']")
+	private WebElement numberOfApprochesLHS8CheckBox;
+
+	@FindBy(xpath = "//input[@id='Additional_NO_rhs']")
+	private WebElement numberOfApprochesRHS8CheckBox;
+
+	public void clickRHSNumberOfApproaches3CheckBox() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, rhsRemainingCharacterLabel.getText());
+		SeleniumUtils.click(driver, numberOfApprochesRHS3CheckBox, timeout);
+	}
+
+	public void clickLHSNumberOfApproaches3CheckBox() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
+		SeleniumUtils.click(driver, numberOfApprochesLHS3CheckBox, timeout);
+	}
+
+	public void clickRHSNumberOfApproaches8CheckBox() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, rhsRemainingCharacterLabel.getText());
+		SeleniumUtils.click(driver, numberOfApprochesRHS8CheckBox, timeout);
+	}
+
+	public void clickLHSNumberOfApproaches8CheckBox() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
+		SeleniumUtils.click(driver, numberOfApprochesLHS8CheckBox, timeout);
+	}
+
+	public boolean rHSNumberOfApproaches3IsSelected() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
+		SeleniumUtils.waitForVisibility(driver, numberOfApprochesRHS3CheckBox, timeout);
+		return numberOfApprochesRHS3CheckBox.isSelected();
+	}
+
+	public boolean rHSNumberOfApproaches8IsSelected() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
+		SeleniumUtils.waitForVisibility(driver, numberOfApprochesRHS8CheckBox, timeout);
+		return numberOfApprochesRHS8CheckBox.isSelected();
+	}
+
+	public boolean lHSNumberOfApproaches3IsSelected() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
+		SeleniumUtils.waitForVisibility(driver, numberOfApprochesLHS3CheckBox, timeout);
+		return numberOfApprochesLHS3CheckBox.isSelected();
+	}
+
+	public boolean lHSNumberOfApproaches8IsSelected() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, lhsRemainingCharacterLabel.getText());
+		SeleniumUtils.waitForVisibility(driver, numberOfApprochesLHS8CheckBox, timeout);
+		return numberOfApprochesLHS8CheckBox.isSelected();
+	}
+
+	// Reason for Delay Pop-up
+	@FindBy(xpath = "//h5[text()='Reason for Delayed Grading']")
+	private WebElement reasonForDelayLabel;
+
+	@FindBy(xpath = "//textarea[@id='comment_textarea']")
+	private WebElement reasonForDelayCommentTextArea;
+
+	@FindBy(xpath = "//button[normalize-space(text())='Submit Comment']")
+	private WebElement reasonForDelaySubmitButton;
+
+	@FindBy(xpath = "//button[@class='btn btn-secondary']")
+	private WebElement reasonForDelayCloseButton;
+
+	public void reasonForDelayLabelIsPresent() {
+		try {
+			SeleniumUtils.waitForPresence(driver, By.xpath("//h5[text()='Reason for Delayed Grading']"), timeout);
+		} catch (Exception e) {
+			System.out.println("Delay Popup not present");
+		}
+	}
+
+	public void clickSubmitCommentButtonForDelayComment() {
+		try {
+			SeleniumUtils.click(driver, reasonForDelaySubmitButton, timeout);
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void addDelayComments(String comment) {
+		try {
+			SeleniumUtils.type(driver, reasonForDelayCommentTextArea, comment, timeout);
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void clickCloseCommentButtonForDelayComment() {
+		try {
+			SeleniumUtils.click(driver, reasonForDelayCloseButton, timeout);
+		} catch (Exception e) {
+
+		}
+	}
+
+	// Instructor Acknowldgement
+	@FindBy(xpath = "//h4[@id='loginModalLabel']")
+	private WebElement instructorAcknowldgementLabel;
+
+	@FindBy(xpath = "//button[@id='ebtack_login_btn']")
+	private WebElement instructorAcknowldgementSubmitButton;
+
+	@FindBy(xpath = "//button[@class='btn btn-secondary']")
+	private WebElement instructorAcknowldgementCloseIconButton;
+
+	public void instructorAcknowldgementLabelIsPresent() {
+		SeleniumUtils.waitForPresence(driver, By.xpath("//h5[text()='Reason for Delayed Grading']"), timeout);
+	}
+
+	public void clickSubmitButtonForInstructorAcknowldgement() {
+		SeleniumUtils.click(driver, instructorAcknowldgementSubmitButton, timeout);
+	}
+
+	public void clickCloseIconForInstructorAcknowldgement() {
+		SeleniumUtils.click(driver, instructorAcknowldgementCloseIconButton, timeout);
+	}
+
+	// Digital Signiture Popup
+	@FindBy(xpath = "//h4[normalize-space(text())='Digital Signature']")
+	private WebElement digitalSignitureLabel;
+
+	@FindBy(xpath = "//button[@id='save-button']")
+	private WebElement digitalSignitureSaveSignitureButton;
+
+	@FindBy(xpath = "//a[@class='btn btn-cancel']//span[text()='X']")
+	private WebElement digitalSignitureCloseIconButton;
+
+	@FindBy(xpath = "//button[@id='clear']")
+	private WebElement digitalSignitureClearButton;
+
+	@FindBy(xpath = "//canvas[@id='signature-pad']")
+	private WebElement digitalSignitureTextAreaField;
+
+	public void digitalSignitureLabelIsPresent() {
+		SeleniumUtils.waitForPresence(driver, By.xpath("//h4[@id='loginModalLabel']"), timeout);
+	}
+
+	public void clickSaveSignitureButtonForDigitalSigniture() {
+		SeleniumUtils.click(driver, digitalSignitureSaveSignitureButton, timeout);
+	}
+
+	public void clickCloseIconForDigitalSigniture() {
+		SeleniumUtils.click(driver, digitalSignitureCloseIconButton, timeout);
+	}
+
+	public void clickClearForDigitalSigniture() {
+		SeleniumUtils.click(driver, digitalSignitureClearButton, timeout);
+	}
+
+	public void digitalSign() {
+		SeleniumUtils.click(driver, digitalSignitureTextAreaField, timeout);
+		Actions drawAction = new Actions(driver);
+		drawAction.moveToElement(digitalSignitureTextAreaField, 50, 60).clickAndHold().moveByOffset(30, 20)
+				.moveByOffset(30, -40).moveByOffset(30, 40).moveByOffset(50, 0).release().build().perform();
+	}
+
+	// Data Uploaded Successfully Pop-up
+
+	@FindBy(xpath = "//h4[@id='loginModalLabel']")
+	private WebElement dataSuccessfullyUploadedLabel;
+
+	@FindBy(xpath = "//button[@id='ebtack_login_btn']")
+	private WebElement dataSuccessfullyUploadedOkButton;
+
+	public void dataSuccessfullyUploadedIsPresent() {
+		SeleniumUtils.waitForPresence(driver, By.xpath("//span[@id='alertBoxMsg']"), timeout);
+	}
+
+	public void clickOkPop_up() throws InterruptedException {
+		Thread.sleep(500);
+		SeleniumUtils.click(driver, dataSuccessfullyUploadedOkButton, timeout);
+	}
+
+	// Preview Popup
+	@FindBy(xpath = "//h4[normalize-space()='Preview']")
+	private WebElement previewHeader;
+
+	@FindBy(xpath = "//div[@role='document']//span[@id='closeButton']")
+	private WebElement previewCloseIcon;
+
+	@FindBy(xpath = "//span[@class='glyphicon glyphicon-share']")
+	private WebElement previewShareIcon;
+
+	@FindBy(xpath = "//button[@id='previewNext']")
+	private WebElement previewNextButton;
+
+	public void visibilityOfPreviewHeader() {
+		SeleniumUtils.waitForVisibility(driver, previewHeader, timeout);
+	}
+
+	public void clickPreviewCloseIcon() {
+		SeleniumUtils.click(driver, previewCloseIcon, timeout);
+	}
+
+	public void clickPreviewShareIcon() {
+		SeleniumUtils.click(driver, previewShareIcon, timeout);
+	}
+
+	public void clickPreviewNextButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(previewNextButton));
+		SeleniumUtils.click(driver, previewNextButton, timeout);
+	}
 }

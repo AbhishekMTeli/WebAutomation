@@ -287,6 +287,12 @@ public class PracticeBookSessionGradingPage {
 		System.out.println("[INFO] Clicked " + clickedCount + " visible 'Done' buttons for section: " + section);
 	}
 
+	public void clickOnObDoneButton(String section) throws InterruptedException {
+		Thread.sleep(1000);
+		String xpath = String.format("//button[contains(@class, 'btn-success') and contains(@onclick,'%s')]", section);
+		driver.findElement(By.xpath(xpath)).click();
+	}
+
 	public void clickObCancelButton(String section) {
 		String xpath = String.format(
 				"//button[contains(@class, 'btn-success') and contains(@onclick,'%s')]/preceding-sibling::a", section);
@@ -334,7 +340,24 @@ public class PracticeBookSessionGradingPage {
 	}
 
 	public void clickSaveAndNextButton() {
+		SeleniumUtils.waitForClickability(driver, saveAndNextButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);
+	}
+
+	@FindBy(xpath = "//div[@id='LHS_GradingData']//span[@id='lhsuser']")
+	private WebElement lhsUserNameAndId;
+
+	@FindBy(xpath = "//span[@id='Rhsuser']")
+	private WebElement rhsUserNameAndId;
+
+	public String getLHSTrainerId() {
+		SeleniumUtils.waitForVisibility(driver, lhsUserNameAndId, timeout);
+		return SeleniumUtils.getText(lhsUserNameAndId);
+	}
+
+	public String getRHSTrainerId() {
+		SeleniumUtils.waitForVisibility(driver, rhsUserNameAndId, timeout);
+		return SeleniumUtils.getText(rhsUserNameAndId);
 	}
 }

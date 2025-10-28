@@ -37,8 +37,8 @@ public class PendingHistoryPage {
 	private WebElement sectorsLabel;
 
 	public void validatePengingGradingStaticTexts() {
-		SeleniumUtils.scrollToElementByVisibleText(driver, pendingGradingLabel.getText());
 		SeleniumUtils.waitForVisibility(driver, pendingGradingLabel, timeout);
+		SeleniumUtils.scrollToElementByVisibleText(driver, pendingGradingLabel.getText());
 		Assert.assertEquals(pendingGradingLabel.getText(), "Pending Grading",
 				"Text mismatch expected is 'Pending Grading' but got' " + pendingGradingLabel.getText());
 		Assert.assertEquals(curriculumLabel.getText(), "Curriculum",

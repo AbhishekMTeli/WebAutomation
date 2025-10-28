@@ -5,10 +5,10 @@
     <classes>
       <class name="tests.PBSTest">
         <methods>
-          <include name="tearDown"/>
           <include name="initPages"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="e2eHappyPathTestForCommandUpgradeSLF"/>
+          <include name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview"/>
           <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
         </methods>

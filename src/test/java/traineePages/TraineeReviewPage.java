@@ -78,6 +78,7 @@ public class TraineeReviewPage {
 	private List<WebElement> viewButtons;
 
 	public void clickGradingAndAssessmentTab() {
+		SeleniumUtils.waitForVisibility(driver, gradingAndAssessmentTab, timeout);
 		SeleniumUtils.click(driver, gradingAndAssessmentTab, 10);
 	}
 
