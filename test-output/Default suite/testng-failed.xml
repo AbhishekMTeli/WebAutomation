@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.PBSTest">
+      <class name="tests.CATII_III_Test">
         <methods>
-          <include name="initPages"/>
-          <include name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="tearDownExtent"/>
+          <include name="initPages"/>
+          <include name="happyPathCA4041Test"/>
           <include name="setUpExtent"/>
         </methods>
-      </class> <!-- tests.PBSTest -->
+      </class> <!-- tests.CATII_III_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
