@@ -77,8 +77,9 @@ public class TraineeReviewPage {
 	@FindBy(xpath = "//button[@id='viewClick']")
 	private List<WebElement> viewButtons;
 
-	public void clickGradingAndAssessmentTab() {
-		SeleniumUtils.waitForVisibility(driver, gradingAndAssessmentTab, timeout);
+	public void clickGradingAndAssessmentTab() throws InterruptedException {
+		Thread.sleep(500);
+		SeleniumUtils.waitForClickability(driver, gradingAndAssessmentTab, timeout);
 		SeleniumUtils.click(driver, gradingAndAssessmentTab, 10);
 	}
 
@@ -152,6 +153,7 @@ public class TraineeReviewPage {
 	}
 
 	public void clickAcknowledgeButton() {
+		SeleniumUtils.waitForClickability(driver, acknowledgeButton, timeout);
 		SeleniumUtils.click(driver, acknowledgeButton, timeout);
 	}
 

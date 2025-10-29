@@ -6,7 +6,7 @@
       <class name="tests.PBSTest">
         <methods>
           <include name="initPages"/>
-          <include name="validateTraineeCannotMarkFormForReviewAfterTrainerSubmission"/>
+          <include name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="tearDownExtent"/>

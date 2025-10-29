@@ -120,6 +120,7 @@ public class TrainingManagerReviewPage {
 	}
 
 	public void clickViewButton() {
+		SeleniumUtils.waitForClickability(driver, viewButton, timeout);
 		SeleniumUtils.click(driver, viewButton, timeout);
 	}
 
@@ -128,6 +129,7 @@ public class TrainingManagerReviewPage {
 	}
 
 	public void clickCloseIcon() {
+		SeleniumUtils.waitForClickability(driver, closeIcon, timeout);
 		SeleniumUtils.click(driver, closeIcon, timeout);
 	}
 
@@ -148,6 +150,7 @@ public class TrainingManagerReviewPage {
 	}
 
 	public void clickMarkForReviewButton() {
+		SeleniumUtils.waitForClickability(driver, markForReviewButton, timeout);
 		SeleniumUtils.click(driver, markForReviewButton, timeout);
 	}
 

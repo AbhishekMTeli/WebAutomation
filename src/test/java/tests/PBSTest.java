@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import adminPages.AdminDashBoardPage;
 import adminPages.BecomeUserPage;
 import adminPages.EFormReportsPage;
-import adminPages.SLFHistoryPage;
 import adminPages.TrainingManagerReviewPage;
 import adminPages.UserDocsPage;
 import base.BaseClass;
@@ -26,7 +25,6 @@ public class PBSTest extends BaseClass {
 	private TraineeGradingPage traineeGradingPage;
 	private BecomeUserPage becomeUserPage;
 	private AdminDashBoardPage adminDashBoardPage;
-	private SLFHistoryPage slfHistoryPage;
 	private GradingHistoryPage gradingHistoryPage;
 	private TraineeReviewPage traineeReviewPage;
 	private LogoutPage logoutPage;
@@ -48,7 +46,6 @@ public class PBSTest extends BaseClass {
 		becomeUserPage = new BecomeUserPage(getDriver());
 		trainerDashBoradPage = new TrainerDashBoradPage(getDriver());
 		traineeGradingPage = new TraineeGradingPage(getDriver());
-		slfHistoryPage = new SLFHistoryPage(getDriver());
 		traineeReviewPage = new TraineeReviewPage(getDriver());
 		logoutPage = new LogoutPage(getDriver());
 		trainingManagerReviewPage = new TrainingManagerReviewPage(getDriver());
@@ -1066,7 +1063,6 @@ public class PBSTest extends BaseClass {
 		pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 	}
 
-	// from here
 	@Test(description = "Validate trainee cannot mark the form for review after it has been reviewed and submitted by trainer")
 	public void validateTraineeCannotMarkFormForReviewAfterTrainerSubmission() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
@@ -1088,11 +1084,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1192,6 +1183,12 @@ public class PBSTest extends BaseClass {
 		traineeReviewPage.clickViewButton();
 		traineeReviewPage.markForReviewButtonNotVisible();
 		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
 
 		// trainer for rhs user
 		logoutPage.clickProfileIcon();
@@ -1225,6 +1222,12 @@ public class PBSTest extends BaseClass {
 		traineeReviewPage.clickViewButton();
 		traineeReviewPage.markForReviewButtonNotVisible();
 		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
 	}
 
 	@Test(description = "Validate admin can approve the form after trainee acknowledgement")
@@ -1248,11 +1251,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1279,10 +1277,12 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		popupPage.clickAlertOkButton();
 		traineeGradingPage.validateAllStaticTexts();
+
+		// lhs
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
@@ -1301,16 +1301,49 @@ public class PBSTest extends BaseClass {
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		trainingManagerReviewPage.enterComment("adding comments");
 		trainingManagerReviewPage.clickApproveButton();
 		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
 		trainingManagerReviewPage.clickYesButtonForApprove();
-		String actualText = trainingManagerReviewPage.getTextOfPopup();
-		String expectedText = "OK Approved successfully";
-		Assert.assertEquals(actualText, expectedText,
-				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		String actualLHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedLHSText = "OK Approved successfully";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text mismatch : expected " + expectedLHSText + " but got " + actualLHSText);
+		trainingManagerReviewPage.clickOkPopupButton();
+
+		// rhs
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.enterComment("adding comments");
+		trainingManagerReviewPage.clickApproveButton();
+		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
+		trainingManagerReviewPage.clickYesButtonForApprove();
+		String actualRHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedRHSText = "OK Approved successfully";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text mismatch : expected " + expectedRHSText + " but got " + actualRHSText);
 		trainingManagerReviewPage.clickOkPopupButton();
 	}
 
@@ -1335,11 +1368,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1368,8 +1396,10 @@ public class PBSTest extends BaseClass {
 		traineeGradingPage.validateAllStaticTexts();
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
+
+		// lhs
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
@@ -1388,13 +1418,44 @@ public class PBSTest extends BaseClass {
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		trainingManagerReviewPage.clickMarkForReviewButton();
-		String actualText = trainingManagerReviewPage.getTextOfPopup();
-		String expectedText = "OK Please enter comments.";
-		Assert.assertEquals(actualText, expectedText,
-				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		String actualLHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedLHSText = "OK Please enter comments.";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text mismatch : expected " + expectedLHSText + " but got " + actualLHSText);
+		trainingManagerReviewPage.clickOkPopupButton();
+		trainingManagerReviewPage.clickCloseIcon();
+
+		// rhs
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.clickMarkForReviewButton();
+		String actualRHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedRHSText = "OK Please enter comments.";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text mismatch : expected " + expectedRHSText + " but got " + actualRHSText);
 		trainingManagerReviewPage.clickOkPopupButton();
 	}
 
@@ -1419,11 +1480,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1450,10 +1506,13 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		popupPage.clickAlertOkButton();
 		traineeGradingPage.validateAllStaticTexts();
+		popupPage.handelSpinner();
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
+
+		// lhs
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
@@ -1472,16 +1531,50 @@ public class PBSTest extends BaseClass {
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		trainingManagerReviewPage.enterComment("entering review comments");
 		trainingManagerReviewPage.clickMarkForReviewButton();
 		trainingManagerReviewPage.validateTextAreSureYouWantToMarkForReview();
 		trainingManagerReviewPage.clickYesButtonForReview();
-		String actualText = popupPage.alertGetText();
-		String expectedText = "The training event has been marked for review.";
-		Assert.assertEquals(actualText, expectedText,
-				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		String actualLHSText = popupPage.alertGetText();
+		String expectedLHSText = "The training event has been marked for review.";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text mismatch : expected " + expectedLHSText + " but got " + actualLHSText);
+		trainingManagerReviewPage.clickOkPopupButton();
+
+		// rhs
+		popupPage.handelSpinner();
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.enterComment("entering review comments");
+		trainingManagerReviewPage.clickMarkForReviewButton();
+		trainingManagerReviewPage.validateTextAreSureYouWantToMarkForReview();
+		trainingManagerReviewPage.clickYesButtonForReview();
+		String actualRHSText = popupPage.alertGetText();
+		String expectedRHSText = "The training event has been marked for review.";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text mismatch : expected " + expectedRHSText + " but got " + actualRHSText);
 		trainingManagerReviewPage.clickOkPopupButton();
 	}
 
@@ -1506,11 +1599,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1537,16 +1625,31 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		popupPage.clickAlertOkButton();
 		traineeGradingPage.validateAllStaticTexts();
+
+		// lhs
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickGradingAndAssessmentTab();
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		boolean isAbsent = trainingManagerReviewPage.isMarkForReviewButtonAbsent();
-		Assert.assertTrue(isAbsent, "Mark for Review button should be absent after trainer form submission");
+		Assert.assertTrue(isAbsent,
+				"Mark for Review button should be absent for LHS trainee after trainer form submission");
+		trainingManagerReviewPage.clickCloseIcon();
+		// rhs
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		boolean isRHSAbsent = trainingManagerReviewPage.isMarkForReviewButtonAbsent();
+		Assert.assertTrue(isRHSAbsent,
+				"Mark for Review button should be absent for RHS trainee after trainer form submission");
+		trainingManagerReviewPage.clickCloseIcon();
 	}
 
 	@Test(description = "Validate approved form is visible under Approved Docs and can be viewed via Training Records Approval page")
@@ -1570,11 +1673,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1601,10 +1699,12 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		popupPage.clickAlertOkButton();
 		traineeGradingPage.validateAllStaticTexts();
+
+		// lhs
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
@@ -1623,16 +1723,16 @@ public class PBSTest extends BaseClass {
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		trainingManagerReviewPage.enterComment("adding comments");
 		trainingManagerReviewPage.clickApproveButton();
 		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
 		trainingManagerReviewPage.clickYesButtonForApprove();
-		String actualText = trainingManagerReviewPage.getTextOfPopup();
-		String expectedText = "OK Approved successfully";
-		Assert.assertEquals(actualText, expectedText,
-				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		String actualLHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedLHSText = "OK Approved successfully";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text mismatch : expected " + expectedLHSText + " but got " + actualLHSText);
 		trainingManagerReviewPage.clickOkPopupButton();
 		userDocsPage.clickUserDocsTab();
 		userDocsPage.clickApprovedDocsTab();
@@ -1641,6 +1741,48 @@ public class PBSTest extends BaseClass {
 		userDocsPage.clickCloseIcon();
 		userDocsPage.clickEyeIcon();
 		userDocsPage.clickUploadedDocumentLink();
+		userDocsPage.clickCloseIcon();
+
+		// rhs
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.enterComment("adding comments");
+		trainingManagerReviewPage.clickApproveButton();
+		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
+		trainingManagerReviewPage.clickYesButtonForApprove();
+		String actualRHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedRHSText = "OK Approved successfully";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text mismatch : expected " + expectedRHSText + " but got " + actualRHSText);
+		trainingManagerReviewPage.clickOkPopupButton();
+		userDocsPage.clickUserDocsTab();
+		userDocsPage.clickApprovedDocsTab();
+		userDocsPage.validateAllTexts();
+		userDocsPage.clickEyeIcon();
+		userDocsPage.clickCloseIcon();
+		userDocsPage.clickEyeIcon();
+		userDocsPage.clickUploadedDocumentLink();
+		userDocsPage.clickCloseIcon();
 	}
 
 	@Test(description = "Validate approved form report is visible under E-Form Reports")
@@ -1664,11 +1806,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1695,10 +1832,12 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		popupPage.clickAlertOkButton();
 		traineeGradingPage.validateAllStaticTexts();
+
+		// lhs
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
@@ -1717,16 +1856,52 @@ public class PBSTest extends BaseClass {
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		trainingManagerReviewPage.enterComment("adding comments");
 		trainingManagerReviewPage.clickApproveButton();
 		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
 		trainingManagerReviewPage.clickYesButtonForApprove();
-		String actualText = trainingManagerReviewPage.getTextOfPopup();
-		String expectedText = "OK Approved successfully";
-		Assert.assertEquals(actualText, expectedText,
-				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		String actualLHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedLHSText = "OK Approved successfully";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text mismatch : expected " + expectedLHSText + " but got " + actualLHSText);
+		trainingManagerReviewPage.clickOkPopupButton();
+		adminDashBoardPage.clickReportsTab();
+		adminDashBoardPage.clickEformReportsSubTab();
+		eFormReportsPage.validateAllStaticElements();
+
+		// rhs
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.enterComment("adding comments");
+		trainingManagerReviewPage.clickApproveButton();
+		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
+		trainingManagerReviewPage.clickYesButtonForApprove();
+		String actualRHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedRHSText = "OK Approved successfully";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text mismatch : expected " + expectedRHSText + " but got " + actualRHSText);
 		trainingManagerReviewPage.clickOkPopupButton();
 		adminDashBoardPage.clickReportsTab();
 		adminDashBoardPage.clickEformReportsSubTab();
@@ -1754,11 +1929,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1787,8 +1957,10 @@ public class PBSTest extends BaseClass {
 		traineeGradingPage.validateAllStaticTexts();
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
+
+		// lhs
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
@@ -1807,16 +1979,54 @@ public class PBSTest extends BaseClass {
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		trainingManagerReviewPage.enterComment("adding comments");
 		trainingManagerReviewPage.clickApproveButton();
 		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
 		trainingManagerReviewPage.clickYesButtonForApprove();
-		String actualText = trainingManagerReviewPage.getTextOfPopup();
-		String expectedText = "OK Approved successfully";
-		Assert.assertEquals(actualText, expectedText,
-				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		String actualLHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedLHSText = "OK Approved successfully";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text mismatch : expected " + expectedLHSText + " but got " + actualLHSText);
+		trainingManagerReviewPage.clickOkPopupButton();
+		adminDashBoardPage.clickReportsTab();
+		adminDashBoardPage.clickEformReportsSubTab();
+		eFormReportsPage.validateAllStaticElements();
+		eFormReportsPage.clickCheckBoxesButton();
+		eFormReportsPage.clickDownloadButtton();
+
+		// rhs
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.enterComment("adding comments");
+		trainingManagerReviewPage.clickApproveButton();
+		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
+		trainingManagerReviewPage.clickYesButtonForApprove();
+		String actualRHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedRHSText = "OK Approved successfully";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text mismatch : expected " + expectedRHSText + " but got " + actualRHSText);
 		trainingManagerReviewPage.clickOkPopupButton();
 		adminDashBoardPage.clickReportsTab();
 		adminDashBoardPage.clickEformReportsSubTab();
@@ -1825,6 +2035,7 @@ public class PBSTest extends BaseClass {
 		eFormReportsPage.clickDownloadButtton();
 	}
 
+	// from here
 	@Test(description = "Validate reports can be downloaded as a .zip file when a single checkbox is selected")
 	public void validateReportDownloadAsZipWhenSingleCheckboxSelected() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
@@ -1846,11 +2057,6 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionGradingPage.selectLocation("DEL");
 		practiceBookSessionGradingPage.selectSimulatorLevel("FFS Level D");
 		practiceBookSessionGradingPage.selectAircraftType("A320");
-		practiceBookSessionGradingPage.clickPanel(0);
-		practiceBookSessionGradingPage.selectGrade("lhs", "PRO", "3");
-		practiceBookSessionGradingPage.clickAllMinusButtons("PRO");
-		practiceBookSessionGradingPage.enterObComment("entering OB Comment", "PRO");
-		practiceBookSessionGradingPage.clickObDoneButton("PRO");
 		practiceBookSessionGradingPage.clickSaveAndNextButton();
 		practiceBookSessionOverallOutcomePage.validatePBSOverallOutComePage();
 		practiceBookSessionOverallOutcomePage.enterLHSRemarks("adding lhs remarks");
@@ -1879,8 +2085,10 @@ public class PBSTest extends BaseClass {
 		traineeGradingPage.validateAllStaticTexts();
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
+
+		// lhs
 		adminDashBoardPage.clickBecomeUserTab();
-		becomeUserPage.sendTraineeId(traineeId);
+		becomeUserPage.sendTraineeId(lhsTraineeId);
 		becomeUserPage.clickOnBecomeUser();
 		traineeReviewPage.clickGradingAndAssessmentTab();
 		traineeReviewPage.clickTraineeReviewTab();
@@ -1899,21 +2107,60 @@ public class PBSTest extends BaseClass {
 		adminDashBoardPage.clickTrainingManagerReviewSubTab();
 		trainingManagerReviewPage.validateAllTableHeaders();
 		trainingManagerReviewPage.presenceOfViewButton();
-		trainingManagerReviewPage.searchforTrainee(traineeId);
+		trainingManagerReviewPage.searchforTrainee(lhsTraineeId);
 		trainingManagerReviewPage.clickViewButton();
 		trainingManagerReviewPage.enterComment("adding comments");
 		trainingManagerReviewPage.clickApproveButton();
 		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
 		trainingManagerReviewPage.clickYesButtonForApprove();
-		String actualText = trainingManagerReviewPage.getTextOfPopup();
-		String expectedText = "OK Approved successfully";
-		Assert.assertEquals(actualText, expectedText,
-				"Text mismatch : expected " + expectedText + " but got " + actualText);
+		String actualLHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedLHSText = "OK Approved successfully";
+		Assert.assertEquals(actualLHSText, expectedLHSText,
+				"Text mismatch : expected " + expectedLHSText + " but got " + actualLHSText);
 		trainingManagerReviewPage.clickOkPopupButton();
 		adminDashBoardPage.clickReportsTab();
 		adminDashBoardPage.clickEformReportsSubTab();
 		eFormReportsPage.validateAllStaticElements();
-		eFormReportsPage.searchForTrainee(traineeId);
+		eFormReportsPage.searchForTrainee(lhsTraineeId);
+		eFormReportsPage.clickCheckBoxesButton();
+		eFormReportsPage.clickDownloadButtton();
+
+		// rhs
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendTraineeId(rhsTraineeId);
+		becomeUserPage.clickOnBecomeUser();
+		traineeReviewPage.clickGradingAndAssessmentTab();
+		traineeReviewPage.clickTraineeReviewTab();
+		traineeReviewPage.validateAllStaticElements();
+		traineeReviewPage.clickViewButton();
+		traineeReviewPage.clickAcknowledgeButton();
+		traineeReviewPage.clickSubmitButtonForInstructorAcknowldgement();
+		traineeReviewPage.digitalSignitureLabelIsPresent();
+		traineeReviewPage.digitalSign();
+		traineeReviewPage.clickSaveSignitureButtonForDigitalSigniture();
+		traineeReviewPage.clickOkPop_up();
+		traineeReviewPage.validateAllStaticElements();
+		logoutPage.clickProfileIcon();
+		logoutPage.clickLogoutButton();
+		adminDashBoardPage.clickGradingAndAssessmentTab();
+		adminDashBoardPage.clickTrainingManagerReviewSubTab();
+		trainingManagerReviewPage.validateAllTableHeaders();
+		trainingManagerReviewPage.presenceOfViewButton();
+		trainingManagerReviewPage.searchforTrainee(rhsTraineeId);
+		trainingManagerReviewPage.clickViewButton();
+		trainingManagerReviewPage.enterComment("adding comments");
+		trainingManagerReviewPage.clickApproveButton();
+		trainingManagerReviewPage.validateTextAreSureYouWantToApprove();
+		trainingManagerReviewPage.clickYesButtonForApprove();
+		String actualRHSText = trainingManagerReviewPage.getTextOfPopup();
+		String expectedRHSText = "OK Approved successfully";
+		Assert.assertEquals(actualRHSText, expectedRHSText,
+				"Text mismatch : expected " + expectedRHSText + " but got " + actualRHSText);
+		trainingManagerReviewPage.clickOkPopupButton();
+		adminDashBoardPage.clickReportsTab();
+		adminDashBoardPage.clickEformReportsSubTab();
+		eFormReportsPage.validateAllStaticElements();
+		eFormReportsPage.searchForTrainee(rhsTraineeId);
 		eFormReportsPage.clickCheckBoxesButton();
 		eFormReportsPage.clickDownloadButtton();
 	}

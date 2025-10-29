@@ -110,6 +110,8 @@ public class AdminDashBoardPage {
 	}
 
 	public void clickBecomeUserTab() {
+		SeleniumUtils.waitForVisibility(driver, becomeUserTab, 60);
+		SeleniumUtils.waitForClickability(driver, becomeUserTab, timeout);
 		SeleniumUtils.click(driver, becomeUserTab, timeout);
 	}
 

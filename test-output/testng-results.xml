@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="32" total="33" passed="0" failed="1" skipped="0">
+<testng-results ignored="32" total="33" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-28T18:30:23 IST" name="Default suite" finished-at="2025-10-28T18:32:43 IST" duration-ms="139802">
+  <suite started-at="2025-10-29T15:52:37 IST" name="Default suite" finished-at="2025-10-29T15:56:19 IST" duration-ms="222102">
     <groups>
     </groups>
-    <test started-at="2025-10-28T18:30:23 IST" name="Default test" finished-at="2025-10-28T18:32:43 IST" duration-ms="139802">
+    <test started-at="2025-10-29T15:52:37 IST" name="Default test" finished-at="2025-10-29T15:56:19 IST" duration-ms="222102">
       <class name="tests.PBSTest">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-28T18:30:23 IST" name="setUpExtent" finished-at="2025-10-28T18:30:23 IST" duration-ms="191" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-29T15:52:37 IST" name="setUpExtent" finished-at="2025-10-29T15:52:37 IST" duration-ms="184" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-28T18:30:23 IST" name="setUp" finished-at="2025-10-28T18:30:44 IST" duration-ms="20963" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-29T15:52:37 IST" name="setUp" finished-at="2025-10-29T15:52:44 IST" duration-ms="7230" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,97 +27,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-28T18:30:44 IST" name="initPages" finished-at="2025-10-28T18:30:45 IST" duration-ms="50" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-29T15:52:44 IST" name="initPages" finished-at="2025-10-29T15:52:44 IST" duration-ms="63" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateTraineeCannotMarkFormForReviewAfterTrainerSubmission()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-28T18:30:45 IST" name="validateTraineeCannotMarkFormForReviewAfterTrainerSubmission" description="Validate trainee cannot mark the form for review after it has been reviewed and submitted by trainer" finished-at="2025-10-28T18:32:42 IST" duration-ms="117166" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[normalize-space(text())='Grading & Assessment']' (tried for 10 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[normalize-space(text())='Grading & Assessment']' (tried for 10 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at utils.SeleniumUtils.waitForVisibility(SeleniumUtils.java:32)
-at traineePages.TraineeReviewPage.clickGradingAndAssessmentTab(TraineeReviewPage.java:81)
-at tests.PBSTest.validateTraineeCannotMarkFormForReviewAfterTrainerSubmission(PBSTest.java:1149)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[normalize-space(text())='Grading & Assessment']"}
-  (Session info: chrome=141.0.7390.123)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ca9f91d17b60cb50f75ec2bd42b87827, findElement {value=//span[normalize-space(text())='Grading & Assessment'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49624}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49624/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ca9f91d17b60cb50f75ec2bd42b87827
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at jdk.proxy2/jdk.proxy2.$Proxy18.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-... 29 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method signature="validateReportDownloadAsZipWhenSingleCheckboxSelected()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-29T15:52:44 IST" name="validateReportDownloadAsZipWhenSingleCheckboxSelected" description="Validate reports can be downloaded as a .zip file when a single checkbox is selected" finished-at="2025-10-29T15:56:18 IST" duration-ms="214290" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateTraineeCannotMarkFormForReviewAfterTrainerSubmission -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-28T18:32:42 IST" name="tearDown" finished-at="2025-10-28T18:32:43 IST" duration-ms="1601" status="PASS">
+        </test-method> <!-- validateReportDownloadAsZipWhenSingleCheckboxSelected -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-29T15:56:18 IST" name="tearDown" finished-at="2025-10-29T15:56:19 IST" duration-ms="494" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateTraineeCannotMarkFormForReviewAfterTrainerSubmission status=FAILURE method=PBSTest.validateTraineeCannotMarkFormForReviewAfterTrainerSubmission()[pri:0, instance:tests.PBSTest@3c3d9b6b] output={null}]]]>
+                <![CDATA[[TestResult name=validateReportDownloadAsZipWhenSingleCheckboxSelected status=SUCCESS method=PBSTest.validateReportDownloadAsZipWhenSingleCheckboxSelected()[pri:0, instance:tests.PBSTest@3c3d9b6b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-28T18:32:43 IST" name="tearDownExtent" finished-at="2025-10-28T18:32:44 IST" duration-ms="235" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.PBSTest@3c3d9b6b]" started-at="2025-10-29T15:56:19 IST" name="tearDownExtent" finished-at="2025-10-29T15:56:19 IST" duration-ms="202" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

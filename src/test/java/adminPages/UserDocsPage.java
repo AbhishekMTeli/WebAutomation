@@ -1,5 +1,7 @@
 package adminPages;
 
+import java.util.Set;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -150,8 +152,17 @@ public class UserDocsPage {
 	}
 
 	public void clickUploadedDocumentLink() {
+		String parentWindow = driver.getWindowHandle();
+
 		SeleniumUtils.waitForClickability(driver, uploadedDocumentLink, timeout);
 		SeleniumUtils.click(driver, uploadedDocumentLink, timeout);
+
+		// Wait for new window(s) to appear, if needed
+		Set<String> allWindows = driver.getWindowHandles();
+
+		// Optional: You may switch to the parent window again to ensure you are focused
+		// there
+		driver.switchTo().window(parentWindow);
 	}
 
 	public void visibilityOfTrainingRecordsApprovalLabel() {
