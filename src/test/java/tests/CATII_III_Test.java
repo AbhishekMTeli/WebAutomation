@@ -14,6 +14,7 @@ import ca4041Pages.CA4041OverallOutComePage;
 import ca4041Pages.CA4041TaskGradePage;
 import ca4041Pages.GradingTraineeListPage;
 import cat_II_III_Pages.CAT_II_III_GradingPage;
+import cat_II_III_Pages.CAT_II_III_TrainingPage;
 import commonPages.GradingHistoryPage;
 import commonPages.LogoutPage;
 import commonPages.PendingHistoryPage;
@@ -47,6 +48,7 @@ public class CATII_III_Test extends BaseClass {
 	private UserDocsPage userDocsPage;
 	private EFormReportsPage eFormReportsPage;
 	private CAT_II_III_GradingPage cat_II_III_GradingPage;
+	private CAT_II_III_TrainingPage cat_II_III_TrainingPage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -70,6 +72,7 @@ public class CATII_III_Test extends BaseClass {
 		userDocsPage = new UserDocsPage(getDriver());
 		eFormReportsPage = new EFormReportsPage(getDriver());
 		cat_II_III_GradingPage = new CAT_II_III_GradingPage(getDriver());
+		cat_II_III_TrainingPage = new CAT_II_III_TrainingPage(getDriver());
 	}
 
 	@Test(description = "CAT II III Form e2e Happy Path test case")
