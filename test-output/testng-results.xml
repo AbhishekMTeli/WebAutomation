@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-29T16:56:31 IST" name="Default suite" finished-at="2025-10-29T16:57:29 IST" duration-ms="57954">
+  <suite started-at="2025-10-30T17:56:34 IST" name="Default suite" finished-at="2025-10-30T17:57:38 IST" duration-ms="63643">
     <groups>
     </groups>
-    <test started-at="2025-10-29T16:56:31 IST" name="Default test" finished-at="2025-10-29T16:57:29 IST" duration-ms="57954">
+    <test started-at="2025-10-30T17:56:34 IST" name="Default test" finished-at="2025-10-30T17:57:38 IST" duration-ms="63643">
       <class name="tests.CATII_III_Test">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-29T16:56:31 IST" name="setUpExtent" finished-at="2025-10-29T16:56:31 IST" duration-ms="185" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-30T17:56:34 IST" name="setUpExtent" finished-at="2025-10-30T17:56:34 IST" duration-ms="202" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-29T16:56:31 IST" name="setUp" finished-at="2025-10-29T16:56:43 IST" duration-ms="12315" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-30T17:56:34 IST" name="setUp" finished-at="2025-10-30T17:56:42 IST" duration-ms="7918" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,26 +27,92 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-29T16:56:43 IST" name="initPages" finished-at="2025-10-29T16:56:44 IST" duration-ms="113" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-30T17:56:42 IST" name="initPages" finished-at="2025-10-30T17:56:42 IST" duration-ms="115" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="happyPathCA4041Test()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-29T16:56:44 IST" name="happyPathCA4041Test" description="CAT II III Form e2e Happy Path test case" finished-at="2025-10-29T16:57:29 IST" duration-ms="45021" status="PASS">
+        <test-method signature="happyPathCAT_II_III_Test()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-30T17:56:42 IST" name="happyPathCAT_II_III_Test" description="CAT II III Form e2e Happy Path test case" finished-at="2025-10-30T17:57:37 IST" duration-ms="54901" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <button class="btn btn-pure btn fa fa-minus" style="color:#f96868" data-item-id="1581855" data-item-id-code="PROa"></button> is not clickable at point (1288, 98). Other element would receive the click: <div class="b-modal __b-popup1__" style="background-color: rgb(0, 0, 0); position: fixed; inset: 0px; opacity: 0.7; z-index: 9998;"></div>
+  (Session info: chrome=141.0.7390.123)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [aff230e72a8f3b553c39a3404e54b01f, clickElement {id=f.DDED596EE1E644B7FC007C1079C96AEB.d.783E8D556FC2C0DB63975A1D8FB332F8.e.432}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55635}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55635/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (aff230e72a8f3b553c39a3404e54b01f)] -> xpath: //table[contains(@id,'PRO_Task_Table_')]//button[@class='btn btn-pure btn fa fa-minus']]
+Session ID: aff230e72a8f3b553c39a3404e54b01f]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button class="btn btn-pure btn fa fa-minus" style="color:#f96868" data-item-id="1581855" data-item-id-code="PROa"></button> is not clickable at point (1288, 98). Other element would receive the click: <div class="b-modal __b-popup1__" style="background-color: rgb(0, 0, 0); position: fixed; inset: 0px; opacity: 0.7; z-index: 9998;"></div>
+  (Session info: chrome=141.0.7390.123)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [aff230e72a8f3b553c39a3404e54b01f, clickElement {id=f.DDED596EE1E644B7FC007C1079C96AEB.d.783E8D556FC2C0DB63975A1D8FB332F8.e.432}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55635}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55635/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (aff230e72a8f3b553c39a3404e54b01f)] -> xpath: //table[contains(@id,'PRO_Task_Table_')]//button[@class='btn btn-pure btn fa fa-minus']]
+Session ID: aff230e72a8f3b553c39a3404e54b01f
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at utils.SeleniumUtils.click(SeleniumUtils.java:49)
+at cat_II_III_Pages.CAT_II_III_CheckPage.clickAllLHSMinus(CAT_II_III_CheckPage.java:138)
+at tests.CATII_III_Test.happyPathCAT_II_III_Test(CATII_III_Test.java:139)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- happyPathCA4041Test -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-29T16:57:29 IST" name="tearDown" finished-at="2025-10-29T16:57:29 IST" duration-ms="478" status="PASS">
+        </test-method> <!-- happyPathCAT_II_III_Test -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-30T17:57:37 IST" name="tearDown" finished-at="2025-10-30T17:57:38 IST" duration-ms="679" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=happyPathCA4041Test status=SUCCESS method=CATII_III_Test.happyPathCA4041Test()[pri:0, instance:tests.CATII_III_Test@55b0dcab] output={null}]]]>
+                <![CDATA[[TestResult name=happyPathCAT_II_III_Test status=FAILURE method=CATII_III_Test.happyPathCAT_II_III_Test()[pri:0, instance:tests.CATII_III_Test@55b0dcab] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-29T16:57:29 IST" name="tearDownExtent" finished-at="2025-10-29T16:57:29 IST" duration-ms="213" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CATII_III_Test@55b0dcab]" started-at="2025-10-30T17:57:38 IST" name="tearDownExtent" finished-at="2025-10-30T17:57:38 IST" duration-ms="250" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

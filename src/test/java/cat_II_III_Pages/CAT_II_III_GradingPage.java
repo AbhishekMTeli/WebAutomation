@@ -146,4 +146,20 @@ public class CAT_II_III_GradingPage {
 		SeleniumUtils.waitForVisibility(driver, seatSupportRHSCheckbox, timeout);
 		return seatSupportRHSCheckbox.isSelected();
 	}
+
+	@FindBy(xpath = "//button[@id='eventGrading']/preceding-sibling::button[@id='eventGradingDiscard']")
+	private WebElement discardButton;
+
+	@FindBy(xpath = "//button[@id='eventGrading']")
+	private WebElement saveAndNextButton;
+
+	public void clickDiscardButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(discardButton));
+		SeleniumUtils.click(driver, discardButton, timeout);
+	}
+
+	public void clickSaveAndNextButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
+		SeleniumUtils.click(driver, saveAndNextButton, timeout);
+	}
 }
