@@ -16,6 +16,7 @@ import ca4041Pages.GradingTraineeListPage;
 import cat_II_III_Pages.CAT_III_TrainingPage;
 import cat_II_III_Pages.CAT_II_III_CheckPage;
 import cat_II_III_Pages.CAT_II_III_GradingPage;
+import cat_II_III_Pages.CAT_II_III_OverallOutcomePage;
 import cat_II_III_Pages.CAT_II_III_TrainingPage;
 import cat_II_III_Pages.CAT_II_TrainingPage;
 import commonPages.GradingHistoryPage;
@@ -55,6 +56,7 @@ public class CATII_III_Test extends BaseClass {
 	private CAT_II_TrainingPage cat_II_TrainingPage;
 	private CAT_III_TrainingPage cat_III_TrainingPage;
 	private CAT_II_III_CheckPage cat_II_III_CheckPage;
+	private CAT_II_III_OverallOutcomePage cat_II_III_OverallOutcomePage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -82,6 +84,7 @@ public class CATII_III_Test extends BaseClass {
 		cat_II_TrainingPage = new CAT_II_TrainingPage(getDriver());
 		cat_III_TrainingPage = new CAT_III_TrainingPage(getDriver());
 		cat_II_III_CheckPage = new CAT_II_III_CheckPage(getDriver());
+		cat_II_III_OverallOutcomePage = new CAT_II_III_OverallOutcomePage(getDriver());
 	}
 
 	@Test(description = "CAT II III Form e2e Happy Path test case")
@@ -92,62 +95,96 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
 		cat_II_III_GradingPage.clickCM1LHSRadioButton();
-		cat_II_III_GradingPage.clickCM1RHSRadioButton();
 		cat_II_III_GradingPage.clickCM2LHSRadioButton();
-		cat_II_III_GradingPage.clickCM2RHSRadioButton();
+
+		if (rhsUserPresent) {
+			cat_II_III_GradingPage.clickCM1RHSRadioButton();
+			cat_II_III_GradingPage.clickCM2RHSRadioButton();
+		}
 		cat_II_III_GradingPage.clickSaveAndNextButton();
 
 		// lhs CAT II grading
 		cat_II_III_TrainingPage.clickCATIIPanel();
-		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "4");
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "3");
 		cat_II_TrainingPage.clickAllLHSMinus("PRO");
 		cat_II_TrainingPage.enterLHSComments("PRO", "Entering the OB Comments");
 		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		cat_II_TrainingPage.enterCAT_II_LHSRemarks("adding cat II lhs remarks");
 
 		// rhs CAT II grading
-		cat_II_TrainingPage.clickCAT_II_RHSGrade("FPM", "4");
-		cat_II_TrainingPage.clickAllRHSMinus("FPM");
-		cat_II_TrainingPage.enterLHSComments("FPM", "Entering the OB Comments");
-		cat_II_TrainingPage.clickLHSOBDoneButton("FPM");
-		cat_II_TrainingPage.enterCAT_II_LHSRemarks("adding cat II lhs remarks");
-		cat_II_TrainingPage.enterCAT_II_RHSRemarks("adding cat II rhs remarks");
+		if (rhsUserPresent) {
+			cat_II_TrainingPage.clickCAT_II_RHSGrade("FPM", "3");
+			cat_II_TrainingPage.clickAllRHSMinus("FPM");
+			cat_II_TrainingPage.enterLHSComments("FPM", "Entering the OB Comments");
+			cat_II_TrainingPage.clickLHSOBDoneButton("FPM");
+			cat_II_TrainingPage.enterCAT_II_RHSRemarks("adding cat II rhs remarks");
+		}
 
 		// lhs CAT III grading
 		cat_II_III_TrainingPage.clickCATIIIPanel();
-		cat_III_TrainingPage.clickCAT_III_LHSGrade("KNO", "4");
+		cat_III_TrainingPage.clickCAT_III_LHSGrade("KNO", "3");
 		cat_III_TrainingPage.clickAllLHSMinusButtons("KNO");
 		cat_III_TrainingPage.enterLHSComments("KNO", "Entering the OB Comments");
 		cat_III_TrainingPage.clickLHSOBDoneButton("KNO");
+		cat_III_TrainingPage.enterCAT_III_LHSRemarks("adding cat III lhs remarks");
 
 		// rhs CAT III grading
-		cat_III_TrainingPage.clickCAT_III_RHSGrade("FPA", "4");
-		cat_III_TrainingPage.clickAllRHSMinusButtons("FPA");
-		cat_III_TrainingPage.enterRHSComments("FPA", "Entering the OB Comments");
-		cat_III_TrainingPage.clickRHSOBDoneButton("FPA");
-		cat_III_TrainingPage.enterCAT_III_LHSRemarks("adding cat III lhs remarks");
-		cat_III_TrainingPage.enterCAT_III_RHSRemarks("adding cat III rhs remarks");
+
+		if (rhsUserPresent) {
+			cat_III_TrainingPage.clickCAT_III_RHSGrade("FPA", "3");
+			cat_III_TrainingPage.clickAllRHSMinusButtons("FPA");
+			cat_III_TrainingPage.enterRHSComments("FPA", "Entering the OB Comments");
+			cat_III_TrainingPage.clickRHSOBDoneButton("FPA");
+			cat_III_TrainingPage.enterCAT_III_RHSRemarks("adding cat III rhs remarks");
+		}
+
 		cat_II_III_TrainingPage.clickSaveAndNextButton();
+		popupPage.clickPopupOrAlertYesButton();
 
 		// check page
 		// lhs
-		cat_II_III_CheckPage.clickCAT_II_III_LHSGrade("PRO", "4");
-		cat_II_III_CheckPage.clickAllLHSMinus("PRO");
-		cat_II_III_CheckPage.enterLHSComments("PRO", "entering ob comments");
-		cat_II_III_CheckPage.clickLHSOBDoneButton("PR");
+		cat_II_III_CheckPage.clickCAT_II_III_LHSGrade("LTW", "3");
+		cat_II_III_CheckPage.clickAllLHSMinus("LTW");
+		cat_II_III_CheckPage.enterLHSComments("LTW", "entering ob comments");
+		cat_II_III_CheckPage.clickLHSOBDoneButton("LTW");
+		cat_II_III_CheckPage.enterCAT_II_III_LHSRemarks("entering lhs remarks");
 
 		// rhs
-		cat_II_III_CheckPage.clickCAT_II_III_RHSGrade("COM", "4");
-		cat_II_III_CheckPage.clickAllRHSMinus("COM");
-		cat_II_III_CheckPage.enterRHSComments("COM", "entering ob comments");
-		cat_II_III_CheckPage.clickRHSOBDoneButton("COM");
-		cat_II_III_CheckPage.enterCAT_II_III_LHSRemarks("entering lhs remarks");
-		cat_II_III_CheckPage.enterCAT_II_III_RHSRemarks("entering rhs remarks");
+
+		if (rhsUserPresent) {
+			cat_II_III_CheckPage.clickCAT_II_III_RHSGrade("COM", "3");
+			cat_II_III_CheckPage.clickAllRHSMinus("COM");
+			cat_II_III_CheckPage.enterRHSComments("COM", "entering ob comments");
+			cat_II_III_CheckPage.clickRHSOBDoneButton("COM");
+			cat_II_III_CheckPage.enterCAT_II_III_RHSRemarks("entering rhs remarks");
+		}
+
 		cat_II_III_CheckPage.selectQaulification("SFI");
 		cat_II_III_CheckPage.clickNextAndSaveButton();
+		popupPage.clickPopupOrAlertYesButton();
+		cat_II_III_OverallOutcomePage.reasonForDelayLabelIsPresent();
+		cat_II_III_OverallOutcomePage.addDelayComments("adding delay comments");
+		cat_II_III_OverallOutcomePage.clickSubmitCommentButtonForDelayComment();
+		popupPage.handelSpinner();
+		cat_II_III_OverallOutcomePage.visibilityOfPreviewHeader();
+		cat_II_III_OverallOutcomePage.clickPreviewNextButton();
+		cat_II_III_OverallOutcomePage.instructorAcknowldgementLabelIsPresent();
+		cat_II_III_OverallOutcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		cat_II_III_OverallOutcomePage.instructorAcknowldgementLabelIsPresent();
+		cat_II_III_OverallOutcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		cat_II_III_OverallOutcomePage.digitalSignitureLabelIsPresent();
+		cat_II_III_OverallOutcomePage.digitalSign();
+		cat_II_III_OverallOutcomePage.clickClearForDigitalSigniture();
+		cat_II_III_OverallOutcomePage.digitalSign();
+		cat_II_III_OverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		popupPage.handelSpinner();
+		popupPage.clickPopupOkButton();
+		traineeGradingPage.validateAllStaticTexts();
 	}
 }

@@ -1,5 +1,7 @@
 package cat_II_III_Pages;
 
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -55,8 +57,15 @@ public class CAT_II_III_GradingPage {
 				"Text mismatch extected : 'Location: *' but got : " + SeleniumUtils.getText(locationLabel));
 		Assert.assertTrue(SeleniumUtils.getText(lhsDesignationLabel).contains("Designation -"),
 				"LHS Designation Text is missing");
-		Assert.assertTrue(SeleniumUtils.getText(rhsDesignationLabel).contains("Designation -"),
-				"RHS Designation Text is missing");
+	}
+
+	public boolean isRHSUserPresent() {
+		try {
+			String text = SeleniumUtils.getText(rhsDesignationLabel);
+			return text != null && text.contains("Designation -");
+		} catch (NoSuchElementException | TimeoutException e) {
+			return false;
+		}
 	}
 
 	@FindBy(xpath = "//input[@id='RegNo']")

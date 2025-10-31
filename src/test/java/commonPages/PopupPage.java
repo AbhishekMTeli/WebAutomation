@@ -16,12 +16,10 @@ import utils.SeleniumUtils;
 public class PopupPage {
 
 	private WebDriver driver;
-	private int timeout;
 
 	public PopupPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		this.timeout = Integer.parseInt(ConfigReader.get("timeout"));
 	}
 
 	@FindBy(xpath = "//span[@id='alertBoxMsg']")
@@ -34,17 +32,17 @@ public class PopupPage {
 	private WebElement newAlertLabel;
 
 	public String alertGetText() {
-		SeleniumUtils.waitForVisibility(driver, alertLabel, timeout);
+		SeleniumUtils.waitForVisibility(driver, alertLabel, 2);
 		return SeleniumUtils.getText(alertLabel);
 	}
 
 	public String alertNewGetText() {
-		SeleniumUtils.waitForVisibility(driver, newAlertLabel, timeout);
+		SeleniumUtils.waitForVisibility(driver, newAlertLabel, 2);
 		return SeleniumUtils.getText(newAlertLabel);
 	}
 
 	public void clickAlertOkButton() {
-		SeleniumUtils.click(driver, alertOkButton, timeout);
+		SeleniumUtils.click(driver, alertOkButton, 2);
 	}
 
 	@FindBy(xpath = "//div[@id='popup']")
@@ -54,12 +52,12 @@ public class PopupPage {
 	private WebElement popupOkButton;
 
 	public String popupGetText() {
-		SeleniumUtils.waitForVisibility(driver, popupLabel, timeout);
+		SeleniumUtils.waitForVisibility(driver, popupLabel, 2);
 		return SeleniumUtils.getText(popupLabel);
 	}
 
 	public void clickPopupOkButton() {
-		SeleniumUtils.click(driver, popupOkButton, timeout);
+		SeleniumUtils.click(driver, popupOkButton, 2);
 	}
 
 	@FindBy(xpath = "//div[@id='popup_modall']//div[@class='modal-body']")
@@ -72,16 +70,16 @@ public class PopupPage {
 	private WebElement modalBodyYesButton;
 
 	public String modalBodyGetText() {
-		SeleniumUtils.waitForVisibility(driver, modalBody, timeout);
+		SeleniumUtils.waitForVisibility(driver, modalBody, 2);
 		return SeleniumUtils.getText(modalBody);
 	}
 
 	public void clickModalBodyYesButton() {
-		SeleniumUtils.click(driver, modalBodyYesButton, timeout);
+		SeleniumUtils.click(driver, modalBodyYesButton, 2);
 	}
 
 	public void clickModalBodyNoButton() {
-		SeleniumUtils.click(driver, modalBodyNoButton, timeout);
+		SeleniumUtils.click(driver, modalBodyNoButton, 2);
 	}
 
 	public void handelSpinner() {
@@ -89,4 +87,25 @@ public class PopupPage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("preloader")));
 	}
 
+	@FindBy(xpath = "//button[@id='alertYesBtn']")
+	private WebElement popupOrAlertYesButton;
+
+	@FindBy(xpath = "//button[@id='alertNoBtn']")
+	private WebElement popupOrAlertNoButton;
+
+	public void clickPopupOrAlertNoButton() {
+		try {
+			SeleniumUtils.click(driver, popupOrAlertNoButton, 2);
+		} catch (Exception e) {
+			System.out.println("Alert not found");
+		}
+	}
+
+	public void clickPopupOrAlertYesButton() {
+		try {
+			SeleniumUtils.click(driver, popupOrAlertYesButton, 2);
+		} catch (Exception e) {
+			System.out.println("Alert not found");
+		}
+	}
 }

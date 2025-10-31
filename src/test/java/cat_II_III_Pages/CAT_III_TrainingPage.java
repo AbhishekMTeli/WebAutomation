@@ -34,19 +34,30 @@ public class CAT_III_TrainingPage {
 	@FindBy(xpath = "//input[@id='cat3_RHS_ATR']")
 	private WebElement cat_III_RHSNotYetCompetentRadioButton;
 
+	@FindBy(xpath = "//label[@for='cat3_LHS_C']")
+	private WebElement cat_III_LHSCompetentLabel;
+
 	public void clickCAT_III_LHSCompetentRadioButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(cat_III_LHSCompetentLabel));
+		SeleniumUtils.waitForVisibility(driver, cat_III_LHSCompetentRadioButton, timeout);
 		SeleniumUtils.click(driver, cat_III_LHSCompetentRadioButton, timeout);
 	}
 
 	public void clickCAT_III_LHSNotYetCompetentRadioButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(cat_III_LHSCompetentLabel));
+		SeleniumUtils.waitForVisibility(driver, cat_III_LHSCompetentRadioButton, timeout);
 		SeleniumUtils.click(driver, cat_III_LHSNotYetCompetentRadioButton, timeout);
 	}
 
 	public void clickCAT_III_RHSCompetentRadioButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(cat_III_LHSCompetentLabel));
+		SeleniumUtils.waitForVisibility(driver, cat_III_LHSCompetentRadioButton, timeout);
 		SeleniumUtils.click(driver, cat_III_RHSCompetentRadioButton, timeout);
 	}
 
 	public void clickCAT_III_RHSNotYetCompetentRadioButton() {
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(cat_III_LHSCompetentLabel));
+		SeleniumUtils.waitForVisibility(driver, cat_III_LHSCompetentRadioButton, timeout);
 		SeleniumUtils.click(driver, cat_III_RHSNotYetCompetentRadioButton, timeout);
 	}
 
@@ -249,5 +260,4 @@ public class CAT_III_TrainingPage {
 		WebElement obCancelIcon = driver.findElement(By.xpath(obDoneButtonXpath));
 		SeleniumUtils.click(driver, obCancelIcon, timeout);
 	}
-
 }
