@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.CATII_III_Test" class="method navigator-link" hash-for-method="happyPathCAT_II_III_Test">happyPathCAT_II_III_Test</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.CATII_III_Test" class="method navigator-link" hash-for-method="validatePleaseProvideAsignatureFirst">validatePleaseProvideAsignatureFirst</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,11 +126,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="happyPathCAT_II_III_Test">
-                  </a> <!-- happyPathCAT_II_III_Test -->
-                  <span class="method-name">happyPathCAT_II_III_Test</span>
+                  <a name="validatePleaseProvideAsignatureFirst">
+                  </a> <!-- validatePleaseProvideAsignatureFirst -->
+                  <span class="method-name">validatePleaseProvideAsignatureFirst</span>
                   <em>
-(CAT II III Form e2e Happy Path test case)                  </em>
+(Please provide a signature first.)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--1282559575/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--1760241960/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -149,7 +149,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;tests.CATII_III_Test&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;happyPathCAT_II_III_Test&quot;/&gt;
+          &lt;include name=&quot;validatePleaseProvideAsignatureFirst&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.CATII_III_Test --&gt;
     &lt;/classes&gt;
@@ -193,9 +193,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'happyPathCAT_II_III_Test')
+data.setCell(0, 1, 'validatePleaseProvideAsignatureFirst')
 data.setCell(0, 2, 'tests.CATII_III_Test')
-data.setCell(0, 3, 99854);
+data.setCell(0, 3, 62748);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -215,9 +215,42 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">14 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">tests.CATII_III_Test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">validateTheOverallOutcomeNotYetCompetentHasBeenAssigned</span>
+                <br/>
+                <span class="ignored-method-name">validateTooFewCompetenciesHaveBeenGradedAtLeast3CompetenciesMustBeGraded</span>
+                <br/>
+                <span class="ignored-method-name">validateYouMustSelectRightSideOverallAssessment</span>
+                <br/>
+                <span class="ignored-method-name">validateOverallCommentsMandatoryForNotYetCompetentOutcome</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectCM1ForEitherLHSOrRHS</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectQualification</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterACommentBeforeSubmitting</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterRegistrationNumber</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterOrChangeComments</span>
+                <br/>
+                <span class="ignored-method-name">happyPathCAT_II_III_Test</span>
+                <br/>
+                <span class="ignored-method-name">validateAtLeastOneObservableBehaviourMustBeSelected</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterLocation</span>
+                <br/>
+                <span class="ignored-method-name">validateYouMustSelectGeneralInformation</span>
+                <br/>
+                <span class="ignored-method-name">validateYouMustSelectLeftSideOverallAssessment</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -233,23 +266,23 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">173 ms</span>
+                <span class="method-start">187 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">11303 ms</span>
+                <span class="method-start">14753 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">happyPathCAT_II_III_Test</span>
-                <span class="method-start">11428 ms</span>
+                <span class="method-name">validatePleaseProvideAsignatureFirst</span>
+                <span class="method-start">14830 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=happyPathCAT_II_III_Test status=SUCCESS method=CATII_III_Test.happyPathCAT_II_III_T...)</span>
-                <span class="method-start">111284 ms</span>
+                <span class="method-name">tearDown([TestResult name=validatePleaseProvideAsignatureFirst status=SUCCESS method=CATII_III_Test.validateP...)</span>
+                <span class="method-start">77583 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">111790 ms</span>
+                <span class="method-start">78120 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

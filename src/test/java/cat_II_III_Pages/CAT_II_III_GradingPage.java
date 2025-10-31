@@ -171,4 +171,25 @@ public class CAT_II_III_GradingPage {
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);
 	}
+
+	@FindBy(xpath = "//span[@class='glyphicon glyphicon-edit']")
+	private WebElement gradingTab;
+
+	@FindBy(xpath = "//a[@id='ebtCAT']")
+	private WebElement trainingTab;
+
+	@FindBy(xpath = "//a[@id='ebtCHECK']")
+	private WebElement checkTab;
+
+	public void clickGradingTab() {
+		SeleniumUtils.click(driver, gradingTab, timeout);
+	}
+
+	public void clickTrainingTab() {
+		SeleniumUtils.click(driver, trainingTab, timeout);
+	}
+
+	public void clickCheckTab() {
+		SeleniumUtils.click(driver, checkTab, timeout);
+	}
 }

@@ -6,8 +6,8 @@
       <class name="tests.CATII_III_Test">
         <methods>
           <include name="tearDown"/>
-          <include name="happyPathCAT_II_III_Test"/>
           <include name="setUp"/>
+          <include name="validatePleaseProvideAsignatureFirst"/>
           <include name="tearDownExtent"/>
           <include name="initPages"/>
           <include name="setUpExtent"/>

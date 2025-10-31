@@ -111,6 +111,16 @@ public class CAT_II_TrainingPage {
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", gradeButton);
 	}
 
+	@FindBy(xpath = "//table[@id='overall_COM_GRD_LHS']//td[@data-grade-val='N/O']")
+	private List<WebElement> noGradeButtons;
+
+	public void clickCAT_II_LHSNOGrade() {
+		int size = noGradeButtons.size();
+		for (int i = 0; i < size - 2; i++) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", noGradeButtons.get(i));
+		}
+	}
+
 	public String getLHSPlusIconsXpath(String section) {
 		return String.format("//table[contains(@id,'%s_Task_Table_')]//button[@class='btn btn-pure btn fa fa-plus']",
 				section);

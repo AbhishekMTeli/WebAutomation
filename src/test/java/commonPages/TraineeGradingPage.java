@@ -83,6 +83,7 @@ public class TraineeGradingPage {
 	}
 
 	public void clickOnGradeButtonWithRetries(int maxRetries) {
+		PopupPage popupPage = new PopupPage(driver);
 		int retries = 0;
 		while (retries < maxRetries) {
 			SeleniumUtils.scrollToTopOfPage(driver);
@@ -112,6 +113,7 @@ public class TraineeGradingPage {
 				}
 			}
 			retries++;
+			popupPage.handelSpinner();
 		}
 		throw new RuntimeException("Failed to click GradeButton after " + maxRetries + " retries.");
 	}

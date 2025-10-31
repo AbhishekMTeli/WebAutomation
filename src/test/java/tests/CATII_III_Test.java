@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -29,6 +30,7 @@ import rhsPages.RHSCheckPage;
 import rhsPages.RHSGradingPage;
 import rhsPages.RHSTrainingPage;
 import traineePages.TraineeReviewPage;
+import utils.SeleniumUtils;
 
 public class CATII_III_Test extends BaseClass {
 	private GradingTraineeListPage gradingTraineeListPage;
@@ -135,7 +137,6 @@ public class CATII_III_Test extends BaseClass {
 		cat_III_TrainingPage.enterCAT_III_LHSRemarks("adding cat III lhs remarks");
 
 		// rhs CAT III grading
-
 		if (rhsUserPresent) {
 			cat_III_TrainingPage.clickCAT_III_RHSGrade("FPA", "3");
 			cat_III_TrainingPage.clickAllRHSMinusButtons("FPA");
@@ -156,7 +157,6 @@ public class CATII_III_Test extends BaseClass {
 		cat_II_III_CheckPage.enterCAT_II_III_LHSRemarks("entering lhs remarks");
 
 		// rhs
-
 		if (rhsUserPresent) {
 			cat_II_III_CheckPage.clickCAT_II_III_RHSGrade("COM", "3");
 			cat_II_III_CheckPage.clickAllRHSMinus("COM");
@@ -186,5 +186,546 @@ public class CATII_III_Test extends BaseClass {
 		popupPage.handelSpinner();
 		popupPage.clickPopupOkButton();
 		traineeGradingPage.validateAllStaticTexts();
+	}
+
+	@Test(description = "OK Please enter Registration number.")
+	public void validatePleaseEnterRegistrationNumber() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("");
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+		String expectedResult = "OK Please enter Registration number.";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK Please select location.")
+	public void validatePleaseEnterLocation() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("test user");
+		cat_II_III_GradingPage.selectLocationDropdown("Select");
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+		String expectedResult = "OK Please select location.";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK Please select CM1 for either LHS or RHS.")
+	public void validatePleaseSelectCM1ForEitherLHSOrRHS() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("test user");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+		String expectedResult = "OK Please select CM1 for either LHS or RHS.";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK You must Select General Information")
+	public void validateYouMustSelectGeneralInformation() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.clickCheckTab();
+		String expectedResult = "OK You must Select General Information";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK At least one Observable Behaviour must be selected")
+	public void validateAtLeastOneObservableBehaviourMustBeSelected() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "3");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		String expectedResult = "OK At least one Observable Behaviour must be selected";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK Please enter or change comments")
+	public void validatePleaseEnterOrChangeComments() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "1");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		String expectedResult = "OK Please enter or change comments";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK The Overall Outcome 'NOT YET COMPETENT' has been assigned")
+	public void validateTheOverallOutcomeNotYetCompetentHasBeenAssigned() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "1");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "adding OB comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		String expectedResult = "OK The Overall Outcome 'NOT YET COMPETENT' has been assigned";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK Too few competencies have been graded. At least 3 Competencies must be Graded.")
+	public void validateTooFewCompetenciesHaveBeenGradedAtLeast3CompetenciesMustBeGraded() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSNOGrade();
+		String expectedResult = "OK Too few competencies have been graded. At least 3 Competencies must be Graded.";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK You must select left side overall assessment.")
+	public void validateYouMustSelectLeftSideOverallAssessment() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "2");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "adding OB comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		cat_II_III_TrainingPage.clickSaveAndNextButton();
+		String expectedResult = "OK You must select left side overall assessment.";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "OK You must select right side overall assessment.")
+	public void validateYouMustSelectRightSideOverallAssessment() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "3");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "adding OB comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+
+		// rhs
+		if (rhsUserPresent) {
+			cat_II_TrainingPage.clickCAT_II_RHSGrade("FPM", "2");
+			cat_II_TrainingPage.clickAllRHSMinus("FPM");
+			cat_II_TrainingPage.enterLHSComments("FPM", "Entering the OB Comments");
+			cat_II_TrainingPage.clickLHSOBDoneButton("FPM");
+			cat_II_TrainingPage.enterCAT_II_RHSRemarks("adding cat II rhs remarks");
+			cat_II_III_TrainingPage.clickSaveAndNextButton();
+			String expectedResult = "OK You must select right side overall assessment.";
+			String actualResult = popupPage.popupGetText();
+			Assert.assertEquals(expectedResult, actualResult,
+					"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+			popupPage.clickPopupOkButton();
+		}
+	}
+
+	@Test(description = "OK Overall comments mandatory for NOT YET COMPETENT outcome")
+	public void validateOverallCommentsMandatoryForNotYetCompetentOutcome() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "1");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "adding OB comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		popupPage.clickPopupOkButton();
+		cat_II_TrainingPage.enterCAT_II_LHSRemarks("");
+		cat_II_III_TrainingPage.clickSaveAndNextButton();
+		String expectedResult = "OK Overall comments mandatory for NOT YET COMPETENT outcome";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+
+	}
+
+	@Test(description = "OK Please select qualification.")
+	public void validatePleaseSelectQualification() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickCM2LHSRadioButton();
+
+		if (rhsUserPresent) {
+			cat_II_III_GradingPage.clickCM1RHSRadioButton();
+			cat_II_III_GradingPage.clickCM2RHSRadioButton();
+		}
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "3");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "Entering the OB Comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		cat_II_TrainingPage.enterCAT_II_LHSRemarks("adding cat II lhs remarks");
+
+		// rhs CAT II grading
+		if (rhsUserPresent) {
+			cat_II_TrainingPage.clickCAT_II_RHSGrade("FPM", "3");
+			cat_II_TrainingPage.clickAllRHSMinus("FPM");
+			cat_II_TrainingPage.enterLHSComments("FPM", "Entering the OB Comments");
+			cat_II_TrainingPage.clickLHSOBDoneButton("FPM");
+			cat_II_TrainingPage.enterCAT_II_RHSRemarks("adding cat II rhs remarks");
+		}
+
+		// lhs CAT III grading
+		cat_II_III_TrainingPage.clickCATIIIPanel();
+		cat_III_TrainingPage.clickCAT_III_LHSGrade("KNO", "3");
+		cat_III_TrainingPage.clickAllLHSMinusButtons("KNO");
+		cat_III_TrainingPage.enterLHSComments("KNO", "Entering the OB Comments");
+		cat_III_TrainingPage.clickLHSOBDoneButton("KNO");
+		cat_III_TrainingPage.enterCAT_III_LHSRemarks("adding cat III lhs remarks");
+
+		// rhs CAT III grading
+		if (rhsUserPresent) {
+			cat_III_TrainingPage.clickCAT_III_RHSGrade("FPA", "3");
+			cat_III_TrainingPage.clickAllRHSMinusButtons("FPA");
+			cat_III_TrainingPage.enterRHSComments("FPA", "Entering the OB Comments");
+			cat_III_TrainingPage.clickRHSOBDoneButton("FPA");
+			cat_III_TrainingPage.enterCAT_III_RHSRemarks("adding cat III rhs remarks");
+		}
+
+		cat_II_III_TrainingPage.clickSaveAndNextButton();
+		popupPage.clickPopupOrAlertYesButton();
+
+		// check page
+		// lhs
+		cat_II_III_CheckPage.clickCAT_II_III_LHSGrade("LTW", "3");
+		cat_II_III_CheckPage.clickAllLHSMinus("LTW");
+		cat_II_III_CheckPage.enterLHSComments("LTW", "entering ob comments");
+		cat_II_III_CheckPage.clickLHSOBDoneButton("LTW");
+		cat_II_III_CheckPage.enterCAT_II_III_LHSRemarks("entering lhs remarks");
+
+		// rhs
+		if (rhsUserPresent) {
+			cat_II_III_CheckPage.clickCAT_II_III_RHSGrade("COM", "3");
+			cat_II_III_CheckPage.clickAllRHSMinus("COM");
+			cat_II_III_CheckPage.enterRHSComments("COM", "entering ob comments");
+			cat_II_III_CheckPage.clickRHSOBDoneButton("COM");
+			cat_II_III_CheckPage.enterCAT_II_III_RHSRemarks("entering rhs remarks");
+		}
+		cat_II_III_CheckPage.clickNextAndSaveButton();
+		popupPage.clickPopupOrAlertYesButton();
+		String expectedResult = "OK Please select qualification.";
+		String actualResult = popupPage.popupGetText();
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		popupPage.clickPopupOkButton();
+	}
+
+	@Test(description = "Please enter a comment before submitting.")
+	public void validatePleaseEnterACommentBeforeSubmitting() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "3");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "Entering the OB Comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		cat_II_TrainingPage.enterCAT_II_LHSRemarks("adding cat II lhs remarks");
+
+		// rhs CAT II grading
+		if (rhsUserPresent) {
+			cat_II_TrainingPage.clickCAT_II_RHSGrade("FPM", "3");
+			cat_II_TrainingPage.clickAllRHSMinus("FPM");
+			cat_II_TrainingPage.enterLHSComments("FPM", "Entering the OB Comments");
+			cat_II_TrainingPage.clickLHSOBDoneButton("FPM");
+			cat_II_TrainingPage.enterCAT_II_RHSRemarks("adding cat II rhs remarks");
+		}
+
+		// lhs CAT III grading
+		cat_II_III_TrainingPage.clickCATIIIPanel();
+		cat_III_TrainingPage.clickCAT_III_LHSGrade("KNO", "3");
+		cat_III_TrainingPage.clickAllLHSMinusButtons("KNO");
+		cat_III_TrainingPage.enterLHSComments("KNO", "Entering the OB Comments");
+		cat_III_TrainingPage.clickLHSOBDoneButton("KNO");
+		cat_III_TrainingPage.enterCAT_III_LHSRemarks("adding cat III lhs remarks");
+
+		// rhs CAT III grading
+		if (rhsUserPresent) {
+			cat_III_TrainingPage.clickCAT_III_RHSGrade("FPA", "3");
+			cat_III_TrainingPage.clickAllRHSMinusButtons("FPA");
+			cat_III_TrainingPage.enterRHSComments("FPA", "Entering the OB Comments");
+			cat_III_TrainingPage.clickRHSOBDoneButton("FPA");
+			cat_III_TrainingPage.enterCAT_III_RHSRemarks("adding cat III rhs remarks");
+		}
+
+		cat_II_III_TrainingPage.clickSaveAndNextButton();
+		popupPage.clickPopupOrAlertYesButton();
+
+		// check page
+		// lhs
+		cat_II_III_CheckPage.clickCAT_II_III_LHSGrade("LTW", "3");
+		cat_II_III_CheckPage.clickAllLHSMinus("LTW");
+		cat_II_III_CheckPage.enterLHSComments("LTW", "entering ob comments");
+		cat_II_III_CheckPage.clickLHSOBDoneButton("LTW");
+		cat_II_III_CheckPage.enterCAT_II_III_LHSRemarks("entering lhs remarks");
+
+		// rhs
+		if (rhsUserPresent) {
+			cat_II_III_CheckPage.clickCAT_II_III_RHSGrade("COM", "3");
+			cat_II_III_CheckPage.clickAllRHSMinus("COM");
+			cat_II_III_CheckPage.enterRHSComments("COM", "entering ob comments");
+			cat_II_III_CheckPage.clickRHSOBDoneButton("COM");
+			cat_II_III_CheckPage.enterCAT_II_III_RHSRemarks("entering rhs remarks");
+		}
+		cat_II_III_CheckPage.selectQaulification("SFI");
+		cat_II_III_CheckPage.clickNextAndSaveButton();
+		popupPage.clickPopupOrAlertYesButton();
+		cat_II_III_OverallOutcomePage.reasonForDelayLabelIsPresent();
+		cat_II_III_OverallOutcomePage.clickSubmitCommentButtonForDelayComment();
+		String expectedResult = "Please enter a comment before submitting.";
+		String actualResult = SeleniumUtils.getAlertText(getDriver());
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		SeleniumUtils.acceptAlert(getDriver(), 1);
+	}
+
+	@Test(description = "Please provide a signature first.")
+	public void validatePleaseProvideAsignatureFirst() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "3");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "Entering the OB Comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		cat_II_TrainingPage.enterCAT_II_LHSRemarks("adding cat II lhs remarks");
+
+		// rhs CAT II grading
+		if (rhsUserPresent) {
+			cat_II_TrainingPage.clickCAT_II_RHSGrade("FPM", "3");
+			cat_II_TrainingPage.clickAllRHSMinus("FPM");
+			cat_II_TrainingPage.enterLHSComments("FPM", "Entering the OB Comments");
+			cat_II_TrainingPage.clickLHSOBDoneButton("FPM");
+			cat_II_TrainingPage.enterCAT_II_RHSRemarks("adding cat II rhs remarks");
+		}
+
+		// lhs CAT III grading
+		cat_II_III_TrainingPage.clickCATIIIPanel();
+		cat_III_TrainingPage.clickCAT_III_LHSGrade("KNO", "3");
+		cat_III_TrainingPage.clickAllLHSMinusButtons("KNO");
+		cat_III_TrainingPage.enterLHSComments("KNO", "Entering the OB Comments");
+		cat_III_TrainingPage.clickLHSOBDoneButton("KNO");
+		cat_III_TrainingPage.enterCAT_III_LHSRemarks("adding cat III lhs remarks");
+
+		// rhs CAT III grading
+		if (rhsUserPresent) {
+			cat_III_TrainingPage.clickCAT_III_RHSGrade("FPA", "3");
+			cat_III_TrainingPage.clickAllRHSMinusButtons("FPA");
+			cat_III_TrainingPage.enterRHSComments("FPA", "Entering the OB Comments");
+			cat_III_TrainingPage.clickRHSOBDoneButton("FPA");
+			cat_III_TrainingPage.enterCAT_III_RHSRemarks("adding cat III rhs remarks");
+		}
+
+		cat_II_III_TrainingPage.clickSaveAndNextButton();
+		popupPage.clickPopupOrAlertYesButton();
+
+		// check page
+		// lhs
+		cat_II_III_CheckPage.clickCAT_II_III_LHSGrade("LTW", "3");
+		cat_II_III_CheckPage.clickAllLHSMinus("LTW");
+		cat_II_III_CheckPage.enterLHSComments("LTW", "entering ob comments");
+		cat_II_III_CheckPage.clickLHSOBDoneButton("LTW");
+		cat_II_III_CheckPage.enterCAT_II_III_LHSRemarks("entering lhs remarks");
+
+		// rhs
+		if (rhsUserPresent) {
+			cat_II_III_CheckPage.clickCAT_II_III_RHSGrade("COM", "3");
+			cat_II_III_CheckPage.clickAllRHSMinus("COM");
+			cat_II_III_CheckPage.enterRHSComments("COM", "entering ob comments");
+			cat_II_III_CheckPage.clickRHSOBDoneButton("COM");
+			cat_II_III_CheckPage.enterCAT_II_III_RHSRemarks("entering rhs remarks");
+		}
+		cat_II_III_CheckPage.selectQaulification("SFI");
+		cat_II_III_CheckPage.clickNextAndSaveButton();
+		popupPage.clickPopupOrAlertYesButton();
+		cat_II_III_OverallOutcomePage.reasonForDelayLabelIsPresent();
+		cat_II_III_OverallOutcomePage.addDelayComments("adding delay comments");
+		cat_II_III_OverallOutcomePage.clickSubmitCommentButtonForDelayComment();
+		popupPage.handelSpinner();
+		cat_II_III_OverallOutcomePage.visibilityOfPreviewHeader();
+		cat_II_III_OverallOutcomePage.clickPreviewNextButton();
+		cat_II_III_OverallOutcomePage.instructorAcknowldgementLabelIsPresent();
+		cat_II_III_OverallOutcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		cat_II_III_OverallOutcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		cat_II_III_OverallOutcomePage.instructorAcknowldgementLabelIsPresent();
+		cat_II_III_OverallOutcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		cat_II_III_OverallOutcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		cat_II_III_OverallOutcomePage.digitalSignitureLabelIsPresent();
+		cat_II_III_OverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		String expectedResult = "Please provide a signature first.";
+		String actualResult = SeleniumUtils.getAlertText(getDriver());
+		Assert.assertEquals(expectedResult, actualResult,
+				"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		SeleniumUtils.acceptAlert(getDriver(), 1);
 	}
 }

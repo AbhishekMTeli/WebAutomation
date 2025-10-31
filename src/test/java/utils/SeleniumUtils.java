@@ -248,7 +248,7 @@ public class SeleniumUtils {
 		}
 	}
 
-	public static String getAlertText(WebDriver driver) {
+	public static String getAlertText(WebDriver driver) throws InterruptedException {
 		try {
 			Alert alert = driver.switchTo().alert();
 			String text = alert.getText().trim();

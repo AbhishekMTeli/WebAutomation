@@ -80,7 +80,11 @@ public class CAT_II_III_OverallOutcomePage {
 	}
 
 	public void clickSubmitButtonForInstructorAcknowldgement() {
-		SeleniumUtils.click(driver, instructorAcknowldgementSubmitButton, timeout);
+		try {
+			SeleniumUtils.click(driver, instructorAcknowldgementSubmitButton, 2);
+		} catch (Exception e) {
+
+		}
 	}
 
 	public void clickCloseIconForInstructorAcknowldgement() {
