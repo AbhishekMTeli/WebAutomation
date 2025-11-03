@@ -7,9 +7,9 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="validatePleaseProvideAsignatureFirst"/>
           <include name="tearDownExtent"/>
           <include name="initPages"/>
+          <include name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview"/>
           <include name="setUpExtent"/>
         </methods>
       </class> <!-- tests.CATII_III_Test -->

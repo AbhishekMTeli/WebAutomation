@@ -811,6 +811,7 @@ public class PBSTest extends BaseClass {
 		practiceBookSessionOverallOutcomePage.digitalSignitureLabelIsPresent();
 		practiceBookSessionOverallOutcomePage.digitalSign();
 		practiceBookSessionOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		popupPage.handelSpinner();
 		popupPage.clickAlertOkButton();
 		traineeGradingPage.validateAllStaticTexts();
 		logoutPage.clickProfileIcon();

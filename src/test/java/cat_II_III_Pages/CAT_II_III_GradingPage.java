@@ -167,6 +167,16 @@ public class CAT_II_III_GradingPage {
 		SeleniumUtils.click(driver, discardButton, timeout);
 	}
 
+	@FindBy(xpath = "//button[@id='editEventGrading']")
+	private WebElement editSaveAndNextButton;
+
+	public void clickEditEventButton() throws InterruptedException {
+		Thread.sleep(5000);
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(editSaveAndNextButton));
+		SeleniumUtils.waitForClickability(driver, editSaveAndNextButton, timeout);
+		SeleniumUtils.click(driver, editSaveAndNextButton, timeout);
+	}
+
 	public void clickSaveAndNextButton() {
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);
@@ -191,5 +201,21 @@ public class CAT_II_III_GradingPage {
 
 	public void clickCheckTab() {
 		SeleniumUtils.click(driver, checkTab, timeout);
+	}
+
+	@FindBy(xpath = "//div[@id='LHS_GradingData']//span[@id='lhsuser']")
+	private WebElement lhsDesignation;
+
+	@FindBy(xpath = "//div[@id='RHS_GradingData']//span[@id='Rhsuser']")
+	private WebElement rhsDesignation;
+
+	public String getLHSDesignation() {
+		SeleniumUtils.waitForVisibility(driver, lhsDesignation, timeout);
+		return SeleniumUtils.getText(lhsDesignation);
+	}
+
+	public String getRHSDesignation() {
+		SeleniumUtils.waitForVisibility(driver, rhsDesignation, timeout);
+		return SeleniumUtils.getText(rhsDesignation);
 	}
 }
