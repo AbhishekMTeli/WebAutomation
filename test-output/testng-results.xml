@@ -2,16 +2,16 @@
 <testng-results ignored="28" total="29" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-04T11:32:09 IST" name="Default suite" finished-at="2025-11-04T11:34:04 IST" duration-ms="114543">
+  <suite started-at="2025-11-04T18:15:13 IST" name="Default suite" finished-at="2025-11-04T18:16:00 IST" duration-ms="47530">
     <groups>
     </groups>
-    <test started-at="2025-11-04T11:32:09 IST" name="Default test" finished-at="2025-11-04T11:34:04 IST" duration-ms="114543">
+    <test started-at="2025-11-04T18:15:13 IST" name="Default test" finished-at="2025-11-04T18:16:00 IST" duration-ms="47530">
       <class name="tests.CATII_III_Test">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T11:32:09 IST" name="setUpExtent" finished-at="2025-11-04T11:32:09 IST" duration-ms="181" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:12 IST" name="setUpExtent" finished-at="2025-11-04T18:15:13 IST" duration-ms="158" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T11:32:09 IST" name="setUp" finished-at="2025-11-04T11:32:17 IST" duration-ms="7527" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:13 IST" name="setUp" finished-at="2025-11-04T18:15:25 IST" duration-ms="11899" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,28 +27,52 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T11:32:17 IST" name="initPages" finished-at="2025-11-04T11:32:17 IST" duration-ms="127" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:25 IST" name="initPages" finished-at="2025-11-04T18:15:25 IST" duration-ms="89" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T11:32:17 IST" name="validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview" description="Validate trainer can see action under pending grading after trainee marks form for review" finished-at="2025-11-04T11:34:03 IST" duration-ms="106113" status="FAIL">
-          <exception class="java.lang.IndexOutOfBoundsException">
+        <test-method signature="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:25 IST" name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected" description="Validate reports can be downloaded as a .zip file when multiple checkboxes are selected" finished-at="2025-11-04T18:15:59 IST" duration-ms="34809" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
             <message>
-              <![CDATA[Index 0 out of bounds for length 0]]>
+              <![CDATA[element click intercepted: Element <button id="cat3formButton" type="button" class="btn btn-success center-block gb" onclick="showCheck()" style="background: #313689; margin-top: 1%; display: inline; margin: auto;">...</button> is not clickable at point (953, 615). Other element would receive the click: <div class="form-group comment">...</div>
+  (Session info: chrome=142.0.7444.60)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2c87c4bc3eab4183f3b083997f281706, clickElement {id=f.946977ED59F5A680224A7C768A122C7B.d.B84BE8939443B235277A0C25F23D273C.e.328}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62114}, goog:processID: 9297, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62114/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (2c87c4bc3eab4183f3b083997f281706)] -> xpath: //button[@id='cat3formButton']]
+Session ID: 2c87c4bc3eab4183f3b083997f281706]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
-at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
-at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
-at java.base/java.util.Objects.checkIndex(Objects.java:385)
-at java.base/java.util.ArrayList.get(ArrayList.java:427)
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button id="cat3formButton" type="button" class="btn btn-success center-block gb" onclick="showCheck()" style="background: #313689; margin-top: 1%; display: inline; margin: auto;">...</button> is not clickable at point (953, 615). Other element would receive the click: <div class="form-group comment">...</div>
+  (Session info: chrome=142.0.7444.60)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2c87c4bc3eab4183f3b083997f281706, clickElement {id=f.946977ED59F5A680224A7C768A122C7B.d.B84BE8939443B235277A0C25F23D273C.e.328}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62114}, goog:processID: 9297, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62114/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (2c87c4bc3eab4183f3b083997f281706)] -> xpath: //button[@id='cat3formButton']]
+Session ID: 2c87c4bc3eab4183f3b083997f281706
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-at jdk.proxy2/jdk.proxy2.$Proxy19.get(Unknown Source)
-at traineePages.TraineeReviewPage.clickViewButton(TraineeReviewPage.java:95)
-at tests.CATII_III_Test.validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview(CATII_III_Test.java:1072)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+at utils.SeleniumUtils.click(SeleniumUtils.java:49)
+at cat_II_III_Pages.CAT_II_III_TrainingPage.clickSaveAndNextButton(CAT_II_III_TrainingPage.java:55)
+at tests.CATII_III_Test.validateReportsDownloadAsZipWhenMultipleCheckboxesSelected(CATII_III_Test.java:2004)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -77,22 +101,22 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T11:34:03 IST" name="tearDown" finished-at="2025-11-04T11:34:04 IST" duration-ms="749" status="PASS">
+        </test-method> <!-- validateReportsDownloadAsZipWhenMultipleCheckboxesSelected -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:59 IST" name="tearDown" finished-at="2025-11-04T18:16:00 IST" duration-ms="706" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview status=FAILURE method=CATII_III_Test.validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview()[pri:0, instance:tests.CATII_III_Test@17f7cd29] output={null}]]]>
+                <![CDATA[[TestResult name=validateReportsDownloadAsZipWhenMultipleCheckboxesSelected status=FAILURE method=CATII_III_Test.validateReportsDownloadAsZipWhenMultipleCheckboxesSelected()[pri:0, instance:tests.CATII_III_Test@17f7cd29] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T11:34:04 IST" name="tearDownExtent" finished-at="2025-11-04T11:34:04 IST" duration-ms="196" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:16:00 IST" name="tearDownExtent" finished-at="2025-11-04T18:16:00 IST" duration-ms="202" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

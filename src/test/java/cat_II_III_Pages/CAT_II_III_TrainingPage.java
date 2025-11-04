@@ -44,13 +44,13 @@ public class CAT_II_III_TrainingPage {
 	private WebElement saveAndNextButton;
 
 	public void clickDiscardButton() {
-		SeleniumUtils.waitForVisibility(driver, discardButton, timeout);
+		SeleniumUtils.waitForClickability(driver, discardButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(discardButton));
 		SeleniumUtils.click(driver, discardButton, timeout);
 	}
 
 	public void clickSaveAndNextButton() {
-		SeleniumUtils.waitForVisibility(driver, saveAndNextButton, timeout);
+		SeleniumUtils.waitForVisibility(driver, saveAndNextButton, 10);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);
 	}

@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Nov 4, 2025 11:32:09 am</span></a>
+<a href="#"><span class="badge badge-primary">Nov 4, 2025 06:15:12 pm</span></a>
 </li>
 </ul>
 </div>
@@ -86,7 +86,7 @@
           <div class="test-detail">
             <p class="name">CATII_III_Test - ThreadId: 1</p>
             <p class="text-sm">
-              <span>11:32:15 am</span> / <span>00:01:47:763</span>
+              <span>6:15:20 pm</span> / <span>00:00:39:620</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -95,9 +95,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">CATII_III_Test - ThreadId: 1</h5>
-<span class='badge badge-success'>11.04.2025 11:32:15 am</span>
-<span class='badge badge-danger'>11.04.2025 11:34:03 am</span>
-<span class='badge badge-default'>00:01:47:763</span>
+<span class='badge badge-success'>11.04.2025 6:15:20 pm</span>
+<span class='badge badge-danger'>11.04.2025 6:16:00 pm</span>
+<span class='badge badge-default'>00:00:39:620</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -105,7 +105,7 @@
 </div>
 </div>
 </div>    <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='screenshots/validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview_1762236243645.png' src="screenshots/validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview_1762236243645.png">
+<img data-featherlight='screenshots/validateReportsDownloadAsZipWhenMultipleCheckboxesSelected_1762260360127.png' src="screenshots/validateReportsDownloadAsZipWhenMultipleCheckboxesSelected_1762260360127.png">
     
     </div></div>
 <div class="detail-body mt-4">
@@ -114,27 +114,43 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:32:15 am</td>
+        <td>6:15:20 pm</td>
         <td>
           Started test on browser: chrome
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>11:34:03 am</td>
+        <td>6:16:00 pm</td>
         <td>
-          <textarea readonly class="code-block">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
-	at java.base/java.util.Objects.checkIndex(Objects.java:385)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+          <textarea readonly class="code-block">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button id="cat3formButton" type="button" class="btn btn-success center-block gb" onclick="showCheck()" style="background: #313689; margin-top: 1%; display: inline; margin: auto;">...</button> is not clickable at point (953, 615). Other element would receive the click: <div class="form-group comment">...</div>
+  (Session info: chrome=142.0.7444.60)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2c87c4bc3eab4183f3b083997f281706, clickElement {id=f.946977ED59F5A680224A7C768A122C7B.d.B84BE8939443B235277A0C25F23D273C.e.328}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62114}, goog:processID: 9297, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62114/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (2c87c4bc3eab4183f3b083997f281706)] -> xpath: //button[@id='cat3formButton']]
+Session ID: 2c87c4bc3eab4183f3b083997f281706
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at jdk.proxy2/jdk.proxy2.$Proxy19.get(Unknown Source)
-	at traineePages.TraineeReviewPage.clickViewButton(TraineeReviewPage.java:95)
-	at tests.CATII_III_Test.validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview(CATII_III_Test.java:1072)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at utils.SeleniumUtils.click(SeleniumUtils.java:49)
+	at cat_II_III_Pages.CAT_II_III_TrainingPage.clickSaveAndNextButton(CAT_II_III_TrainingPage.java:55)
+	at tests.CATII_III_Test.validateReportsDownloadAsZipWhenMultipleCheckboxesSelected(CATII_III_Test.java:2004)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -192,12 +208,12 @@
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">java.lang.IndexOutOfBoundsException</p>
+<p class="name">org.openqa.selenium.ElementClickInterceptedException</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>java.lang.IndexOutOfBoundsException</h4>
+<h4>org.openqa.selenium.ElementClickInterceptedException</h4>
 <span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -211,7 +227,7 @@
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>11:32:15 am</td>
+<td>18:15:20 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='1'>CATII_III_Test - ThreadId: 1</a>
 </td>
@@ -233,13 +249,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Nov 4, 2025 11:32:09 am</h3>
+<h3>Nov 4, 2025 06:15:12 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Nov 4, 2025 11:34:04 am</h3>
+<h3>Nov 4, 2025 06:16:00 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -309,7 +325,7 @@
 </div></div>
 <script>
 var timeline = {
-"CATII_III_Test - ThreadId: 1":107.763
+"CATII_III_Test - ThreadId: 1":39.62
 };
 </script>
 <div class="row">

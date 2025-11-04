@@ -1,5 +1,6 @@
 package cat_II_III_Pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -171,12 +172,19 @@ public class CAT_II_III_GradingPage {
 	@FindBy(xpath = "//button[@id='editEventGrading']")
 	private WebElement editSaveAndNextButton;
 
-	public void clickEditEventButton() throws InterruptedException {
+	public void clickEditEventButton()
+			throws InterruptedException, org.openqa.selenium.ElementClickInterceptedException {
 		PopupPage popupPage = new PopupPage(driver);
-		SeleniumUtils.waitForVisibility(driver, editSaveAndNextButton, 10);
+		SeleniumUtils.waitForClickability(driver, editSaveAndNextButton, 15);
 		popupPage.handelSpinner();
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(editSaveAndNextButton));
-		SeleniumUtils.click(driver, editSaveAndNextButton, timeout);
+		try {
+			SeleniumUtils.click(driver, editSaveAndNextButton, timeout);
+		} catch (org.openqa.selenium.WebDriverException e) {
+			// fallback to JS executor click if normal click fails
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", editSaveAndNextButton);
+		}
 	}
 
 	public void clickSaveAndNextButton() {

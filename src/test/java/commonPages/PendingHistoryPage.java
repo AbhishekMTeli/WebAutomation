@@ -37,6 +37,8 @@ public class PendingHistoryPage {
 	private WebElement sectorsLabel;
 
 	public void validatePengingGradingStaticTexts() {
+		PopupPage popupPage = new PopupPage(driver);
+		popupPage.handelSpinner();
 		SeleniumUtils.waitForVisibility(driver, pendingGradingLabel, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, pendingGradingLabel.getText());
 		Assert.assertEquals(pendingGradingLabel.getText(), "Pending Grading",

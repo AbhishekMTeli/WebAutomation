@@ -273,6 +273,11 @@ public class CAT_II_III_CheckPage {
 	public void clickNextAndSaveButton() {
 		SeleniumUtils.waitForClickability(driver, saveAndNextButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
-		SeleniumUtils.click(driver, saveAndNextButton, timeout);
+		try {
+			SeleniumUtils.click(driver, saveAndNextButton, timeout);
+		} catch (org.openqa.selenium.ElementClickInterceptedException e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", saveAndNextButton);
+		}
 	}
 }
