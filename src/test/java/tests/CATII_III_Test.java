@@ -101,7 +101,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
@@ -200,7 +200,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("");
 		cat_II_III_GradingPage.clickSaveAndNextButton();
@@ -219,7 +219,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("test user");
 		cat_II_III_GradingPage.selectLocationDropdown("Select");
@@ -239,7 +239,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("test user");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -259,7 +259,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.clickCheckTab();
 		String expectedResult = "OK You must Select General Information";
@@ -277,7 +277,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -303,7 +303,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -330,7 +330,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -358,7 +358,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -383,7 +383,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -412,7 +412,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
@@ -451,7 +451,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -483,7 +483,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
@@ -567,7 +567,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
@@ -648,7 +648,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
@@ -741,7 +741,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
@@ -766,7 +766,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -812,7 +812,7 @@ public class CATII_III_Test extends BaseClass {
 		gradingHistoryPage.clickViewButton();
 		gradingHistoryPage.clickCloseIcon();
 		gradingHistoryPage.validateAllStaticTexts();
-		if (rhsTraineeId != null) {
+		if (rhsTraineeId != null && !rhsTraineeId.equals("")) {
 			gradingHistoryPage.enterLessonName(rhsTraineeId);
 			gradingHistoryPage.clickViewButton();
 			gradingHistoryPage.validatePreviewHeader();
@@ -830,7 +830,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -865,7 +865,7 @@ public class CATII_III_Test extends BaseClass {
 		popupPage.handelSpinner();
 		popupPage.clickPopupOkButton();
 		traineeGradingPage.validateAllStaticTexts();
-		if (lhsTraineeId != null || lhsTraineeId != "") {
+		if (lhsTraineeId != null && !lhsTraineeId.equals("")) {
 			logoutPage.clickProfileIcon();
 			logoutPage.clickLogoutButton();
 			adminDashBoardPage.clickBecomeUserTab();
@@ -886,7 +886,7 @@ public class CATII_III_Test extends BaseClass {
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
-		if (rhsTraineeId != null || rhsTraineeId != "") {
+		if (rhsTraineeId != null && !rhsTraineeId.equals("")) {
 			becomeUserPage.sendTraineeId(rhsTraineeId);
 			becomeUserPage.clickOnBecomeUser();
 			traineeReviewPage.clickGradingAndAssessmentTab();
@@ -911,7 +911,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -947,7 +947,7 @@ public class CATII_III_Test extends BaseClass {
 		cat_II_III_OverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
 		popupPage.handelSpinner();
 		popupPage.clickPopupOkButton();
-		if (lhsTraineeId != null || lhsTraineeId != "") {
+		if (lhsTraineeId != null && !lhsTraineeId.equals("")) {
 			traineeGradingPage.validateAllStaticTexts();
 			logoutPage.clickProfileIcon();
 			logoutPage.clickLogoutButton();
@@ -967,7 +967,7 @@ public class CATII_III_Test extends BaseClass {
 			traineeReviewPage.clickMarkForReviewButton();
 			traineeReviewPage.clickYesButton();
 		}
-		if (rhsTraineeId != null || rhsTraineeId != "") {
+		if (rhsTraineeId != null && !rhsTraineeId.equals("")) {
 			traineeReviewPage.validateAllStaticElements();
 
 			logoutPage.clickProfileIcon();
@@ -1000,7 +1000,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		traineeGradingPage.clickOnGradeButtonWithRetries(20);
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
 		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
 		cat_II_III_GradingPage.selectLocationDropdown("BLR");
@@ -1013,6 +1013,8 @@ public class CATII_III_Test extends BaseClass {
 		rhsTraineeIdWithName = cat_II_III_GradingPage.getRHSDesignation();
 		lhsTraineeId = lhsTraineeIdWithName.replaceAll("[^0-9]", "");
 		rhsTraineeId = rhsTraineeIdWithName.replaceAll("[^0-9]", "");
+		System.out.println(lhsTraineeId);
+		System.out.println(rhsTraineeId);
 		cat_II_III_TrainingPage.clickSaveAndNextButton();
 		popupPage.clickPopupOrAlertYesButton();
 		cat_II_III_CheckPage.selectQaulification("SFI");
@@ -1036,7 +1038,7 @@ public class CATII_III_Test extends BaseClass {
 		popupPage.clickPopupOkButton();
 		traineeGradingPage.validateAllStaticTexts();
 
-		if (lhsTraineeId != null || lhsTraineeId != "") {
+		if (lhsTraineeId != null && !lhsTraineeId.equals("")) {
 			logoutPage.clickProfileIcon();
 			logoutPage.clickLogoutButton();
 			adminDashBoardPage.clickBecomeUserTab();
@@ -1058,7 +1060,7 @@ public class CATII_III_Test extends BaseClass {
 		}
 
 		// rhs
-		if (rhsTraineeId != null || rhsTraineeId != "") {
+		if (rhsTraineeId != null && !rhsTraineeId.equals("")) {
 			logoutPage.clickProfileIcon();
 			logoutPage.clickLogoutButton();
 			adminDashBoardPage.clickBecomeUserTab();
@@ -1088,7 +1090,7 @@ public class CATII_III_Test extends BaseClass {
 		trainerDashBoradPage.clickOnGradingAssessmentTab();
 		trainerDashBoradPage.clickOnGradingSubTab();
 		traineeGradingPage.validateAllStaticTexts();
-		if (lhsTraineeId != null || lhsTraineeId != "") {
+		if (lhsTraineeId != null && !lhsTraineeId.equals("")) {
 			pendingHistoryPage.validatePengingGradingStaticTexts();
 			pendingHistoryPage.enterSearchText(lhsTraineeId);
 			pendingHistoryPage.clickReviewButton();
@@ -1099,9 +1101,8 @@ public class CATII_III_Test extends BaseClass {
 			cat_II_III_GradingPage.clickEditEventButton();
 			pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 			popupPage.handelOneBeforeUnload();
-			popupPage.clickPopupOkButton();
 		}
-		if (rhsTraineeId != null || rhsTraineeId != "") {
+		if (rhsTraineeId != null && !rhsTraineeId.equals("")) {
 			pendingHistoryPage.validatePengingGradingStaticTexts();
 			pendingHistoryPage.enterSearchText(rhsTraineeId);
 			pendingHistoryPage.clickReviewButton();
@@ -1112,7 +1113,6 @@ public class CATII_III_Test extends BaseClass {
 			cat_II_III_GradingPage.clickEditEventButton();
 			pendingHistoryPage.clickUpdateGeneralInfoPopupYesButton();
 			popupPage.handelOneBeforeUnload();
-			popupPage.clickPopupOkButton();
 		}
 	}
 

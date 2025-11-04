@@ -271,6 +271,7 @@ public class CAT_II_III_CheckPage {
 	}
 
 	public void clickNextAndSaveButton() {
+		SeleniumUtils.waitForClickability(driver, saveAndNextButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);
 	}

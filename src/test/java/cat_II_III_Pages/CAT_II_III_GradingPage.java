@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import commonPages.PopupPage;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
@@ -171,9 +172,10 @@ public class CAT_II_III_GradingPage {
 	private WebElement editSaveAndNextButton;
 
 	public void clickEditEventButton() throws InterruptedException {
-		Thread.sleep(5000);
+		PopupPage popupPage = new PopupPage(driver);
+		SeleniumUtils.waitForVisibility(driver, editSaveAndNextButton, 10);
+		popupPage.handelSpinner();
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(editSaveAndNextButton));
-		SeleniumUtils.waitForClickability(driver, editSaveAndNextButton, timeout);
 		SeleniumUtils.click(driver, editSaveAndNextButton, timeout);
 	}
 
