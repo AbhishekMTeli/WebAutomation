@@ -10,6 +10,7 @@ import adminPages.TrainingManagerReviewPage;
 import adminPages.UserDocsPage;
 import base.BaseClass;
 import baseTrainingPages.BaseTrainingGradingPage;
+import baseTrainingPages.BaseTrainingOverallOutcomePage;
 import commonPages.GradingHistoryPage;
 import commonPages.LogoutPage;
 import commonPages.PendingHistoryPage;
@@ -34,6 +35,7 @@ public class BaseTrainingTest extends BaseClass {
 	private String rhsTraineeIdWithName;
 	private String rhsTraineeId;
 	private BaseTrainingGradingPage baseTrainingGradingPage;
+	private BaseTrainingOverallOutcomePage baseTrainingOverallOutcomePage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -50,9 +52,10 @@ public class BaseTrainingTest extends BaseClass {
 		userDocsPage = new UserDocsPage(getDriver());
 		eFormReportsPage = new EFormReportsPage(getDriver());
 		baseTrainingGradingPage = new BaseTrainingGradingPage(getDriver());
+		baseTrainingOverallOutcomePage = new BaseTrainingOverallOutcomePage(getDriver());
 	}
 
-	@Test(description = "CAT II III Form e2e Happy Path test case")
+	@Test(description = "Base Training Form e2e Happy Path test case")
 	public void happyPathCAT_II_III_Test() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();
@@ -75,5 +78,26 @@ public class BaseTrainingTest extends BaseClass {
 		baseTrainingGradingPage.enterOBComments("PRO", "adding OB comment");
 		baseTrainingGradingPage.clickOBDoneButton("PRO");
 		baseTrainingGradingPage.clickSaveAndNextButton();
+		baseTrainingOverallOutcomePage.validateBaseTrainingOverallOutComePage();
+		baseTrainingOverallOutcomePage.selectCompetentRadioButton();
+		baseTrainingOverallOutcomePage.enterRemarks("adding remarks");
+		baseTrainingOverallOutcomePage.selectQualification("TRI (A)");
+		baseTrainingOverallOutcomePage.clickSaveAndNextButton();
+		baseTrainingOverallOutcomePage.reasonForDelayLabelIsPresent();
+		baseTrainingOverallOutcomePage.addDelayComments("adding delay comments");
+		baseTrainingOverallOutcomePage.clickSubmitCommentButtonForDelayComment();
+		popupPage.handelSpinner();
+		baseTrainingOverallOutcomePage.visibilityOfPreviewHeader();
+		baseTrainingOverallOutcomePage.clickPreviewNextButton();
+		baseTrainingOverallOutcomePage.instructorAcknowldgementLabelIsPresent();
+		baseTrainingOverallOutcomePage.clickSubmitButtonForInstructorAcknowldgement();
+		baseTrainingOverallOutcomePage.digitalSignitureLabelIsPresent();
+		baseTrainingOverallOutcomePage.digitalSign();
+		baseTrainingOverallOutcomePage.clickClearForDigitalSigniture();
+		baseTrainingOverallOutcomePage.digitalSign();
+		baseTrainingOverallOutcomePage.clickSaveSignitureButtonForDigitalSigniture();
+		popupPage.clickAlertOkButton();
+		popupPage.handelSpinner();
+		traineeGradingPage.validateAllStaticTexts();
 	}
 }

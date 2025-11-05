@@ -278,6 +278,18 @@ public class BaseTrainingGradingPage {
 		WebElement obCancelIcon = driver.findElement(By.xpath(obDoneButtonXpath));
 		SeleniumUtils.click(driver, obCancelIcon, timeout);
 	}
-//	@FindBy(xpath = "")
-//	private WebElement gradingTab;
+
+	@FindBy(xpath = "//i[@id='lsnplan']")
+	private WebElement lessonInfoIcon;
+
+	@FindBy(xpath = "//span[@class='close']")
+	private WebElement lessonInfoCloseIcon;
+
+	public void clickLessonInfoIcon() {
+		SeleniumUtils.click(driver, lessonInfoIcon, timeout);
+	}
+
+	public void clickLessonInfoCloseIcon() {
+		SeleniumUtils.click(driver, lessonInfoCloseIcon, timeout);
+	}
 }

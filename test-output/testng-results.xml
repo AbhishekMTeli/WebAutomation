@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-05T16:49:42 IST" name="Default suite" finished-at="2025-11-05T16:50:41 IST" duration-ms="59417">
+  <suite started-at="2025-11-05T18:21:52 IST" name="Default suite" finished-at="2025-11-05T18:23:22 IST" duration-ms="89494">
     <groups>
     </groups>
-    <test started-at="2025-11-05T16:49:42 IST" name="Default test" finished-at="2025-11-05T16:50:41 IST" duration-ms="59417">
+    <test started-at="2025-11-05T18:21:52 IST" name="Default test" finished-at="2025-11-05T18:23:22 IST" duration-ms="89494">
       <class name="tests.BaseTrainingTest">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T16:49:42 IST" name="setUpExtent" finished-at="2025-11-05T16:49:42 IST" duration-ms="184" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T18:21:52 IST" name="setUpExtent" finished-at="2025-11-05T18:21:52 IST" duration-ms="197" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T16:49:42 IST" name="setUp" finished-at="2025-11-05T16:49:58 IST" duration-ms="16464" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T18:21:52 IST" name="setUp" finished-at="2025-11-05T18:22:00 IST" duration-ms="7991" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,15 +27,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T16:49:58 IST" name="initPages" finished-at="2025-11-05T16:49:59 IST" duration-ms="44" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T18:22:00 IST" name="initPages" finished-at="2025-11-05T18:22:01 IST" duration-ms="55" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="happyPathCAT_II_III_Test()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T16:49:59 IST" name="happyPathCAT_II_III_Test" description="CAT II III Form e2e Happy Path test case" finished-at="2025-11-05T16:50:41 IST" duration-ms="42424" status="PASS">
+        <test-method signature="happyPathCAT_II_III_Test()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T18:22:01 IST" name="happyPathCAT_II_III_Test" description="Base Training Form e2e Happy Path test case" finished-at="2025-11-05T18:23:21 IST" duration-ms="80855" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- happyPathCAT_II_III_Test -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T16:50:41 IST" name="tearDown" finished-at="2025-11-05T16:50:41 IST" duration-ms="460" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T18:23:21 IST" name="tearDown" finished-at="2025-11-05T18:23:22 IST" duration-ms="568" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -46,7 +46,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T16:50:41 IST" name="tearDownExtent" finished-at="2025-11-05T16:50:42 IST" duration-ms="195" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.BaseTrainingTest@55b0dcab]" started-at="2025-11-05T18:23:22 IST" name="tearDownExtent" finished-at="2025-11-05T18:23:22 IST" duration-ms="240" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->
