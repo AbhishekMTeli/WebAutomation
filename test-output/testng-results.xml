@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="28" total="29" passed="0" failed="1" skipped="0">
+<testng-results ignored="30" total="31" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-04T18:15:13 IST" name="Default suite" finished-at="2025-11-04T18:16:00 IST" duration-ms="47530">
+  <suite started-at="2025-11-05T13:12:24 IST" name="Default suite" finished-at="2025-11-05T13:13:20 IST" duration-ms="55774">
     <groups>
     </groups>
-    <test started-at="2025-11-04T18:15:13 IST" name="Default test" finished-at="2025-11-04T18:16:00 IST" duration-ms="47530">
+    <test started-at="2025-11-05T13:12:24 IST" name="Default test" finished-at="2025-11-05T13:13:20 IST" duration-ms="55774">
       <class name="tests.CATII_III_Test">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:12 IST" name="setUpExtent" finished-at="2025-11-04T18:15:13 IST" duration-ms="158" status="PASS">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.CATII_III_Test@13b6aecc]" started-at="2025-11-05T13:12:24 IST" name="setUpExtent" finished-at="2025-11-05T13:12:24 IST" duration-ms="193" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:13 IST" name="setUp" finished-at="2025-11-04T18:15:25 IST" duration-ms="11899" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.CATII_III_Test@13b6aecc]" started-at="2025-11-05T13:12:24 IST" name="setUp" finished-at="2025-11-05T13:12:32 IST" duration-ms="8026" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,52 +27,21 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:25 IST" name="initPages" finished-at="2025-11-04T18:15:25 IST" duration-ms="89" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.CATII_III_Test@13b6aecc]" started-at="2025-11-05T13:12:32 IST" name="initPages" finished-at="2025-11-05T13:12:32 IST" duration-ms="121" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:25 IST" name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected" description="Validate reports can be downloaded as a .zip file when multiple checkboxes are selected" finished-at="2025-11-04T18:15:59 IST" duration-ms="34809" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method signature="verifyLHSUserWhenSeatSupportIsSelected()[pri:0, instance:tests.CATII_III_Test@13b6aecc]" started-at="2025-11-05T13:12:32 IST" name="verifyLHSUserWhenSeatSupportIsSelected" description="Select Seat supports on the LHS side and validate the LHS part is disabled" finished-at="2025-11-05T13:13:19 IST" duration-ms="46860" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[element click intercepted: Element <button id="cat3formButton" type="button" class="btn btn-success center-block gb" onclick="showCheck()" style="background: #313689; margin-top: 1%; display: inline; margin: auto;">...</button> is not clickable at point (953, 615). Other element would receive the click: <div class="form-group comment">...</div>
-  (Session info: chrome=142.0.7444.60)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2c87c4bc3eab4183f3b083997f281706, clickElement {id=f.946977ED59F5A680224A7C768A122C7B.d.B84BE8939443B235277A0C25F23D273C.e.328}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62114}, goog:processID: 9297, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62114/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on mac (2c87c4bc3eab4183f3b083997f281706)] -> xpath: //button[@id='cat3formButton']]
-Session ID: 2c87c4bc3eab4183f3b083997f281706]]>
+              <![CDATA[LHS User Is present seat support is not working as expected in CAT III Panel expected [false] but found [true]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button id="cat3formButton" type="button" class="btn btn-success center-block gb" onclick="showCheck()" style="background: #313689; margin-top: 1%; display: inline; margin: auto;">...</button> is not clickable at point (953, 615). Other element would receive the click: <div class="form-group comment">...</div>
-  (Session info: chrome=142.0.7444.60)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.0.1', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2c87c4bc3eab4183f3b083997f281706, clickElement {id=f.946977ED59F5A680224A7C768A122C7B.d.B84BE8939443B235277A0C25F23D273C.e.328}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62114}, goog:processID: 9297, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62114/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on mac (2c87c4bc3eab4183f3b083997f281706)] -> xpath: //button[@id='cat3formButton']]
-Session ID: 2c87c4bc3eab4183f3b083997f281706
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
-at utils.SeleniumUtils.click(SeleniumUtils.java:49)
-at cat_II_III_Pages.CAT_II_III_TrainingPage.clickSaveAndNextButton(CAT_II_III_TrainingPage.java:55)
-at tests.CATII_III_Test.validateReportsDownloadAsZipWhenMultipleCheckboxesSelected(CATII_III_Test.java:2004)
+              <![CDATA[java.lang.AssertionError: LHS User Is present seat support is not working as expected in CAT III Panel expected [false] but found [true]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertFalse(Assert.java:79)
+at tests.CATII_III_Test.verifyLHSUserWhenSeatSupportIsSelected(CATII_III_Test.java:2345)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -101,22 +70,22 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateReportsDownloadAsZipWhenMultipleCheckboxesSelected -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:15:59 IST" name="tearDown" finished-at="2025-11-04T18:16:00 IST" duration-ms="706" status="PASS">
+        </test-method> <!-- verifyLHSUserWhenSeatSupportIsSelected -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.CATII_III_Test@13b6aecc]" started-at="2025-11-05T13:13:19 IST" name="tearDown" finished-at="2025-11-05T13:13:20 IST" duration-ms="741" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateReportsDownloadAsZipWhenMultipleCheckboxesSelected status=FAILURE method=CATII_III_Test.validateReportsDownloadAsZipWhenMultipleCheckboxesSelected()[pri:0, instance:tests.CATII_III_Test@17f7cd29] output={null}]]]>
+                <![CDATA[[TestResult name=verifyLHSUserWhenSeatSupportIsSelected status=FAILURE method=CATII_III_Test.verifyLHSUserWhenSeatSupportIsSelected()[pri:0, instance:tests.CATII_III_Test@13b6aecc] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CATII_III_Test@17f7cd29]" started-at="2025-11-04T18:16:00 IST" name="tearDownExtent" finished-at="2025-11-04T18:16:00 IST" duration-ms="202" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.CATII_III_Test@13b6aecc]" started-at="2025-11-05T13:13:20 IST" name="tearDownExtent" finished-at="2025-11-05T13:13:20 IST" duration-ms="204" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->

@@ -81,6 +81,7 @@ public class CAT_II_III_OverallOutcomePage {
 
 	public void clickSubmitButtonForInstructorAcknowldgement() {
 		try {
+			Thread.sleep(500);
 			SeleniumUtils.click(driver, instructorAcknowldgementSubmitButton, 2);
 		} catch (Exception e) {
 

@@ -2239,4 +2239,140 @@ public class CATII_III_Test extends BaseClass {
 			eFormReportsPage.clickDownloadButtton();
 		}
 	}
+
+	@Test(description = "Select Seat supports on the RHS side and validate the RHS part is disabled")
+	public void verifyRHSUserWhenSeatSupportIsSelected() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+
+		if (rhsUserPresent) {
+			cat_II_III_GradingPage.selectSeatSupportRHSCheckbox();
+		}
+		cat_II_III_GradingPage.clickSaveAndNextButton();
+
+		// lhs CAT II grading
+		cat_II_III_TrainingPage.clickCATIIPanel();
+		cat_II_TrainingPage.clickCAT_II_LHSGrade("PRO", "3");
+		cat_II_TrainingPage.clickAllLHSMinus("PRO");
+		cat_II_TrainingPage.enterLHSComments("PRO", "Entering the OB Comments");
+		cat_II_TrainingPage.clickLHSOBDoneButton("PRO");
+		cat_II_TrainingPage.enterCAT_II_LHSRemarks("adding cat II lhs remarks");
+
+		// rhs CAT II grading
+		if (rhsUserPresent) {
+			Assert.assertFalse(cat_II_TrainingPage.rhsGradeIsInteractable("FPM", "3"),
+					"RHS User Is present seat support is not working as expected in CAT II Panel");
+			Assert.assertFalse(cat_II_TrainingPage.rhsRemarkIsEnabled());
+		}
+
+		// lhs CAT III grading
+		cat_II_III_TrainingPage.clickCATIIIPanel();
+		cat_III_TrainingPage.clickCAT_III_LHSGrade("KNO", "3");
+		cat_III_TrainingPage.clickAllLHSMinusButtons("KNO");
+		cat_III_TrainingPage.enterLHSComments("KNO", "Entering the OB Comments");
+		cat_III_TrainingPage.clickLHSOBDoneButton("KNO");
+		cat_III_TrainingPage.enterCAT_III_LHSRemarks("adding cat III lhs remarks");
+
+		// rhs CAT III grading
+		if (rhsUserPresent) {
+			Assert.assertFalse(cat_III_TrainingPage.rhsCAT_III_GradeIsEnabled("FPA", "3"),
+					"RHS User Is present seat support is not working as expected in CAT III Panel");
+			Assert.assertFalse(cat_III_TrainingPage.cat_III_rHSRemarksIsEnabled());
+		}
+
+		cat_II_III_TrainingPage.clickSaveAndNextButton();
+		popupPage.clickPopupOrAlertYesButton();
+
+		// check page
+		// lhs
+		cat_II_III_CheckPage.clickCAT_II_III_LHSGrade("LTW", "3");
+		cat_II_III_CheckPage.clickAllLHSMinus("LTW");
+		cat_II_III_CheckPage.enterLHSComments("LTW", "entering ob comments");
+		cat_II_III_CheckPage.clickLHSOBDoneButton("LTW");
+		cat_II_III_CheckPage.enterCAT_II_III_LHSRemarks("entering lhs remarks");
+
+		// rhs
+		if (rhsUserPresent) {
+			Assert.assertFalse(cat_II_III_CheckPage.rhsGradeIsInteractable("COM", "3"),
+					"RHS User Is present seat support is not working as expected in Check Page");
+			Assert.assertFalse(cat_II_III_CheckPage.cat_III_rHSRemarksIsEnabled());
+		}
+	}
+
+	@Test(description = "Select Seat supports on the LHS side and validate the LHS part is disabled")
+	public void verifyLHSUserWhenSeatSupportIsSelected() throws InterruptedException {
+		adminDashBoardPage.clickBecomeUserTab();
+		becomeUserPage.sendUserId();
+		becomeUserPage.clickOnBecomeUser();
+		trainerDashBoradPage.clickOnGradingAssessmentTab();
+		trainerDashBoradPage.clickOnGradingSubTab();
+		traineeGradingPage.validateAllStaticTexts();
+		traineeGradingPage.clickOnGradeButtonWithRetries(10);
+		cat_II_III_GradingPage.validateCAT_II_III_GradingPageTexts();
+		boolean rhsUserPresent = cat_II_III_GradingPage.isRHSUserPresent();
+		cat_II_III_GradingPage.enterRegistrationNumber("Test User");
+		cat_II_III_GradingPage.selectLocationDropdown("BLR");
+		cat_II_III_GradingPage.clickCM1LHSRadioButton();
+		cat_II_III_GradingPage.selectSeatSupportLHSCheckbox();
+		if (rhsUserPresent) {
+			cat_II_III_GradingPage.clickSaveAndNextButton();
+			cat_II_III_TrainingPage.clickCATIIPanel();
+
+			// rhs CAT II grading
+			cat_II_TrainingPage.clickCAT_II_RHSGrade("PRO", "3");
+			cat_II_TrainingPage.clickAllRHSMinus("PRO");
+			cat_II_TrainingPage.enterRHSComments("PRO", "Entering the OB Comments");
+			cat_II_TrainingPage.clickRHSOBDoneButton("PRO");
+			cat_II_TrainingPage.enterCAT_II_RHSRemarks("adding cat II lhs remarks");
+
+			// lhs CAT II grading
+			Assert.assertFalse(cat_II_TrainingPage.lhsGradeIsInteractable("FPM", "3"),
+					"LHS User Is present seat support is not working as expected in CAT II Panel");
+			Assert.assertFalse(cat_II_TrainingPage.lhsRemarkIsEnabled());
+
+			// lhs CAT III grading
+			cat_II_III_TrainingPage.clickCATIIPanel();
+			Assert.assertFalse(cat_III_TrainingPage.lhsCAT_III_GradeIsEnabled("FPA", "3"),
+					"LHS User Is present seat support is not working as expected in CAT III Panel");
+			Assert.assertFalse(cat_III_TrainingPage.cat_III_lHSRemarksIsEnabled());
+
+			// rhs CAT III grading
+			cat_III_TrainingPage.clickCAT_III_RHSGrade("KNO", "3");
+			cat_III_TrainingPage.clickAllRHSMinusButtons("KNO");
+			cat_III_TrainingPage.enterRHSComments("KNO", "Entering the OB Comments");
+			cat_III_TrainingPage.clickRHSOBDoneButton("KNO");
+			cat_III_TrainingPage.enterCAT_III_RHSRemarks("adding cat III lhs remarks");
+			cat_II_III_TrainingPage.clickSaveAndNextButton();
+			popupPage.clickPopupOrAlertYesButton();
+
+			// check page
+			// lhs
+			Assert.assertFalse(cat_II_III_CheckPage.lhsGradeIsInteractable("COM", "3"),
+					"LHS User Is present seat support is not working as expected in Check Page");
+			Assert.assertFalse(cat_II_III_CheckPage.cat_III_lHSRemarksIsEnabled());
+
+			// rhs
+			cat_II_III_CheckPage.clickCAT_II_III_RHSGrade("LTW", "3");
+			cat_II_III_CheckPage.clickAllRHSMinus("LTW");
+			cat_II_III_CheckPage.enterRHSComments("LTW", "entering ob comments");
+			cat_II_III_CheckPage.clickRHSOBDoneButton("LTW");
+			cat_II_III_CheckPage.enterCAT_II_III_RHSRemarks("entering lhs remarks");
+		} else {
+			cat_II_III_GradingPage.clickSaveAndNextButton();
+			String expectedResult = "OK You have selected seat support for both trainees";
+			String actualResult = popupPage.popupGetText();
+			Assert.assertEquals(expectedResult, actualResult,
+					"Text mismatch Expected is : " + expectedResult + " but got : " + actualResult);
+		}
+	}
 }

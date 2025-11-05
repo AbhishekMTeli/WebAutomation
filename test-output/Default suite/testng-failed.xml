@@ -7,9 +7,9 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="tearDownExtent"/>
-          <include name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected"/>
+          <include name="verifyLHSUserWhenSeatSupportIsSelected"/>
           <include name="initPages"/>
+          <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
         </methods>
       </class> <!-- tests.CATII_III_Test -->

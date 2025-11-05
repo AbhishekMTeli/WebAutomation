@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.CATII_III_Test" class="method navigator-link" hash-for-method="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.CATII_III_Test" class="method navigator-link" hash-for-method="verifyLHSUserWhenSeatSupportIsSelected">verifyLHSUserWhenSeatSupportIsSelected</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -126,37 +126,14 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected">
-                  </a> <!-- validateReportsDownloadAsZipWhenMultipleCheckboxesSelected -->
-                  <span class="method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button id=&quot;cat3formButton&quot; type=&quot;button&quot; class=&quot;btn btn-success center-block gb&quot; onclick=&quot;showCheck()&quot; style=&quot;background: #313689; margin-top: 1%; display: inline; margin: auto;&quot;&gt;...&lt;/button&gt; is not clickable at point (953, 615). Other element would receive the click: &lt;div class=&quot;form-group comment&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=142.0.7444.60)
-Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;26.0.1&apos;, java.version: &apos;21.0.7&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2c87c4bc3eab4183f3b083997f281706, clickElement {id=f.946977ED59F5A680224A7C768A122C7B.d.B84BE8939443B235277A0C25F23D273C.e.328}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: /var/folders/0r/lq772bg92l3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62114}, goog:processID: 9297, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62114/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on mac (2c87c4bc3eab4183f3b083997f281706)] -&gt; xpath: //button[@id=&apos;cat3formButton&apos;]]
-Session ID: 2c87c4bc3eab4183f3b083997f281706
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
-	at utils.SeleniumUtils.click(SeleniumUtils.java:49)
-	at cat_II_III_Pages.CAT_II_III_TrainingPage.clickSaveAndNextButton(CAT_II_III_TrainingPage.java:55)
-	at tests.CATII_III_Test.validateReportsDownloadAsZipWhenMultipleCheckboxesSelected(CATII_III_Test.java:2004)
+                  <a name="verifyLHSUserWhenSeatSupportIsSelected">
+                  </a> <!-- verifyLHSUserWhenSeatSupportIsSelected -->
+                  <span class="method-name">verifyLHSUserWhenSeatSupportIsSelected</span>
+                  <div class="stack-trace">java.lang.AssertionError: LHS User Is present seat support is not working as expected in CAT III Panel expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertFalse(Assert.java:79)
+	at tests.CATII_III_Test.verifyLHSUserWhenSeatSupportIsSelected(CATII_III_Test.java:2345)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -186,7 +163,7 @@ Session ID: 2c87c4bc3eab4183f3b083997f281706
 
 </div> <!-- stack-trace -->
                   <em>
-(Validate reports can be downloaded as a .zip file when multiple checkboxes are selected)                  </em>
+(Select Seat supports on the LHS side and validate the LHS part is disabled)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -194,7 +171,7 @@ Session ID: 2c87c4bc3eab4183f3b083997f281706
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--1010089640/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--182668320/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -205,7 +182,7 @@ Session ID: 2c87c4bc3eab4183f3b083997f281706
     &lt;classes&gt;
       &lt;class name=&quot;tests.CATII_III_Test&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;validateReportsDownloadAsZipWhenMultipleCheckboxesSelected&quot;/&gt;
+          &lt;include name=&quot;verifyLHSUserWhenSeatSupportIsSelected&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.CATII_III_Test --&gt;
     &lt;/classes&gt;
@@ -249,14 +226,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateReportsDownloadAsZipWhenMultipleCheckboxesSelected')
+data.setCell(0, 1, 'verifyLHSUserWhenSeatSupportIsSelected')
 data.setCell(0, 2, 'tests.CATII_III_Test')
-data.setCell(0, 3, 34809);
+data.setCell(0, 3, 46860);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 34 seconds</span>
+              <span class="suite-total-time">Total running time: 46 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -271,59 +248,27 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">28 ignored methods</span>
+            <span class="header-content">30 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">tests.CATII_III_Test</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">validatePleaseProvideAsignatureFirst</span>
-                <br/>
-                <span class="ignored-method-name">validateYouHaveSelectedSeatSupportForBothTrainees</span>
-                <br/>
-                <span class="ignored-method-name">validateYouMustSelectGeneralInformation</span>
-                <br/>
-                <span class="ignored-method-name">happyPathCAT_II_III_Test</span>
-                <br/>
-                <span class="ignored-method-name">validateAdminCanApproveFormAfterTraineeAcknowledgement</span>
-                <br/>
-                <span class="ignored-method-name">validatePleaseSelectCM1ForEitherLHSOrRHS</span>
-                <br/>
-                <span class="ignored-method-name">validatePleaseEnterACommentBeforeSubmitting</span>
-                <br/>
-                <span class="ignored-method-name">validateTooFewCompetenciesHaveBeenGradedAtLeast3CompetenciesMustBeGraded</span>
-                <br/>
-                <span class="ignored-method-name">validateYouMustSelectRightSideOverallAssessment</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCanAcknowledgeSubmittedForm</span>
-                <br/>
-                <span class="ignored-method-name">validateTrainerCanAccessSubmittedFormThroughGradingHistory</span>
-                <br/>
                 <span class="ignored-method-name">validateAdminCannotMarkForReviewWithoutComments</span>
-                <br/>
-                <span class="ignored-method-name">validatePleaseEnterOrChangeComments</span>
-                <br/>
-                <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
                 <br/>
                 <span class="ignored-method-name">validateApprovedFormVisibleUnderApprovedDocs</span>
                 <br/>
-                <span class="ignored-method-name">validateYouMustSelectLeftSideOverallAssessment</span>
-                <br/>
-                <span class="ignored-method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
-                <br/>
                 <span class="ignored-method-name">validatePleaseEnterRegistrationNumber</span>
                 <br/>
-                <span class="ignored-method-name">validateAdminCanMarkForReviewWithComments</span>
+                <span class="ignored-method-name">validatePleaseEnterOrChangeComments</span>
                 <br/>
                 <span class="ignored-method-name">validateApprovedFormReportVisibleUnderEFormReports</span>
                 <br/>
-                <span class="ignored-method-name">validateOverallCommentsMandatoryForNotYetCompetentOutcome</span>
+                <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
                 <br/>
-                <span class="ignored-method-name">validatePleaseSelectQualification</span>
+                <span class="ignored-method-name">validateTrainerCanAccessSubmittedFormThroughGradingHistory</span>
                 <br/>
-                <span class="ignored-method-name">validateTraineeCanMarkFormForReview</span>
-                <br/>
-                <span class="ignored-method-name">validatePleaseEnterLocation</span>
+                <span class="ignored-method-name">validateAdminCanMarkForReviewWithComments</span>
                 <br/>
                 <span class="ignored-method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
                 <br/>
@@ -331,7 +276,43 @@ return data;
                 <br/>
                 <span class="ignored-method-name">validateMarkForReviewButtonAbsentAfterTrainerSubmission</span>
                 <br/>
+                <span class="ignored-method-name">validateYouMustSelectGeneralInformation</span>
+                <br/>
                 <span class="ignored-method-name">validateAtLeastOneObservableBehaviourMustBeSelected</span>
+                <br/>
+                <span class="ignored-method-name">validateYouMustSelectLeftSideOverallAssessment</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterLocation</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterACommentBeforeSubmitting</span>
+                <br/>
+                <span class="ignored-method-name">validateYouHaveSelectedSeatSupportForBothTrainees</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseProvideAsignatureFirst</span>
+                <br/>
+                <span class="ignored-method-name">happyPathCAT_II_III_Test</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectQualification</span>
+                <br/>
+                <span class="ignored-method-name">validateAdminCanApproveFormAfterTraineeAcknowledgement</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectCM1ForEitherLHSOrRHS</span>
+                <br/>
+                <span class="ignored-method-name">validateTraineeCanMarkFormForReview</span>
+                <br/>
+                <span class="ignored-method-name">validateOverallCommentsMandatoryForNotYetCompetentOutcome</span>
+                <br/>
+                <span class="ignored-method-name">validateYouMustSelectRightSideOverallAssessment</span>
+                <br/>
+                <span class="ignored-method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
+                <br/>
+                <span class="ignored-method-name">validateTooFewCompetenciesHaveBeenGradedAtLeast3CompetenciesMustBeGraded</span>
+                <br/>
+                <span class="ignored-method-name">verifyRHSUserWhenSeatSupportIsSelected</span>
+                <br/>
+                <span class="ignored-method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
+                <br/>
+                <span class="ignored-method-name">validateTraineeCanAcknowledgeSubmittedForm</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -350,25 +331,25 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">179 ms</span>
+                <span class="method-start">214 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">12080 ms</span>
+                <span class="method-start">8241 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
-                <span class="method-start">12169 ms</span>
+                <span class="method-name">verifyLHSUserWhenSeatSupportIsSelected</span>
+                <span class="method-start">8362 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=validateReportsDownloadAsZipWhenMultipleCheckboxesSelected status=FAILURE method=CA...)</span>
-                <span class="method-start">46982 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyLHSUserWhenSeatSupportIsSelected status=FAILURE method=CATII_III_Test.verifyL...)</span>
+                <span class="method-start">55225 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">47724 ms</span>
+                <span class="method-start">55999 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

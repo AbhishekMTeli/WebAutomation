@@ -1,13 +1,19 @@
 package cat_II_III_Pages;
 
+import java.time.Duration;
 import java.util.List;
+import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utils.ConfigReader;
 import utils.SeleniumUtils;
@@ -99,6 +105,52 @@ public class CAT_III_TrainingPage {
 
 	public void enterCAT_III_RHSRemarks(String remark) {
 		SeleniumUtils.type(driver, cat_III_RHSRemarksTextAreaField, remark, timeout);
+	}
+
+	public boolean cat_III_lHSRemarksIsEnabled() {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+			wait.until(ExpectedConditions.visibilityOf(cat_III_LHSRemarksTextAreaField));
+
+			// Check if element is enabled (HTML attribute)
+			boolean enabled = cat_III_LHSRemarksTextAreaField.isEnabled();
+
+			// Check CSS classes that indicate disabled appearance
+			String classAttr = cat_III_LHSRemarksTextAreaField.getAttribute("class");
+			boolean visuallyDisabled = classAttr != null && classAttr.contains("disabled");
+
+			// Check for CSS property that disables pointer events
+			String pointerEvents = cat_III_LHSRemarksTextAreaField.getCssValue("pointer-events");
+			boolean pointerEventsNone = "none".equalsIgnoreCase(pointerEvents);
+
+			// Return true only if it is html-enabled AND not visually disabled
+			return enabled && !visuallyDisabled && !pointerEventsNone;
+		} catch (TimeoutException | NoSuchElementException | StaleElementReferenceException e) {
+			return false; // Treat exceptions as not enabled
+		}
+	}
+
+	public boolean cat_III_rHSRemarksIsEnabled() {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+			wait.until(ExpectedConditions.visibilityOf(cat_III_RHSRemarksTextAreaField));
+
+			// Check if element is enabled (HTML attribute)
+			boolean enabled = cat_III_RHSRemarksTextAreaField.isEnabled();
+
+			// Check CSS classes that indicate disabled appearance
+			String classAttr = cat_III_RHSRemarksTextAreaField.getAttribute("class");
+			boolean visuallyDisabled = classAttr != null && classAttr.contains("disabled");
+
+			// Check for CSS property that disables pointer events
+			String pointerEvents = cat_III_RHSRemarksTextAreaField.getCssValue("pointer-events");
+			boolean pointerEventsNone = "none".equalsIgnoreCase(pointerEvents);
+
+			// Return true only if it is html-enabled AND not visually disabled
+			return enabled && !visuallyDisabled && !pointerEventsNone;
+		} catch (TimeoutException | NoSuchElementException | StaleElementReferenceException e) {
+			return false; // Treat exceptions as not enabled
+		}
 	}
 
 	public String getCAT_III_LHSCharactersRemainingCount() {
@@ -194,6 +246,56 @@ public class CAT_III_TrainingPage {
 		String gradeXpath = getLHSGradingCell(section, gradeNumber);
 		WebElement gradeButton = driver.findElement(By.xpath(gradeXpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", gradeButton);
+	}
+
+	public boolean rhsCAT_III_GradeIsEnabled(String section, String gradeNumber) {
+		String gradeXpath = getRHSGradingCell(section, gradeNumber);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+		try {
+			WebElement gradeButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(gradeXpath)));
+
+			// Check HTML enabled state
+			boolean enabled = gradeButton.isEnabled();
+
+			// Check CSS classes or styles that indicate visual disabled state
+			String classAttr = gradeButton.getAttribute("class");
+			boolean visuallyDisabled = classAttr != null
+					&& (classAttr.contains("disabled") || classAttr.contains("inactive"));
+
+			// Optionally check for CSS styles like pointer-events:none or opacity
+			String pointerEvents = gradeButton.getCssValue("pointer-events");
+			boolean pointerEventsDisabled = "none".equalsIgnoreCase(pointerEvents);
+
+			// Final interactability decision
+			return enabled && !visuallyDisabled && !pointerEventsDisabled;
+		} catch (TimeoutException | NoSuchElementException | StaleElementReferenceException e) {
+			return false;
+		}
+	}
+
+	public boolean lhsCAT_III_GradeIsEnabled(String section, String gradeNumber) {
+		String gradeXpath = getLHSGradingCell(section, gradeNumber);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+		try {
+			WebElement gradeButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(gradeXpath)));
+
+			// Check HTML enabled state
+			boolean enabled = gradeButton.isEnabled();
+
+			// Check CSS classes or styles that indicate visual disabled state
+			String classAttr = gradeButton.getAttribute("class");
+			boolean visuallyDisabled = classAttr != null
+					&& (classAttr.contains("disabled") || classAttr.contains("inactive"));
+
+			// Optionally check for CSS styles like pointer-events:none or opacity
+			String pointerEvents = gradeButton.getCssValue("pointer-events");
+			boolean pointerEventsDisabled = "none".equalsIgnoreCase(pointerEvents);
+
+			// Final interactability decision
+			return enabled && !visuallyDisabled && !pointerEventsDisabled;
+		} catch (TimeoutException | NoSuchElementException | StaleElementReferenceException e) {
+			return false;
+		}
 	}
 
 	public String getRHSPlusIconsXpath(String section) {
