@@ -71,7 +71,7 @@ public class CA40Test extends BaseClass {
 		eFormReportsPage = new EFormReportsPage(getDriver());
 	}
 
-	@Test(description = "CA 40//41 Form e2e Happy Path test case")
+	@Test(description = "CA 40/41 Form e2e Happy Path test case")
 	public void happyPathCA4041Test() throws InterruptedException {
 		adminDashBoardPage.clickBecomeUserTab();
 		becomeUserPage.sendUserId();

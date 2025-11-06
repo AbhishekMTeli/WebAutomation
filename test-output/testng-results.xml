@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="31" total="32" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-06T15:11:24 IST" name="Default suite" finished-at="2025-11-06T15:14:19 IST" duration-ms="174303">
+  <suite started-at="2025-11-06T16:41:57 IST" name="Default suite" finished-at="2025-11-06T16:42:45 IST" duration-ms="47500">
     <groups>
     </groups>
-    <test started-at="2025-11-06T15:11:24 IST" name="Default test" finished-at="2025-11-06T15:14:19 IST" duration-ms="174303">
-      <class name="tests.BaseTrainingTest">
-        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.BaseTrainingTest@158a8276]" started-at="2025-11-06T15:11:24 IST" name="setUpExtent" finished-at="2025-11-06T15:11:24 IST" duration-ms="193" status="PASS">
+    <test started-at="2025-11-06T16:41:57 IST" name="Default test" finished-at="2025-11-06T16:42:45 IST" duration-ms="47500">
+      <class name="tests.ZFTTTest">
+        <test-method is-config="true" signature="setUpExtent()[pri:0, instance:tests.ZFTTTest@55b0dcab]" started-at="2025-11-06T16:41:57 IST" name="setUpExtent" finished-at="2025-11-06T16:41:57 IST" duration-ms="275" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExtent -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.BaseTrainingTest@158a8276]" started-at="2025-11-06T15:11:24 IST" name="setUp" finished-at="2025-11-06T15:11:42 IST" duration-ms="17891" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.ZFTTTest@55b0dcab]" started-at="2025-11-06T16:41:57 IST" name="setUp" finished-at="2025-11-06T16:42:05 IST" duration-ms="7966" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,30 +27,30 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.BaseTrainingTest@158a8276]" started-at="2025-11-06T15:11:42 IST" name="initPages" finished-at="2025-11-06T15:11:42 IST" duration-ms="48" status="PASS">
+        <test-method is-config="true" signature="initPages()[pri:0, instance:tests.ZFTTTest@55b0dcab]" started-at="2025-11-06T16:42:05 IST" name="initPages" finished-at="2025-11-06T16:42:06 IST" duration-ms="78" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPages -->
-        <test-method signature="validateReportDownloadAsZipWhenSingleCheckboxSelected()[pri:0, instance:tests.BaseTrainingTest@158a8276]" started-at="2025-11-06T15:11:42 IST" name="validateReportDownloadAsZipWhenSingleCheckboxSelected" description="Validate reports can be downloaded as a .zip file when a single checkbox is selected" finished-at="2025-11-06T15:14:18 IST" duration-ms="155907" status="PASS">
+        <test-method signature="happyPathZFTTTest()[pri:0, instance:tests.ZFTTTest@55b0dcab]" started-at="2025-11-06T16:42:06 IST" name="happyPathZFTTTest" description="ZFTT Form e2e Happy Path test case" finished-at="2025-11-06T16:42:44 IST" duration-ms="38903" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateReportDownloadAsZipWhenSingleCheckboxSelected -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.BaseTrainingTest@158a8276]" started-at="2025-11-06T15:14:18 IST" name="tearDown" finished-at="2025-11-06T15:14:19 IST" duration-ms="432" status="PASS">
+        </test-method> <!-- happyPathZFTTTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ZFTTTest@55b0dcab]" started-at="2025-11-06T16:42:44 IST" name="tearDown" finished-at="2025-11-06T16:42:45 IST" duration-ms="525" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateReportDownloadAsZipWhenSingleCheckboxSelected status=SUCCESS method=BaseTrainingTest.validateReportDownloadAsZipWhenSingleCheckboxSelected()[pri:0, instance:tests.BaseTrainingTest@158a8276] output={null}]]]>
+                <![CDATA[[TestResult name=happyPathZFTTTest status=SUCCESS method=ZFTTTest.happyPathZFTTTest()[pri:0, instance:tests.ZFTTTest@55b0dcab] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.BaseTrainingTest@158a8276]" started-at="2025-11-06T15:14:19 IST" name="tearDownExtent" finished-at="2025-11-06T15:14:19 IST" duration-ms="224" status="PASS">
+        <test-method is-config="true" signature="tearDownExtent()[pri:0, instance:tests.ZFTTTest@55b0dcab]" started-at="2025-11-06T16:42:45 IST" name="tearDownExtent" finished-at="2025-11-06T16:42:45 IST" duration-ms="308" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownExtent -->
-      </class> <!-- tests.BaseTrainingTest -->
+      </class> <!-- tests.ZFTTTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

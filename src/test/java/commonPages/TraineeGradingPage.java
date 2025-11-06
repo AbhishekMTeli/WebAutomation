@@ -1,9 +1,12 @@
 package commonPages;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -76,10 +79,20 @@ public class TraineeGradingPage {
 		});
 	}
 
-	public WebElement getGradeButton() {
-		String lessonName = ConfigReader.get("lessonName");
-		String xpath = "//td[text()='" + lessonName + "']";
-		return driver.findElement(By.xpath(xpath));
+	public List<WebElement> getGradeButtons() {
+		String lessonNames = ConfigReader.get("lessonName");
+		List<WebElement> elements = new ArrayList<>();
+		String[] arrayOfLessonNames = lessonNames.split(",");
+		for (String lessonName : arrayOfLessonNames) {
+			String xpath = "//td[text()='" + lessonName.trim() + "']";
+			try {
+				elements.add(driver.findElement(By.xpath(xpath)));
+			} catch (NoSuchElementException e) {
+				// Log and continue if an element is not found for a lesson name
+				System.out.println("Element not found for lesson: " + lessonName);
+			}
+		}
+		return elements;
 	}
 
 	public void clickOnGradeButtonWithRetries(int maxRetries) {
@@ -88,27 +101,37 @@ public class TraineeGradingPage {
 		while (retries < maxRetries) {
 			SeleniumUtils.scrollToTopOfPage(driver);
 			try {
-				WebElement gradeBtn = getGradeButton();
-				SeleniumUtils.waitForClickability(driver, gradeBtn, timeout);
-				SeleniumUtils.click(driver, gradeBtn, timeout);
-				System.out.println("Clicked GradeButton on attempt " + (retries + 1));
-				return; // ✅ success, exit method
+				List<WebElement> gradeButtons = getGradeButtons();
+				boolean clicked = false;
+				// Iterate over all matched buttons, click the first clickable one then exit
+				for (WebElement gradeBtn : gradeButtons) {
+					try {
+						SeleniumUtils.waitForClickability(driver, gradeBtn, timeout);
+						SeleniumUtils.click(driver, gradeBtn, timeout);
+						System.out.println("Clicked GradeButton on attempt " + (retries + 1));
+						clicked = true;
+						break; // Exit the for loop on successful click
+					} catch (Exception e) {
+						System.out.println("Failed to click this GradeButton: " + e.getMessage());
+						// Try next in list
+					}
+				}
+				if (clicked) {
+					return; // Success: exit method immediately
+				}
+				// If none clicked, will throw below to enter catch block
+				throw new Exception("No clickable GradeButton found on attempt " + (retries + 1));
 			} catch (Exception e) {
 				System.out.println("Attempt " + (retries + 1) + " failed: " + e.getMessage());
-
 				try {
-					// Scroll to end and retry
 					SeleniumUtils.scrollToEndOfPage(driver);
 				} catch (Exception ignore) {
 				}
-
 				try {
-					// Try clicking arrow if grade button still not clickable
 					SeleniumUtils.scrollToElementByVisibleText(driver, nextArrowButton.getText());
 					SeleniumUtils.click(driver, nextArrowButton, timeout);
 					System.out.println("Clicked on NextArrowButton on attempt " + (retries + 1));
 				} catch (Exception inner) {
-					// log instead of throwing immediately
 					System.out.println("NextArrowButton not clickable: " + inner.getMessage());
 				}
 			}
@@ -117,7 +140,6 @@ public class TraineeGradingPage {
 		}
 		throw new RuntimeException("Failed to click GradeButton after " + maxRetries + " retries.");
 	}
-
 	// No SLF Pop-up
 
 	@FindBy(xpath = "//label[@id='noSLFHistoryText']")
