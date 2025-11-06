@@ -176,7 +176,7 @@ public class BaseTrainingGradingPage {
 
 	public void selectTakeOffAndLandingsConducted(String aircraftType) throws InterruptedException {
 		SeleniumUtils.selectDropdownByValue(driver, takeOffAndLandingsConductedDropdown, aircraftType, timeout);
-		Thread.sleep(2000);
+		Thread.sleep(500);
 	}
 
 	@FindBy(xpath = "//button[@id='eventGradingDiscard']")

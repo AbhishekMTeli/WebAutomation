@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.BaseTrainingTest" class="method navigator-link" hash-for-method="happyPathCAT_II_III_Test">happyPathCAT_II_III_Test</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.BaseTrainingTest" class="method navigator-link" hash-for-method="validateReportDownloadAsZipWhenSingleCheckboxSelected">validateReportDownloadAsZipWhenSingleCheckboxSelected</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,11 +126,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="happyPathCAT_II_III_Test">
-                  </a> <!-- happyPathCAT_II_III_Test -->
-                  <span class="method-name">happyPathCAT_II_III_Test</span>
+                  <a name="validateReportDownloadAsZipWhenSingleCheckboxSelected">
+                  </a> <!-- validateReportDownloadAsZipWhenSingleCheckboxSelected -->
+                  <span class="method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
                   <em>
-(Base Training Form e2e Happy Path test case)                  </em>
+(Validate reports can be downloaded as a .zip file when a single checkbox is selected)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--1737179383/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/0r/lq772bg92l3cvjt5zlx800fr0000gn/T/testng-eclipse--1624840542/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -149,7 +149,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;tests.BaseTrainingTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;happyPathCAT_II_III_Test&quot;/&gt;
+          &lt;include name=&quot;validateReportDownloadAsZipWhenSingleCheckboxSelected&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tests.BaseTrainingTest --&gt;
     &lt;/classes&gt;
@@ -193,14 +193,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'happyPathCAT_II_III_Test')
+data.setCell(0, 1, 'validateReportDownloadAsZipWhenSingleCheckboxSelected')
 data.setCell(0, 2, 'tests.BaseTrainingTest')
-data.setCell(0, 3, 80855);
+data.setCell(0, 3, 155907);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -215,9 +215,76 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">31 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">tests.BaseTrainingTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">validatePleaseSelectQualificationPopup</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectFromLocationPopup</span>
+                <br/>
+                <span class="ignored-method-name">validateReportsDownloadAsZipWhenMultipleCheckboxesSelected</span>
+                <br/>
+                <span class="ignored-method-name">validateAdminCanMarkForReviewWithComments</span>
+                <br/>
+                <span class="ignored-method-name">validateTrainerSeesPendingGradingActionAfterTraineeMarksForReview</span>
+                <br/>
+                <span class="ignored-method-name">validateYouMustSelectGeneralInformationPopup</span>
+                <br/>
+                <span class="ignored-method-name">validateTraineeCanMarkFormForReview</span>
+                <br/>
+                <span class="ignored-method-name">validateAtLeastOneObservableBehaviourMustBeSelectedPopup</span>
+                <br/>
+                <span class="ignored-method-name">happyPathCAT_II_III_Test</span>
+                <br/>
+                <span class="ignored-method-name">validateAdminCanApproveFormAfterTraineeAcknowledgement</span>
+                <br/>
+                <span class="ignored-method-name">validateAutoSelectionOfCompetentOnSelectingGradeAsThree</span>
+                <br/>
+                <span class="ignored-method-name">validateTheOverallOutcomeNotYetCompetentHasBeenAssignedPopup</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseAddOrChangeCommentsPopup</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseProvideSignatureFirstPopup</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectAircraftTypePopup</span>
+                <br/>
+                <span class="ignored-method-name">validateTrainerCanAccessSubmittedFormThroughGradingHistory</span>
+                <br/>
+                <span class="ignored-method-name">validateTraineeCannotMarkFormForReviewAfterTrainerSubmission</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectNumberOfTakeOffsAndLandingsConductedPopup</span>
+                <br/>
+                <span class="ignored-method-name">validateApprovedFormReportVisibleUnderEFormReports</span>
+                <br/>
+                <span class="ignored-method-name">validateAutoSelectionOfNotYetCompetentOnSelectingGradeAsOne</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterRegistrationNumberPopup</span>
+                <br/>
+                <span class="ignored-method-name">validateOverallCommentsMandatoryForNotYetCompetentOutcomePopup</span>
+                <br/>
+                <span class="ignored-method-name">validateApprovedFormVisibleUnderApprovedDocs</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectSeatOccupiedPopup</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseSelectToLocationPopup</span>
+                <br/>
+                <span class="ignored-method-name">validateTraineeCanAcknowledgeSubmittedForm</span>
+                <br/>
+                <span class="ignored-method-name">validateTwoTakeOffsAndLandingsConductedPopup</span>
+                <br/>
+                <span class="ignored-method-name">validateMarkForReviewButtonAbsentAfterTrainerSubmission</span>
+                <br/>
+                <span class="ignored-method-name">validateAdminCannotMarkForReviewWithoutComments</span>
+                <br/>
+                <span class="ignored-method-name">validateYouMustSelectOverallAssessmentPopup</span>
+                <br/>
+                <span class="ignored-method-name">validatePleaseEnterACommentBeforeSubmittingPopup</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -233,23 +300,23 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">217 ms</span>
+                <span class="method-start">214 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPages</span>
-                <span class="method-start">8208 ms</span>
+                <span class="method-start">18106 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">happyPathCAT_II_III_Test</span>
-                <span class="method-start">8264 ms</span>
+                <span class="method-name">validateReportDownloadAsZipWhenSingleCheckboxSelected</span>
+                <span class="method-start">18155 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=happyPathCAT_II_III_Test status=SUCCESS method=BaseTrainingTest.happyPathCAT_II_III...)</span>
-                <span class="method-start">89122 ms</span>
+                <span class="method-name">tearDown([TestResult name=validateReportDownloadAsZipWhenSingleCheckboxSelected status=SUCCESS method=BaseTra...)</span>
+                <span class="method-start">174064 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownExtent</span>
-                <span class="method-start">89714 ms</span>
+                <span class="method-start">174524 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
