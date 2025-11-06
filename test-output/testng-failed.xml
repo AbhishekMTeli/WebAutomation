@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.BaseTrainingTest">
+      <class name="tests.ZFTTTest">
         <methods>
           <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="tearDownExtent"/>
           <include name="initPages"/>
-          <include name="validateReportsDownloadAsZipWhenMultipleCheckboxesSelected"/>
+          <include name="setUp"/>
+          <include name="happyPathZFTTTest"/>
+          <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
         </methods>
-      </class> <!-- tests.BaseTrainingTest -->
+      </class> <!-- tests.ZFTTTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

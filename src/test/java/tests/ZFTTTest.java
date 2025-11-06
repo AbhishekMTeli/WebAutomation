@@ -17,6 +17,7 @@ import commonPages.TraineeGradingPage;
 import commonPages.TrainerDashBoradPage;
 import traineePages.TraineeReviewPage;
 import zfttPages.GradingTraineeListPage;
+import zfttPages.ZFTTGradingPage;
 
 public class ZFTTTest extends BaseClass {
 	private TrainerDashBoradPage trainerDashBoradPage;
@@ -34,6 +35,7 @@ public class ZFTTTest extends BaseClass {
 	private String traineeIdWithName;
 	private String traineeId;
 	private GradingTraineeListPage gradingTraineeListPage;
+	private ZFTTGradingPage zfttGradingPage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void initPages() {
@@ -50,6 +52,7 @@ public class ZFTTTest extends BaseClass {
 		eFormReportsPage = new EFormReportsPage(getDriver());
 		pendingHistoryPage = new PendingHistoryPage(getDriver());
 		gradingTraineeListPage = new GradingTraineeListPage(getDriver());
+		zfttGradingPage = new ZFTTGradingPage(getDriver());
 	}
 
 	@Test(description = "ZFTT Form e2e Happy Path test case")
@@ -63,6 +66,10 @@ public class ZFTTTest extends BaseClass {
 		traineeGradingPage.clickOnGradeButtonWithRetries(10);
 		gradingTraineeListPage.validateTableHeadersForGradingTraineeListPage();
 		gradingTraineeListPage.clickOnFirstGradeButton();
-		Thread.sleep(2000);
+		zfttGradingPage.validateAllBaseTrainingGradingPageTexts();
+		zfttGradingPage.enterRegistrationNumber("Test User");
+		zfttGradingPage.selectLocation("BLR");
+		zfttGradingPage.selectSeatOccupied("LHS");
+		zfttGradingPage.clickSaveAndNextButton();
 	}
 }
