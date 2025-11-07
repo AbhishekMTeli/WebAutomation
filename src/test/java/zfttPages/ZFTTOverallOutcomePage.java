@@ -1,8 +1,10 @@
-package baseTrainingPages;
+package zfttPages;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,23 +17,120 @@ import org.testng.Assert;
 import utils.ConfigReader;
 import utils.SeleniumUtils;
 
-public class BaseTrainingOverallOutcomePage {
+public class ZFTTOverallOutcomePage {
 	private WebDriver driver;
 	private int timeout;
 
-	public BaseTrainingOverallOutcomePage(WebDriver driver) {
+	public ZFTTOverallOutcomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		this.timeout = Integer.parseInt(ConfigReader.get("timeout"));
 	}
 
-	@FindBy(xpath = "//div[@class='col-sm-6']//span[@id='lhsDesignation']")
+	public String getGradingCell(String section, String gradeNumber) {
+		return String.format("//td[@id='LHS_%s_%s']", section, gradeNumber);
+	}
+
+	public void clickGrade(String section, String gradeNumber) {
+		String gradeXpath = getGradingCell(section, gradeNumber);
+		WebElement gradeButton = driver.findElement(By.xpath(gradeXpath));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", gradeButton);
+	}
+
+	@FindBy(xpath = "//td[@data-grade-val='N/O']")
+	private List<WebElement> noGradeButtons;
+
+	public void clickLHSNOGrade() {
+		int size = noGradeButtons.size();
+		for (int i = 0; i < size - 2; i++) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", noGradeButtons.get(i));
+		}
+	}
+
+	public String getPlusIconsXpath(String section) {
+		return String.format("//table[contains(@id,'%s_Task_Table_')]//button[@class='btn btn-pure btn fa fa-plus']",
+				section);
+	}
+
+	public String getMinusIconsXpath(String section) {
+		return String.format("//table[contains(@id,'%s_Task_Table_')]//button[@class='btn btn-pure btn fa fa-minus']",
+				section);
+	}
+
+	public void clickAllPlus(String section) {
+		String plusXpath = getPlusIconsXpath(section);
+		List<WebElement> plusButtons = driver.findElements(By.xpath(plusXpath));
+		for (WebElement plusButton : plusButtons) {
+			SeleniumUtils.click(driver, plusButton, timeout);
+		}
+	}
+
+	public void clickAllMinus(String section) {
+		String minusXpath = getMinusIconsXpath(section);
+		List<WebElement> minusButtons = driver.findElements(By.xpath(minusXpath));
+		for (WebElement minusButton : minusButtons) {
+			SeleniumUtils.click(driver, minusButton, timeout);
+		}
+	}
+
+	public String getCommentsArea(String section) {
+		return String.format(
+				"//div[@id='%s_charCountDisplay']/preceding-sibling::textarea[@id='%s_competency_comment_txtarea']",
+				section, section);
+	}
+
+	public void enterOBComments(String section, String comment) {
+		String commentXpath = getCommentsArea(section);
+		WebElement commentField = driver.findElement(By.xpath(commentXpath));
+		SeleniumUtils.type(driver, commentField, comment, timeout);
+	}
+
+	public String getOBDoneXpath(String section) {
+		return String.format(
+				"//div[@id='%s_competency_txtArea']//ancestor::div[contains(@class,'modal-content')]//button[@class='btn btn-success btn-ranger-save' and @data-event-side='LHS']",
+				section);
+	}
+
+	public String getLHSOBCancelXpath(String section) {
+		return String.format(
+				"//div[@id='%s_competency_txtArea']//ancestor::div[contains(@class,'modal-content')]//a[contains(@data-pi-block-div,'%s_Task_Modal_')]",
+				section);
+	}
+
+	public void clickOBDoneButton(String section) {
+		String obDoneButtonXpath = getOBDoneXpath(section);
+		WebElement obDoneButton = driver.findElement(By.xpath(obDoneButtonXpath));
+		SeleniumUtils.click(driver, obDoneButton, timeout);
+	}
+
+	public void clickLHSOBCancelButton(String section) {
+		String obDoneButtonXpath = getLHSOBCancelXpath(section);
+		WebElement obCancelIcon = driver.findElement(By.xpath(obDoneButtonXpath));
+		SeleniumUtils.click(driver, obCancelIcon, timeout);
+	}
+
+	@FindBy(xpath = "//i[@id='lsnplan']")
+	private WebElement lessonInfoIcon;
+
+	@FindBy(xpath = "//span[@class='close']")
+	private WebElement lessonInfoCloseIcon;
+
+	public void clickLessonInfoIcon() {
+		SeleniumUtils.click(driver, lessonInfoIcon, timeout);
+	}
+
+	public void clickLessonInfoCloseIcon() {
+		SeleniumUtils.click(driver, lessonInfoCloseIcon, timeout);
+	}
+
+	// starts from here
+	@FindBy(xpath = "//div[@id='EBT_overallOutcome']//span[@id='lhsDesignation']")
 	private WebElement designationLabel;
 
 	@FindBy(xpath = "//div[@id='overall_Asst_LHS']//h4[@class='panel-title'][normalize-space()='OVERALL ASSESSMENT']")
 	private WebElement overallAssessmentLable;
 
-	public void validateBaseTrainingOverallOutComePage() {
+	public void validateZFTTOverallOutComePage() {
 		SeleniumUtils.waitForVisibility(driver, designationLabel, timeout);
 		Assert.assertTrue(SeleniumUtils.getText(designationLabel).contains("Designation -"),
 				"LHS designation label text mismatch");
@@ -66,10 +165,10 @@ public class BaseTrainingOverallOutcomePage {
 		return competentRadioButton.isSelected();
 	}
 
-	@FindBy(xpath = "//textarea[@id='overallcomment_textarea_LHS']")
+	@FindBy(xpath = "//textarea[@id='overallcomment_textarea_LHS1']")
 	private WebElement remarksTextAreaField;
 
-	@FindBy(xpath = "//div[@id='overallOC_txtArea_LHS']//label[@for='comment'][normalize-space()='REMARKS']")
+	@FindBy(xpath = "//label[normalize-space()='OVERALL REMARKS']")
 	private WebElement remarksLabel;
 
 	public void enterRemarks(String remarks) {
@@ -114,6 +213,19 @@ public class BaseTrainingOverallOutcomePage {
 		SeleniumUtils.waitForVisibility(driver, saveAndNextButton, timeout);
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(saveAndNextButton));
 		SeleniumUtils.click(driver, saveAndNextButton, timeout);
+	}
+
+	@FindBy(xpath = "//div[@id='EBT_overallOutcome']//div[@id='takeof']//h2[1]")
+	private WebElement takeOffAndLandingsConductedLabel;
+
+	@FindBy(xpath = "//select[@id='TAKEOFFLANDING']")
+	private WebElement takeOffAndLandingsConductedDropdown;
+
+	public void selectTakeOffAndLandingsConducted(String takeOffAndLandingsConducted) throws InterruptedException {
+		SeleniumUtils.waitForVisibility(driver, takeOffAndLandingsConductedLabel, timeout);
+		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(takeOffAndLandingsConductedLabel));
+		SeleniumUtils.selectDropdownByVisibleText(driver, takeOffAndLandingsConductedDropdown,
+				takeOffAndLandingsConducted, timeout);
 	}
 
 	// Reason for Delay Pop-up

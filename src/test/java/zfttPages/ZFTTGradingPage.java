@@ -94,7 +94,8 @@ public class ZFTTGradingPage {
 		Assert.assertEquals(SeleniumUtils.getText(locationLabel), "Location: *", "Location label text mismatch");
 
 		SeleniumUtils.waitForVisibility(driver, scheduledDatelabel, timeout);
-		Assert.assertEquals(SeleniumUtils.getText(scheduledDatelabel), "Scheduled Date: *", "Scheduled Date label text mismatch");
+		Assert.assertEquals(SeleniumUtils.getText(scheduledDatelabel), "Scheduled Date: *",
+				"Scheduled Date label text mismatch");
 
 		SeleniumUtils.waitForVisibility(driver, durationLabel, timeout);
 		Assert.assertEquals(SeleniumUtils.getText(durationLabel), "Duration: *", "Duration label text mismatch");
@@ -145,6 +146,10 @@ public class ZFTTGradingPage {
 
 	public void selectSeatOccupied(String aircraftType) {
 		SeleniumUtils.selectDropdownByValue(driver, seatOccupiedDropdown, aircraftType, timeout);
+	}
+
+	public void selectSeatOccupied(int index) {
+		SeleniumUtils.selectDropdownByIndex(driver, seatOccupiedDropdown, index, timeout);
 	}
 
 	@FindBy(xpath = "//button[@id='eventGradingDiscard']")

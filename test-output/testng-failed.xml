@@ -8,7 +8,7 @@
           <include name="tearDown"/>
           <include name="initPages"/>
           <include name="setUp"/>
-          <include name="happyPathZFTTTest"/>
+          <include name="validatePleaseSelectQualificationPopup"/>
           <include name="tearDownExtent"/>
           <include name="setUpExtent"/>
         </methods>
