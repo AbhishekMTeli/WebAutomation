@@ -8,8 +8,8 @@
           <include name="tearDown"/>
           <include name="initPages"/>
           <include name="setUp"/>
-          <include name="validatePleaseSelectQualificationPopup"/>
           <include name="tearDownExtent"/>
+          <include name="validateApprovedFormReportVisibleUnderEFormReports"/>
           <include name="setUpExtent"/>
         </methods>
       </class> <!-- tests.ZFTTTest -->

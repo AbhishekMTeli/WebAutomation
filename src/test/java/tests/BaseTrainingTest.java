@@ -1294,7 +1294,6 @@ public class BaseTrainingTest extends BaseClass {
 		popupPage.clickAlertOkButton();
 		popupPage.handelSpinner();
 		traineeGradingPage.validateAllStaticTexts();
-
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();
@@ -1371,7 +1370,6 @@ public class BaseTrainingTest extends BaseClass {
 		popupPage.clickAlertOkButton();
 		popupPage.handelSpinner();
 		traineeGradingPage.validateAllStaticTexts();
-
 		logoutPage.clickProfileIcon();
 		logoutPage.clickLogoutButton();
 		adminDashBoardPage.clickBecomeUserTab();

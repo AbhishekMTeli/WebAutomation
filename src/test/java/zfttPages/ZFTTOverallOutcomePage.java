@@ -191,11 +191,18 @@ public class ZFTTOverallOutcomePage {
 	@FindBy(xpath = "//select[@id='TRIDE']")
 	private WebElement qualificationDropdown;
 
+	@FindBy(xpath = "//select[contains(@id,'TRIDE')]")
+	private WebElement qualification1Dropdown;
+
 	@FindBy(xpath = "//button[@id='overallDiscard']")
 	private WebElement discardButton;
 
 	@FindBy(xpath = "//button[@id='overallOC_next']")
 	private WebElement saveAndNextButton;
+
+	public void selecteQualificationInreviewPage(String qualification) {
+		SeleniumUtils.selectDropdownByValue(driver, qualification1Dropdown, qualification, timeout);
+	}
 
 	public void selectQualification(String qualification) throws InterruptedException {
 		SeleniumUtils.scrollToElementByVisibleText(driver, SeleniumUtils.getText(qualificationLabel));
